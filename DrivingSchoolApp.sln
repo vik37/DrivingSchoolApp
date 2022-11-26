@@ -1,0 +1,42 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.0.31903.59
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Gateway", "Gateway", "{276C4314-9980-423E-97FA-E1AE5C72FE37}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DrivingSchool.Gateway", "Gateway\DrivingSchool.Gateway\DrivingSchool.Gateway.csproj", "{5DCE606C-47AF-4827-A1CD-236EF1F905F7}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Services", "Services", "{048F654E-5AA0-49BD-B934-121F5642858A}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "DrivingSchoolAPI", "DrivingSchoolAPI", "{921D3E75-2510-4438-959C-3A6A7C1F1394}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DrivingSchool.Services.DrivingSchoolAPI", "Services\DrivingSchoolAPI\DrivingSchool.Services.DrivingSchoolAPI\DrivingSchool.Services.DrivingSchoolAPI.csproj", "{A03561D2-3D68-4472-8C2A-F93AE28F2598}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{5DCE606C-47AF-4827-A1CD-236EF1F905F7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5DCE606C-47AF-4827-A1CD-236EF1F905F7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5DCE606C-47AF-4827-A1CD-236EF1F905F7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5DCE606C-47AF-4827-A1CD-236EF1F905F7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A03561D2-3D68-4472-8C2A-F93AE28F2598}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A03561D2-3D68-4472-8C2A-F93AE28F2598}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A03561D2-3D68-4472-8C2A-F93AE28F2598}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A03561D2-3D68-4472-8C2A-F93AE28F2598}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{5DCE606C-47AF-4827-A1CD-236EF1F905F7} = {276C4314-9980-423E-97FA-E1AE5C72FE37}
+		{921D3E75-2510-4438-959C-3A6A7C1F1394} = {048F654E-5AA0-49BD-B934-121F5642858A}
+		{A03561D2-3D68-4472-8C2A-F93AE28F2598} = {921D3E75-2510-4438-959C-3A6A7C1F1394}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {9000563B-2587-451B-B224-E82413E9AEF0}
+	EndGlobalSection
+EndGlobal
