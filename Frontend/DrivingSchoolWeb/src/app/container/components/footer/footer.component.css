@@ -1,0 +1,21 @@
+.mail{
+  color:rgb(253, 253, 253);
+  text-decoration: none;
+  font-size: 11px;
+  transition-property: font-size;
+  transition-duration: 1s;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+.mail-icon{
+  margin-right: 0.4px;
+  font-size: 9px;
+}
+.mail:hover{
+  font-size: 16px;
+}
+.phone{
+  font-size: 10px;
+  font-weight: 800;
+  margin-left: 15px;
+}
+
