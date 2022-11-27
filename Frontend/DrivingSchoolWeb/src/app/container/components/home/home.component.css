@@ -1,6 +1,27 @@
+.home{
+  margin-top: 40px;
+  padding-right: 20px;
+}
 .main-logo{
-  width: 65vw;
+  width: 50vw;
   height: 400px;
+}
+.home-main-text-block > p{
+  color: rgba(65, 252, 65, 1);
+  padding: 10px 40px;
+  background: linear-gradient(180deg, rgba(0,0,0,1) 49%, rgb(11, 43, 79) 80%, rgba(2, 40, 78, 0.3) 100%);
+  border-radius: 10px;
+  box-shadow: 0 0 6px 3px rgb(69, 198, 234);
+}
+.home-main-text-block > p::first-letter{
+  font-size: 28px;
+  font-weight: bolder;
+  color: rgb(56, 197, 248);
+}
+@media screen and (max-width: 768px){
+  .home-main-text-block{
+    margin-bottom: 70px;
+  }
 }
 @media screen and (max-width: 520px){
   .main-logo{
