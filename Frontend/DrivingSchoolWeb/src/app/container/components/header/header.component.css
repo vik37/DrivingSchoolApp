@@ -12,3 +12,8 @@ h4{
   font-weight: bolder;
   color:rgb(5, 113, 160);
 }
+@media screen and (max-width: 1120px) {
+  h4{
+    font-size: 16px;
+  }
+}
