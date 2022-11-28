@@ -1,3 +1,6 @@
+using DrivingSchoolApp.Services.CategoryServices.ACategoryAPI.DataAccess;
+using Microsoft.EntityFrameworkCore;
+
 namespace DrivingSchoolApp.Services.CategoryServices.ACategoryAPI
 {
 	public class Program
@@ -27,6 +30,8 @@ namespace DrivingSchoolApp.Services.CategoryServices.ACategoryAPI
 			// Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 			services.AddEndpointsApiExplorer();
 			services.AddSwaggerGen();
+			services.AddDbContext<CategoryADbContext>(opt =>
+				opt.UseSqlServer(configuration.GetConnectionString("DefaultConnection")));
 
 			var app = builder.Build();
 

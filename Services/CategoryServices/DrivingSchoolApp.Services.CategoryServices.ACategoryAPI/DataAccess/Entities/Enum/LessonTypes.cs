@@ -1,7 +1,7 @@
 ﻿namespace DrivingSchoolApp.Services.CategoryServices.ACategoryAPI.DataAccess.Entities.Enum
 {
-	public enum TypeOfClass
+	public enum LessonTypes
 	{
-		Test, Polygon, City
+		Test, Practise
 	}
 }

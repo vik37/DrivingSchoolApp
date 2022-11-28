@@ -9,12 +9,9 @@ namespace DrivingSchoolApp.Services.CategoryServices.ACategoryAPI.DataAccess.Eti
 	{		
 		public string City { get; set; }
 		public string Address { get; set; }
-		public string Phone { get; set; }
-		public TypeOfClass TypeOfClass { get; set; }
-		public double Price { get; set; }
-		public string Photo { get; set; }
-		public string Description { get; set; }
+		public string Phone { get; set; }		
+		public IEnumerable<CategoryLesson> CategoryLessons { get; set; } = new List<CategoryLesson>();
 		public IEnumerable<Instructor> Instructors { get; set; } = new List<Instructor>();
-		public IEnumerable<Motorcycle> Motorcycles { get; set; } = new List<Motorcycle>();
+		public IEnumerable<MororsPerCity> MotorcyclePerCity { get; set; } = new List<MororsPerCity>();
 	}
 }
