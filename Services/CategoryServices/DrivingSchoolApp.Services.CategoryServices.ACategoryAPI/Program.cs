@@ -4,6 +4,9 @@ using DrivingSchoolApp.Services.CategoryServices.ACategoryAPI.DataAccess.Reposit
 using DrivingSchoolApp.Services.CategoryServices.ACategoryAPI.DataAccess.Repository.Interface;
 using Microsoft.EntityFrameworkCore;
 using Newtonsoft.Json.Serialization;
+using AutoMapper.Execution;
+using DrivingSchoolApp.Services.CategoryServices.ACategoryAPI.Services.Interfaces;
+using DrivingSchoolApp.Services.CategoryServices.ACategoryAPI.Services;
 
 namespace DrivingSchoolApp.Services.CategoryServices.ACategoryAPI
 {
@@ -42,6 +45,9 @@ namespace DrivingSchoolApp.Services.CategoryServices.ACategoryAPI
 				opt.UseSqlServer(configuration.GetConnectionString("DefaultConnection")));
 
 			services.AddTransient<IRepository<CategoryA>, CategoryARepo>();
+			services.AddTransient<ICategoryAService, CategoryAService>();
+
+			services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
 
 			var app = builder.Build();
 

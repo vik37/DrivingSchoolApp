@@ -1,5 +1,8 @@
 ﻿using DrivingSchoolApp.Services.CategoryServices.ACategoryAPI.DataAccess.Etities;
 using DrivingSchoolApp.Services.CategoryServices.ACategoryAPI.DataAccess.Repository.Interface;
+using DrivingSchoolApp.Services.CategoryServices.ACategoryAPI.Dto;
+using DrivingSchoolApp.Services.CategoryServices.ACategoryAPI.Helper.CustomExceptions;
+using DrivingSchoolApp.Services.CategoryServices.ACategoryAPI.Services.Interfaces;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
@@ -9,28 +12,45 @@ namespace DrivingSchoolApp.Services.CategoryServices.ACategoryAPI.Controllers
 	[ApiController]
 	public class CategoryAController : ControllerBase
 	{
-		private readonly IRepository<CategoryA> _categoryARepo;
-		public CategoryAController(IRepository<CategoryA> categoryARepo)
+		private readonly ICategoryAService _categoryAService;
+		private ResponseErrorDto _response;
+		public CategoryAController(ICategoryAService categoryAService)
 		{
-			_categoryARepo = categoryARepo;
+			_categoryAService = categoryAService;
+			_response= new ResponseErrorDto();
 		}
 		[HttpGet]
-		public IActionResult Get()
-		{
-			var model = _categoryARepo.GetAll();
-			return Ok(model);
-		}
-		[HttpGet("{id}")]
-		public IActionResult Get(int id)
+		public async Task<IActionResult> Get()
 		{
 			try
 			{
-				var model = _categoryARepo.GetById(id);
-				return Ok(model);
+				var category = await _categoryAService.GetAllCategories();
+				return Ok(category);
 			}
-			catch (Exception ex)
+			catch (Exception)
 			{
-				return BadRequest(ex.Message);
+				// ex.Message for logger... 
+				return StatusCode(StatusCodes.Status500InternalServerError, _response);
+			}
+		}
+		[HttpGet("{id}")]
+		public async Task<IActionResult> Get(int id)
+		{
+			try
+			{
+				var category = await _categoryAService.GetCategoryByID(id);
+				return Ok(category);
+			}
+			catch(CategoryAException ex)
+			{
+				_response.Status = 404;
+				_response.Message = ex.Message;
+				return NotFound(_response);
+			}
+			catch (Exception)
+			{
+				// ex.Message for logger... 
+				return StatusCode(StatusCodes.Status500InternalServerError,_response);
 			}
 		}
 	}
