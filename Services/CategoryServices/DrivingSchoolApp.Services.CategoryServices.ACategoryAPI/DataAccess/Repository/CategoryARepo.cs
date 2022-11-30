@@ -29,7 +29,9 @@ namespace DrivingSchoolApp.Services.CategoryServices.ACategoryAPI.DataAccess.Rep
 									.ThenInclude(x => x.Lessons)
 								.Include(x => x.MotorcyclePerCity)
 									.ThenInclude(x => x.Motorcycle)
-								.FirstOrDefaultAsync(x => x.Id == id);
+								.Where(x => x.Id == id)
+								.AsNoTracking()
+								.FirstOrDefaultAsync();
 			}
 			catch (Exception ex)
 			{
