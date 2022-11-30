@@ -8,31 +8,75 @@ namespace DrivingSchoolApp.Services.CategoryServices.ACategoryAPI.DataAccess.Rep
 	{
 		public CategoryARepo(CategoryADbContext db): base(db)
 		{ }
-		public IEnumerable<CategoryA> GetAll()
+		public async Task<IEnumerable<CategoryA>> GetAll()
 		{
-			return _db.CategoryA;
+			try
+			{
+				return await _db.CategoryA.ToListAsync();
+			}
+			catch (Exception ex)
+			{
+				throw new Exception(ex.InnerException.Message);
+			}
 		}
 
-		public CategoryA GetById(int id)
+		public async Task<CategoryA> GetById(int id)
 		{
-			return _db.CategoryA.Include(x => x.Instructors)
+			try
+			{
+				return await _db.CategoryA.Include(x => x.Instructors)
 								.Include(x => x.CategoryLessons)
 									.ThenInclude(x => x.Lessons)
 								.Include(x => x.MotorcyclePerCity)
 									.ThenInclude(x => x.Motorcycle)
-								.FirstOrDefault(x => x.Id == id);
+								.FirstOrDefaultAsync(x => x.Id == id);
+			}
+			catch (Exception ex)
+			{
+				throw new Exception(ex.InnerException.Message);
+			}
 		}
-		public int Add(CategoryA entity)
+		public async Task<int> Add(CategoryA entity)
 		{
-			throw new NotImplementedException();
+			try
+			{
+				if (entity != null)
+					_db.CategoryA.Add(entity);
+				return await _db.SaveChangesAsync();
+			}
+			catch (Exception ex)
+			{
+				throw new Exception(ex.InnerException.Message);
+			}
 		}
-		public int Update(CategoryA entity)
+		public async Task<int> Update(CategoryA entity)
 		{
-			throw new NotImplementedException();
+			try
+			{
+				if(entity != null)
+					_db.CategoryA.Update(entity);
+				return await _db.SaveChangesAsync();
+			}
+			catch (Exception ex)
+			{
+				throw new Exception(ex.InnerException.Message);
+			}
 		}
-		public int Delete(int id)
+		public async Task<int> Delete(int id)
 		{
-			throw new NotImplementedException();
+			try
+			{
+				var caegory = _db.CategoryA.FirstOrDefault(x => x.Id == id);
+				if(caegory == null) return -1;
+					
+				_db.CategoryA.Remove(caegory);
+				return await _db.SaveChangesAsync();
+
+			}
+			catch (Exception ex)
+			{
+				throw new Exception(ex.InnerException.Message);
+			}
 		}		
 	}
 }
