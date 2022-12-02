@@ -344,7 +344,7 @@ namespace DrivingSchoolApp.Services.CategoryServices.ACategoryAPI.Migrations
                             Description = "You can continue with practical driving lessons if you have successfully passed or previously passed the theory test. The price is $54.95, you get 40 practical lessons with a highly qualified and experienced instructor that you choose yourself. Also engine of your choice. The price includes the right to take the test 3 times, and then it is $15 each.",
                             Duration = 40,
                             LicenceDescription = "Light motorcycles with an engine size of up to 125 cc and a power output of up to 11 kW. Medium-sized motorcycles up to 25 kW and a power to weight ratio of up to 0.16 kW/kg. Motorcycles with a sidecar and a power to weight ratio of up to 0.16 kW/kg. Any size motorcycle, with or without a sidecar if you have completed the large motorcycle Direct Access Scheme",
-                            Price = 45.95m,
+                            Price = 54.95m,
                             TestPrice = 15m,
                             Type = (byte)1,
                             VirtualPracticePrice = 24.5m
