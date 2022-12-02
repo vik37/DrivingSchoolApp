@@ -24,7 +24,7 @@ namespace DrivingSchoolApp.Services.CategoryServices.ACategoryAPI.DataAccess
 					{
 						Id = 2,
 						Type = LessonTypes.Practise,
-						Price = 45.95,
+						Price = 54.95,
 						TestPrice = 15,
 						Duration = 40,
 						VirtualPracticePrice = 24.5,

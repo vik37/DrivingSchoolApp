@@ -16,6 +16,6 @@ namespace DrivingSchoolApp.Services.CategoryServices.ACategoryAPI.DataAccess.Ent
 		public string Color { get; set; }
 		public string Photo { get; set; }
 		public int AvailableMotorcycles { get; set; }
-		public IEnumerable<MororsPerCity> MotorsPerCity { get; set; }
+		public IEnumerable<MororsPerCity> MotorsPerCity { get; set; } = new List<MororsPerCity>();
 	}
 }
