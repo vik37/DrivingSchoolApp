@@ -1,3 +1,7 @@
+using DrivingSchoolApp.Services.CategoryServices.BCategoryAPI.DataAccerrss;
+using Microsoft.EntityFrameworkCore;
+using Newtonsoft.Json.Serialization;
+
 namespace DrivingSchoolApp.Services.CategoryServices.BCategoryAPI
 {
 	public class Program
@@ -19,10 +23,17 @@ namespace DrivingSchoolApp.Services.CategoryServices.BCategoryAPI
 								.AllowCredentials();
 					});
 			});
-			services.AddControllers();
+			services.AddControllers()
+				.AddNewtonsoftJson(opt =>
+					opt.SerializerSettings.ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore)
+				.AddNewtonsoftJson(opt =>
+					opt.SerializerSettings.ContractResolver = new CamelCasePropertyNamesContractResolver()); ;
 			// Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 			services.AddEndpointsApiExplorer();
 			services.AddSwaggerGen();
+
+			services.AddDbContext<CategoryBDbContext>(opt =>
+				opt.UseSqlServer(configuration.GetConnectionString("DefaultConnection")));
 
 			var app = builder.Build();
 

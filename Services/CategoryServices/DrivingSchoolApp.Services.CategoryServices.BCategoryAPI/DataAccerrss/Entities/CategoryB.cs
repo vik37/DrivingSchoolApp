@@ -7,6 +7,6 @@
 		public string Phone { get; set; }
 		public IEnumerable<CategoryLesson> CategoryLessons { get; set; } = new List<CategoryLesson>();
 		public IEnumerable<Instructor> Instructors { get; set; } = new List<Instructor>();
-		public IEnumerable<CarPerCity> MotorcyclePerCity { get; set; } = new List<CarPerCity>();
+		public IEnumerable<CarPerCity> CarPerCity { get; set; } = new List<CarPerCity>();
 	}
 }

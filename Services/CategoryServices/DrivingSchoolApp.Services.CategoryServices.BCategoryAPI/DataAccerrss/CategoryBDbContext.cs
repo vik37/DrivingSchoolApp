@@ -1,4 +1,5 @@
 ﻿using DrivingSchoolApp.Services.CategoryServices.BCategoryAPI.DataAccerrss.Entities;
+using DrivingSchoolApp.Services.CategoryServices.BCategoryAPI.DataAccerrss.EntityFrameworkConfigurations;
 using Microsoft.EntityFrameworkCore;
 
 namespace DrivingSchoolApp.Services.CategoryServices.BCategoryAPI.DataAccerrss
@@ -17,14 +18,17 @@ namespace DrivingSchoolApp.Services.CategoryServices.BCategoryAPI.DataAccerrss
 		{
 			MainCategoryBSeed.Seed(modelBuilder);
 
+			EntityFrameworkDbCarConfigurations.CarConfigurations(modelBuilder);
+			EntityFrameworkDbCategoryBConfigurations.CategoryBConfigurations(modelBuilder);
+			EntityFrameworkDbInstructorConfigurations.InstructorConfigurations(modelBuilder);
+			EntityFrameworkDbLessonConfigurations.LessonConfigurations(modelBuilder);
+			EntityFrameworkDbWorkExperienceConfigurations.WorkExperienceConfiguration(modelBuilder);
+
 			modelBuilder.Entity<CategoryLesson>()
 				.HasKey(x => new { x.LessonId, x.CategoryBId });
 			modelBuilder.Entity<CarPerCity>()
 				.HasKey(x => new {x.CategoryBId, x.CarId});
-
-			modelBuilder.Entity<CategoryB>().Property(x => x.City).HasColumnName("City").HasColumnType("nvarchar").HasMaxLength(150).IsRequired();
-			modelBuilder.Entity<CategoryB>().Property(x => x.Address).HasColumnName("Address").HasColumnType("nvarchar").HasMaxLength(300).IsRequired();
-			modelBuilder.Entity<CategoryB>().Property(x => x.Phone).HasColumnName("Phone").HasColumnType("nvarchar").HasMaxLength(300).IsRequired();
+			
 		}
 	}
 }
