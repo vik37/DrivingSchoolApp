@@ -106,6 +106,27 @@ namespace DrivingSchoolApp.Services.CategoryServices.BCategoryAPI.DataAccerrss.C
 						Company = "Auto Zelka Skopje",
 						Experience = 5,
 						InstructorId = 11,
+					},
+					new WorkExperience
+					{
+						Id = 15,
+						Company = "Drim Debar",
+						Experience = 1,
+						InstructorId = 13,
+					},
+					new WorkExperience
+					{
+						Id = 16,
+						Company = "Tikvesh Kavadarci",
+						Experience = 2,
+						InstructorId = 13,
+					},
+					new WorkExperience
+					{
+						Id = 17,
+						Company = "Kajce Ohrid",
+						Experience = 1,
+						InstructorId = 14,
 					}
 				);
 		}

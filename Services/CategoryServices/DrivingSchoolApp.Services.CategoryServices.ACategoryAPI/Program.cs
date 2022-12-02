@@ -37,7 +37,7 @@ namespace DrivingSchoolApp.Services.CategoryServices.ACategoryAPI
 				.AddNewtonsoftJson(opt =>
 					opt.SerializerSettings.ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore)
 				.AddNewtonsoftJson(opt =>
-					opt.SerializerSettings.ContractResolver = new CamelCasePropertyNamesContractResolver()); ;
+					opt.SerializerSettings.ContractResolver = new CamelCasePropertyNamesContractResolver());
 			// Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 			services.AddEndpointsApiExplorer();
 			services.AddSwaggerGen();

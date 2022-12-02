@@ -10,7 +10,7 @@
 		public string StartedDay { get; set; }
 		public int TotalWorkExperience { get; set; }
 		public int DriveExperience { get; set; }
-		public string TrainedCompany { get; set; }
+		public string InstructorAcademy { get; set; }
 		public bool isBooked { get; set; }
 		public int CategoryBId { get; set; }
 		public virtual CategoryB CategoryB { get; set; }
