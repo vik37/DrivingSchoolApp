@@ -4,7 +4,7 @@ namespace DrivingSchoolApp.Services.CategoryServices.ACategoryAPI.Services.Inter
 {
 	public interface ICategoryAService
 	{
-		Task<IEnumerable<CategoryADto>> GetAllCategories();
-		Task<CategoryADto> GetCategoryByID(int id);
+		Task<IEnumerable<CategoryADto>> GetAllFromCategoryA();
+		Task<CategoryADto> GetFromCategoryAByID(int id);
 	}
 }

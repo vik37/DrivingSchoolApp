@@ -24,7 +24,7 @@ namespace DrivingSchoolApp.Services.CategoryServices.ACategoryAPI.Controllers
 		{
 			try
 			{
-				var category = await _categoryAService.GetAllCategories();
+				var category = await _categoryAService.GetAllFromCategoryA();
 				return Ok(category);
 			}
 			catch (Exception)
@@ -38,7 +38,7 @@ namespace DrivingSchoolApp.Services.CategoryServices.ACategoryAPI.Controllers
 		{
 			try
 			{
-				var category = await _categoryAService.GetCategoryByID(id);
+				var category = await _categoryAService.GetFromCategoryAByID(id);
 				return Ok(category);
 			}
 			catch(CategoryAException ex)

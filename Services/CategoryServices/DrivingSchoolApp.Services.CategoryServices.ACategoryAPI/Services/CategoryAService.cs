@@ -16,7 +16,7 @@ namespace DrivingSchoolApp.Services.CategoryServices.ACategoryAPI.Services
 			_categoryARepo = categoryARepo;
 			_mapper = mapper;
 		}
-		public async Task<IEnumerable<CategoryADto>> GetAllCategories()
+		public async Task<IEnumerable<CategoryADto>> GetAllFromCategoryA()
 		{
 			try
 			{
@@ -29,13 +29,13 @@ namespace DrivingSchoolApp.Services.CategoryServices.ACategoryAPI.Services
 			}
 		}
 
-		public async Task<CategoryADto> GetCategoryByID(int id)
+		public async Task<CategoryADto> GetFromCategoryAByID(int id)
 		{
 			try
 			{
 				var category = await _categoryARepo.GetById(id);
 				if (category == null)
-					throw new CategoryAException("This Category doesn't exist!");
+					throw new CategoryAException("This Category don't exist!");
 				return _mapper.Map<CategoryADto>(category);
 			}
 			catch(CategoryAException ex)
