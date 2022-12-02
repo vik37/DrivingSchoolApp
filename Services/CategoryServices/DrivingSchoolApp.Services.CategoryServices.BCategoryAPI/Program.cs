@@ -1,4 +1,9 @@
 using DrivingSchoolApp.Services.CategoryServices.BCategoryAPI.DataAccerrss;
+using DrivingSchoolApp.Services.CategoryServices.BCategoryAPI.DataAccerrss.Entities;
+using DrivingSchoolApp.Services.CategoryServices.BCategoryAPI.DataAccerrss.Repository;
+using DrivingSchoolApp.Services.CategoryServices.BCategoryAPI.DataAccerrss.Repository.Interface;
+using DrivingSchoolApp.Services.CategoryServices.BCategoryAPI.Services;
+using DrivingSchoolApp.Services.CategoryServices.BCategoryAPI.Services.Interfaces;
 using Microsoft.EntityFrameworkCore;
 using Newtonsoft.Json.Serialization;
 
@@ -34,6 +39,12 @@ namespace DrivingSchoolApp.Services.CategoryServices.BCategoryAPI
 
 			services.AddDbContext<CategoryBDbContext>(opt =>
 				opt.UseSqlServer(configuration.GetConnectionString("DefaultConnection")));
+
+			services.AddTransient<IRepository<CategoryB>, CategoryBRepository>();
+
+			services.AddTransient<ICategoryBService, CategoryBService>();
+
+			services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
 
 			var app = builder.Build();
 
