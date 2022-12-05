@@ -1,5 +1,5 @@
 ﻿using AutoMapper;
-using DrivingSchoolApp.Services.CategoryServices.BCategoryAPI.DataAccerrss.Entities;
+using DrivingSchoolApp.Services.CategoryServices.BCategoryAPI.DataAccess.Entities;
 using DrivingSchoolApp.Services.CategoryServices.BCategoryAPI.Dto.Models;
 
 namespace DrivingSchoolApp.Services.CategoryServices.BCategoryAPI.Helper

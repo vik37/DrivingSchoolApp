@@ -1,6 +1,6 @@
 ﻿using AutoMapper;
-using DrivingSchoolApp.Services.CategoryServices.BCategoryAPI.DataAccerrss.Entities;
-using DrivingSchoolApp.Services.CategoryServices.BCategoryAPI.DataAccerrss.Repository.Interface;
+using DrivingSchoolApp.Services.CategoryServices.BCategoryAPI.DataAccess.Entities;
+using DrivingSchoolApp.Services.CategoryServices.BCategoryAPI.DataAccess.Repository.Interface;
 using DrivingSchoolApp.Services.CategoryServices.BCategoryAPI.Dto.Models;
 using DrivingSchoolApp.Services.CategoryServices.BCategoryAPI.Helper.CustomExceptions;
 using DrivingSchoolApp.Services.CategoryServices.BCategoryAPI.Services.Interfaces;
