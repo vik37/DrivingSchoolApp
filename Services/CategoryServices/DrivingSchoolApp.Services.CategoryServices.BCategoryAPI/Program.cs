@@ -1,7 +1,7 @@
-using DrivingSchoolApp.Services.CategoryServices.BCategoryAPI.DataAccerrss;
-using DrivingSchoolApp.Services.CategoryServices.BCategoryAPI.DataAccerrss.Entities;
-using DrivingSchoolApp.Services.CategoryServices.BCategoryAPI.DataAccerrss.Repository;
-using DrivingSchoolApp.Services.CategoryServices.BCategoryAPI.DataAccerrss.Repository.Interface;
+using DrivingSchoolApp.Services.CategoryServices.BCategoryAPI.DataAccess;
+using DrivingSchoolApp.Services.CategoryServices.BCategoryAPI.DataAccess.Entities;
+using DrivingSchoolApp.Services.CategoryServices.BCategoryAPI.DataAccess.Repository;
+using DrivingSchoolApp.Services.CategoryServices.BCategoryAPI.DataAccess.Repository.Interface;
 using DrivingSchoolApp.Services.CategoryServices.BCategoryAPI.Services;
 using DrivingSchoolApp.Services.CategoryServices.BCategoryAPI.Services.Interfaces;
 using Microsoft.EntityFrameworkCore;
