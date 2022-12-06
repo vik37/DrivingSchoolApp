@@ -28,7 +28,7 @@ namespace DrivingSchoolApp.Services.CategoryServices.BCategoryAPI.DataAccess.Cat
 						Id = 3,
 						City = "Stip",
 						Address = "bul. JNA 120",
-						Phone = "+389 01 554 2290",
+						Phone = "+389 01 554 2290"
 					},
 					new CategoryB
 					{
