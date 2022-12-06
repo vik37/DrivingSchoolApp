@@ -1,7 +1,7 @@
 ﻿namespace DrivingSchoolApp.Services.CategoryServices.CCategoryAPI.DataAccess.Entities.Enums
 {
-	public enum LessonTypes
+	public enum CategoryType
 	{
-		Theory, Polygon, City
+		A, B,C, D
 	}
 }
