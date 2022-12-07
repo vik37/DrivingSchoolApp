@@ -15,7 +15,7 @@ namespace DrivingSchoolApp.Services.CategoryServices.CCategoryAPI.DataAccess.Cat
 						Id= 1,
 						Company = "Voznja Kumanovo",
 						Experience=2,
-						TypeOfWorkExperience = TypeOfWorkWexperience.Driver,
+						TypeOfWorkExperience = TypeOfWorkExperience.Driver,
 						InstructorId= 3
 					},
 					new WorkExperience
@@ -23,7 +23,7 @@ namespace DrivingSchoolApp.Services.CategoryServices.CCategoryAPI.DataAccess.Cat
 						Id = 2,
 						Company = "Scania Skopje",
 						Experience = 4,
-						TypeOfWorkExperience = TypeOfWorkWexperience.Driver,
+						TypeOfWorkExperience = TypeOfWorkExperience.Driver,
 						InstructorId = 1
 					},
 					new WorkExperience
@@ -31,7 +31,7 @@ namespace DrivingSchoolApp.Services.CategoryServices.CCategoryAPI.DataAccess.Cat
 						Id = 3,
 						Company = "Vardar Express Negotino",
 						Experience = 7,
-						TypeOfWorkExperience = TypeOfWorkWexperience.Driver,
+						TypeOfWorkExperience = TypeOfWorkExperience.Driver,
 						InstructorId = 2
 					},
 					new WorkExperience
@@ -39,7 +39,7 @@ namespace DrivingSchoolApp.Services.CategoryServices.CCategoryAPI.DataAccess.Cat
 						Id = 4,
 						Company = "Polog Tetovo",
 						Experience = 4,
-						TypeOfWorkExperience = TypeOfWorkWexperience.Instructor,
+						TypeOfWorkExperience = TypeOfWorkExperience.Instructor,
 						InstructorId = 2
 					},
 					new WorkExperience
@@ -47,7 +47,7 @@ namespace DrivingSchoolApp.Services.CategoryServices.CCategoryAPI.DataAccess.Cat
 						Id = 5,
 						Company = "Vardar Express Negotino",
 						Experience = 2,
-						TypeOfWorkExperience = TypeOfWorkWexperience.Driver,
+						TypeOfWorkExperience = TypeOfWorkExperience.Driver,
 						InstructorId = 3
 					},
 					new WorkExperience
@@ -55,7 +55,7 @@ namespace DrivingSchoolApp.Services.CategoryServices.CCategoryAPI.DataAccess.Cat
 						Id = 6,
 						Company = "Polog Tetovo",
 						Experience = 5,
-						TypeOfWorkExperience = TypeOfWorkWexperience.Driver,
+						TypeOfWorkExperience = TypeOfWorkExperience.Driver,
 						InstructorId = 3
 					},
 					new WorkExperience
@@ -63,7 +63,7 @@ namespace DrivingSchoolApp.Services.CategoryServices.CCategoryAPI.DataAccess.Cat
 						Id = 7,
 						Company = "AAK Drive School Stip",
 						Experience = 5,
-						TypeOfWorkExperience = TypeOfWorkWexperience.Instructor,
+						TypeOfWorkExperience = TypeOfWorkExperience.Instructor,
 						InstructorId = 3
 					}
 				);

@@ -6,7 +6,7 @@ namespace DrivingSchoolApp.Services.CategoryServices.CCategoryAPI.DataAccess.Ent
 	{
 		public int Experience { get; set; }
 		public string Company { get; set; }
-		public TypeOfWorkWexperience TypeOfWorkExperience { get; set; }
+		public TypeOfWorkExperience TypeOfWorkExperience { get; set; }
 		public int? InstructorId { get; set; }
 		public virtual Instructor Instructor { get; set; }
 	}
