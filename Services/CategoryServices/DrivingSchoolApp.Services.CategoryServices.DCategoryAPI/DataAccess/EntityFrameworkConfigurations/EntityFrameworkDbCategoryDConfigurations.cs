@@ -5,8 +5,11 @@ namespace DrivingSchoolApp.Services.CategoryServices.DCategoryAPI.DataAccess.Ent
 {
 	public static class EntityFrameworkDbCategoryDConfigurations
 	{
-		public static void CategoryDConfiguration(ModelBuilder modelBuilder)
+		public static void CategoryDConfiguration(ModelBuilder modelBuilder, string schema)
 		{
+			modelBuilder.HasDefaultSchema(schema);
+			modelBuilder.Entity<CategoryD>().ToTable("CategoryD");
+
 			modelBuilder.Entity<CategoryD>()
 				.HasMany(x => x.Lessons)
 				.WithOne(x => x.CategoryD)
