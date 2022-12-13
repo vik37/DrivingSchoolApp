@@ -1,17 +1,16 @@
 ﻿using AutoMapper;
-using DrivingSchoolApp.Services.CategoryServices.CCategoryAPI.DataAccess.Entities;
-using DrivingSchoolApp.Services.CategoryServices.CCategoryAPI.Dtos.Models;
+using DrivingSchoolApp.Services.CategoryServices.DCategoryAPI.DataAccess.Entities;
+using DrivingSchoolApp.Services.CategoryServices.DCategoryAPI.Dtos.Models;
 
-namespace DrivingSchoolApp.Services.CategoryServices.CCategoryAPI.Helper; 
+namespace DrivingSchoolApp.Services.CategoryServices.DCategoryAPI.Helper;
 
-public class MappingProfile : Profile { 
-	public MappingProfile() { 
-		
-		CreateMap<CategoryC, CategoryCDto>()
-			.ForMember(dest => dest.Trucks, src => src.MapFrom(x => x.TruckPerCities.Select(y => y.Truck).ToList()))
-			.ForMember(dest => dest.Lessons, src => src.MapFrom(x => x.Lessons.Select(y => y.Lessons).ToList()))
+public class MappingProfile : Profile
+{
+	public MappingProfile()
+	{
+		CreateMap<CategoryD, CategoryDDto>()
+			.ForMember(dest => dest.Lessons, src => src.MapFrom(x => x.Lessons.Select(y => y.Lesson).ToList()))
 			.ReverseMap()
-			.ForMember(dest => dest.TruckPerCities, src => src.Ignore())
 			.ForMember(dest => dest.Lessons, src => src.Ignore());
 
 		CreateMap<InstructorCategoryLicence, InstructorCategoryLicenceDto>()
@@ -23,19 +22,15 @@ public class MappingProfile : Profile {
 			.ReverseMap()
 			.ForMember(dest => dest.Firstname, src => src.MapFrom(x => x.Fullname.Split(" ", StringSplitOptions.None).First()))
 			.ForMember(dest => dest.Lastname, src => src.MapFrom(x => x.Fullname.Split(" ", StringSplitOptions.None).Last()))
-			.ForMember(dest => dest.CategoryC, src => src.Ignore());
+			.ForMember(dest => dest.CategoryD, src => src.Ignore());
 
 		CreateMap<Lesson, LessonDto>()
 			.ReverseMap()
 			.ForMember(dest => dest.CategoryLessons, src => src.Ignore());
 
-		CreateMap<Truck, TruckDto>()
-			.ReverseMap()
-			.ForMember(dest => dest.TruckPerCities, src => src.Ignore());
-
 		CreateMap<WorkExperience, WorkExperienceDto>()
 			.ReverseMap()
 			.ForMember(dest => dest.Instructor, src => src.Ignore())
 			.ForMember(dest => dest.InstructorId, src => src.Ignore());
-	} 
+	}
 }
