@@ -1,7 +1,6 @@
-﻿namespace DrivingSchoolApp.Services.CategoryServices.DCategoryAPI.DataAccess.Entities.Enums
+﻿namespace DrivingSchoolApp.Services.CategoryServices.DCategoryAPI.DataAccess.Entities.Enums;
+
+public enum TypeOfWorkExperience
 {
-	public enum TypeOfWorkExperience
-	{
-		Instructor, Assistant, Driver
-	}
+	Instructor, Assistant, Driver
 }

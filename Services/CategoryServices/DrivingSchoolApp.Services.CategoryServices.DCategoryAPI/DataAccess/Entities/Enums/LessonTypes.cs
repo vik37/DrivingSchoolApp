@@ -1,7 +1,6 @@
-﻿namespace DrivingSchoolApp.Services.CategoryServices.DCategoryAPI.DataAccess.Entities.Enums
+﻿namespace DrivingSchoolApp.Services.CategoryServices.DCategoryAPI.DataAccess.Entities.Enums;
+
+public enum LessonTypes
 {
-	public enum LessonTypes
-	{
-		Theory, Psichologic, Polygon, City
-	}
+	Theory, Psichologic, Polygon, City
 }
