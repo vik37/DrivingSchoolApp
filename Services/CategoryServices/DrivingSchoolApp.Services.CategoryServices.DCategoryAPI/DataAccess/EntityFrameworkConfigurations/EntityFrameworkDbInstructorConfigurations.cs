@@ -5,10 +5,9 @@ namespace DrivingSchoolApp.Services.CategoryServices.DCategoryAPI.DataAccess.Ent
 {
 	public static class EntityFrameworkDbInstructorConfigurations
 	{
-		public static void InstructorConfiguration(ModelBuilder modelBuilder,string dbo)
+		public static void InstructorConfiguration(ModelBuilder modelBuilder,string schema)
 		{
-			modelBuilder.HasDefaultSchema(dbo);
-
+			modelBuilder.HasDefaultSchema(schema);
 			modelBuilder.Entity<Instructor>().ToTable("Instructor");
 
 			modelBuilder.Entity<Instructor>()

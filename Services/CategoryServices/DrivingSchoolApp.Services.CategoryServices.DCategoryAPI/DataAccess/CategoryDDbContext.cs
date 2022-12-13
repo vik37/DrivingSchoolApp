@@ -1,4 +1,6 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using DrivingSchoolApp.Services.CategoryServices.DCategoryAPI.DataAccess.Entities;
+using DrivingSchoolApp.Services.CategoryServices.DCategoryAPI.DataAccess.EntityFrameworkConfigurations;
+using Microsoft.EntityFrameworkCore;
 
 namespace DrivingSchoolApp.Services.CategoryServices.DCategoryAPI.DataAccess
 {
@@ -10,6 +12,18 @@ namespace DrivingSchoolApp.Services.CategoryServices.DCategoryAPI.DataAccess
 		protected override void OnModelCreating(ModelBuilder modelBuilder)
 		{
 			
+			MainCategoryDSeed.Seed(modelBuilder);
+
+			string schema = "dbo";
+
+			EntityFrameworkDbCategoryDConfigurations.CategoryDConfiguration(modelBuilder,schema);
+			EntityFrameworkDbInstructorCategoryLicenceConfigurations.InstructorCategoryLicenceConfiguration(modelBuilder,schema);
+			EntityFrameworkDbInstructorConfigurations.InstructorConfiguration(modelBuilder,schema);
+			EntityFrameworkDbLessonConfigurations.LessonConfguration(modelBuilder,schema);
+			EntityFrameworkDbWorkExperienceConfigurations.WorkExperienceConfiguration(modelBuilder,schema);
+
+			modelBuilder.Entity<CategoryLesson>()
+				.HasKey(x => new { x.LessonId, x.CategoryDId });
 		} 
 	}
 }
