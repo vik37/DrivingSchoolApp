@@ -1,7 +1,6 @@
-﻿namespace DrivingSchoolApp.Services.CategoryServices.DCategoryAPI.DataAccess.Entities.Enums
+﻿namespace DrivingSchoolApp.Services.CategoryServices.DCategoryAPI.DataAccess.Entities.Enums;
+
+public enum CategoryType
 {
-	public enum CategoryType
-	{
-		A, B, C, D
-	}
+	A, B, C, D
 }
