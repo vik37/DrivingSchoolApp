@@ -8,8 +8,10 @@ public class CategoryDDbContext : DbContext
 {
 	public CategoryDDbContext(DbContextOptions<CategoryDDbContext> options): base(options)
 	{ }
+
 	public DbSet<CategoryD> CategoryD { get; set; }
 	public DbSet<Instructor> Instructor { get; set; }
+
 	protected override void OnModelCreating(ModelBuilder modelBuilder)
 	{
 			
