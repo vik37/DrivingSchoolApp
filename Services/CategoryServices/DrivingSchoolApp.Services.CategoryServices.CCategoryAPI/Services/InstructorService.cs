@@ -6,34 +6,33 @@ using DrivingSchoolApp.Services.CategoryServices.CCategoryAPI.Helper.CustomExcep
 using DrivingSchoolApp.Services.CategoryServices.CCategoryAPI.Services.Interfaces;
 using Microsoft.AspNetCore.Mvc.Filters;
 
-namespace DrivingSchoolApp.Services.CategoryServices.CCategoryAPI.Services
-{
-	public class InstructorService : BaseService, IInstructorService
-	{
-		private readonly IRepository<Instructor> _instructorRepository;
-		public InstructorService(IMapper mapper,IRepository<Instructor> instructorRepository)
-			:base(mapper)
-		{
-			_instructorRepository = instructorRepository;
-		}
+namespace DrivingSchoolApp.Services.CategoryServices.CCategoryAPI.Services;
 
-		public async Task<InstructorDto> GetInstructorById(int id)
+public class InstructorService : BaseService, IInstructorService
+{
+	private readonly IRepository<Instructor> _instructorRepository;
+	public InstructorService(IMapper mapper,IRepository<Instructor> instructorRepository)
+		:base(mapper)
+	{
+		_instructorRepository = instructorRepository;
+	}
+
+	public async Task<InstructorDto> GetInstructorById(int id)
+	{
+		try
 		{
-			try
-			{
-				var instructor = await _instructorRepository.GetById(id);
-				if (instructor == null)
-					throw new CategoryCException("Instructor thoes not exist");
-				return _mapper.Map<InstructorDto>(instructor);
-			}
-			catch(CategoryCException ex)
-			{
-				throw new CategoryCException(ex.Message);
-			}
-			catch (Exception ex)
-			{
-				throw new Exception(ex.Message);
-			}
+			var instructor = await _instructorRepository.GetById(id);
+			if (instructor == null)
+				throw new CategoryCException("Instructor thoes not exist");
+			return _mapper.Map<InstructorDto>(instructor);
+		}
+		catch(CategoryCException ex)
+		{
+			throw new CategoryCException(ex.Message);
+		}
+		catch (Exception ex)
+		{
+			throw new Exception(ex.Message);
 		}
 	}
 }

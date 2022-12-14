@@ -1,5 +1,11 @@
 using DrivingSchoolApp.Services.CategoryServices.DCategoryAPI.DataAccess;
+using DrivingSchoolApp.Services.CategoryServices.DCategoryAPI.DataAccess.Entities;
+using DrivingSchoolApp.Services.CategoryServices.DCategoryAPI.DataAccess.Repository;
+using DrivingSchoolApp.Services.CategoryServices.DCategoryAPI.DataAccess.Repository.Interfaces;
+using DrivingSchoolApp.Services.CategoryServices.DCategoryAPI.Services;
+using DrivingSchoolApp.Services.CategoryServices.DCategoryAPI.Services.Interfaces;
 using Microsoft.EntityFrameworkCore;
+using Newtonsoft.Json.Serialization;
 
 namespace DrivingSchoolApp.Services.CategoryServices.DCategoryAPI
 {
@@ -27,7 +33,19 @@ namespace DrivingSchoolApp.Services.CategoryServices.DCategoryAPI
 			services.AddDbContext<CategoryDDbContext>(opt =>
 				opt.UseSqlServer(configuration.GetConnectionString("DefaultConnection")));
 
-			services.AddControllers();
+			services.AddTransient<IRepository<CategoryD>, CategoryDRepository>();
+			services.AddTransient<IRepository<Instructor>,InstructorRepository>();
+
+			services.AddTransient<ICategoryDService,CategoryDService>();
+			services.AddTransient<IInstructorService,InstructorService>();
+
+			services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
+
+			services.AddControllers()
+				.AddNewtonsoftJson(opt =>
+					opt.SerializerSettings.ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore)
+				.AddNewtonsoftJson(opt =>
+					opt.SerializerSettings.ContractResolver = new CamelCasePropertyNamesContractResolver());
 			// Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 			services.AddEndpointsApiExplorer();
 			services.AddSwaggerGen();
