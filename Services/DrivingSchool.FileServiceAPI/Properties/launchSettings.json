@@ -4,17 +4,17 @@
     "windowsAuthentication": false,
     "anonymousAuthentication": true,
     "iisExpress": {
-      "applicationUrl": "http://localhost:15568",
-      "sslPort": 44395
+      "applicationUrl": "http://localhost:40855",
+      "sslPort": 44315
     }
   },
   "profiles": {
-    "DrivingSchool.ImageServiceAPI": {
+    "DrivingSchool.FileServiceAPI": {
       "commandName": "Project",
       "dotnetRunMessages": true,
       "launchBrowser": true,
       "launchUrl": "swagger",
-      "applicationUrl": "https://localhost:7248;http://localhost:5260",
+      "applicationUrl": "https://localhost:7181;http://localhost:5289",
       "environmentVariables": {
         "ASPNETCORE_ENVIRONMENT": "Development"
       }

@@ -1,4 +1,4 @@
-namespace DrivingSchool.ImageServiceAPI
+namespace DrivingSchool.FileServiceAPI
 {
 	public class Program
 	{
