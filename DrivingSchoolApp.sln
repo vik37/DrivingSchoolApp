@@ -19,6 +19,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DrivingSchoolApp.Services.C
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DrivingSchoolApp.Services.CategoryServices.DCategoryAPI", "Services\CategoryServices\DrivingSchoolApp.Services.CategoryServices.DCategoryAPI\DrivingSchoolApp.Services.CategoryServices.DCategoryAPI.csproj", "{F2806DF8-770B-4C4E-A1E7-5153BEFF2C58}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DrivingSchool.FileServiceAPI", "Services\DrivingSchool.FileServiceAPI\DrivingSchool.FileServiceAPI.csproj", "{C70558AD-CFCA-4FCC-8E65-7DCF60434D34}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -45,6 +47,10 @@ Global
 		{F2806DF8-770B-4C4E-A1E7-5153BEFF2C58}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F2806DF8-770B-4C4E-A1E7-5153BEFF2C58}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F2806DF8-770B-4C4E-A1E7-5153BEFF2C58}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C70558AD-CFCA-4FCC-8E65-7DCF60434D34}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C70558AD-CFCA-4FCC-8E65-7DCF60434D34}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C70558AD-CFCA-4FCC-8E65-7DCF60434D34}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C70558AD-CFCA-4FCC-8E65-7DCF60434D34}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -56,6 +62,7 @@ Global
 		{2D4B59E4-3C63-442C-A69C-88CE81E1BFE7} = {9CE274A7-AA85-4E5D-9A52-96EA7F14BF94}
 		{744EC375-BAB3-443F-ABC0-457C6DD7122F} = {9CE274A7-AA85-4E5D-9A52-96EA7F14BF94}
 		{F2806DF8-770B-4C4E-A1E7-5153BEFF2C58} = {9CE274A7-AA85-4E5D-9A52-96EA7F14BF94}
+		{C70558AD-CFCA-4FCC-8E65-7DCF60434D34} = {048F654E-5AA0-49BD-B934-121F5642858A}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {9000563B-2587-451B-B224-E82413E9AEF0}
