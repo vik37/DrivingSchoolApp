@@ -8,6 +8,25 @@
   background-color: rgb(247, 248, 245);
 }
 .nav-link{
-
   text-shadow: 2px -2px 1px rgb(171, 255, 3);
+}
+.dropdown{
+  margin-left: 35px;
+}
+.navbar-nav > li > .dropdown-menu{
+  background-color: rgba(16, 75, 23, 0.2);
+}
+.dropdown-menu> li > a{
+  color: rgb(230, 173, 87);
+  text-shadow: 0 0 1px rgb(143, 96, 2);
+  font-family:'Times New Roman', Times, serif;
+  letter-spacing: 0.1rem;
+}
+ .dropdown-menu> li > a:hover{
+  color: black;
+}
+@media screen and (max-width: 450px) {
+  .dropdown{
+    margin-left: 0;
+  }
 }

@@ -8,6 +8,7 @@ import {NotFoundComponent} from  'src/app/shared/components/not-found/not-found.
     {path: '', component:HomeComponent},
     {path: 'about', component:AboutComponent},
     {path: 'contact',component:ContactComponent},
+    {path: 'category-A',loadChildren: () => import('src/app/categories/category-a/category-a.module').then(c => c.CategoryAModule)},
     {path: 'not-found',component:NotFoundComponent},
     {path: '', redirectTo:'/',pathMatch:'full'},
     {path: '**',component:NotAllowedComponent}

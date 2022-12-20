@@ -2,7 +2,6 @@
 using DrivingSchoolApp.Services.CategoryServices.ACategoryAPI.DataAccess.Entities;
 using DrivingSchoolApp.Services.CategoryServices.ACategoryAPI.DataAccess.Etities;
 using DrivingSchoolApp.Services.CategoryServices.ACategoryAPI.Dto.Models;
-using Microsoft.AspNetCore.Routing.Constraints;
 
 namespace DrivingSchoolApp.Services.CategoryServices.ACategoryAPI.Helper
 {
@@ -17,9 +16,13 @@ namespace DrivingSchoolApp.Services.CategoryServices.ACategoryAPI.Helper
                 .ForMember(dest => dest.MotorcyclePerCity, src => src.Ignore())
                 .ForMember(dest => dest.CategoryLessons, src => src.Ignore());
 
-            CreateMap<Instructor, InstructorDto>()
-                .ReverseMap();
-            CreateMap<Lesson, LessonDto>()
+			CreateMap<Instructor, InstructorDto>()
+				.ForMember(dest => dest.Fullname, src => src.MapFrom(x => $"{x.Firstname} {x.Lastname}"))
+				.ReverseMap()
+				.ForMember(dest => dest.Firstname, src => src.MapFrom(x => x.Fullname.Split(" ", StringSplitOptions.None).First()))
+				.ForMember(dest => dest.Lastname, src => src.MapFrom(x => x.Fullname.Split(" ", StringSplitOptions.None).Last()))
+				.ForMember(dest => dest.CategoryA, src => src.Ignore());
+			CreateMap<Lesson, LessonDto>()
                 .ReverseMap()
                 .ForMember(dest => dest.CategoryLessons, src => src.Ignore());
             CreateMap<Motorcycle, MotorcycleDto>()
