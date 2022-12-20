@@ -1,4 +1,4 @@
-﻿namespace DrivingSchoolApp.Services.CategoryServices.CCategoryAPI.Dtos
+﻿namespace DrivingSchoolApp.Services.CategoryServices.DCategoryAPI.Dtos
 {
     public class ResponseErrorDto
     {

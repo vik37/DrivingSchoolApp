@@ -1,9 +1,6 @@
-﻿using DrivingSchoolApp.Services.CategoryServices.ACategoryAPI.DataAccess.Etities;
-using DrivingSchoolApp.Services.CategoryServices.ACategoryAPI.DataAccess.Repository.Interface;
-using DrivingSchoolApp.Services.CategoryServices.ACategoryAPI.Dto;
+﻿using DrivingSchoolApp.Services.CategoryServices.ACategoryAPI.Dto;
 using DrivingSchoolApp.Services.CategoryServices.ACategoryAPI.Helper.CustomExceptions;
 using DrivingSchoolApp.Services.CategoryServices.ACategoryAPI.Services.Interfaces;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
 namespace DrivingSchoolApp.Services.CategoryServices.ACategoryAPI.Controllers
