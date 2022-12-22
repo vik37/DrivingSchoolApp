@@ -1,4 +1,17 @@
+.card{
+  width: 500px;
+  height: 300px;
+  margin-top: 20px;
+  margin-bottom: 80px;
+  filter: opacity(80%);
+}
 .card > img{
-  width: 80vw;
- height: 80vh;
+  filter: opacity(80%);
+  height: 90%;
+}
+.card-title,.card-text, span{
+  color: rgb(71, 219, 242);
+  text-align: center;
+  text-shadow: 1px 2px 1px rgb(0, 0, 0);
+  background-color: rgba(0, 0, 0,0.2);
 }
