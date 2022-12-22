@@ -14,7 +14,6 @@ import { ContactComponent } from './container/components/contact/contact.compone
 import { HomeComponent } from './container/components/home/home.component';
 import { NotAllowedComponent } from './shared/components/not-allowed/not-allowed.component';
 import { NotFoundComponent } from './shared/components/not-found/not-found.component';
-
 @NgModule({
   declarations: [
     AppComponent,
