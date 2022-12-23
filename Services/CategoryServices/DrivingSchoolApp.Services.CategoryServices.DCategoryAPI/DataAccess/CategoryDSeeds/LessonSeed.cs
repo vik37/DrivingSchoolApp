@@ -22,7 +22,7 @@ namespace DrivingSchoolApp.Services.CategoryServices.DCategoryAPI.DataAccess.Cat
 					new Lesson
 					{
 						Id = 2,
-						Type = LessonTypes.Psichologic,
+						Type = LessonTypes.Psychologic,
 						Price = 5,
 						TestPrice = 1,
 						Duration = 15,

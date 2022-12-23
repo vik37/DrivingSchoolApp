@@ -14,7 +14,8 @@ public class MappingProfile : Profile
 			.ForMember(dest => dest.Lessons, src => src.Ignore());
 
 		CreateMap<InstructorCategoryLicence, InstructorCategoryLicenceDto>()
-			.ReverseMap().ForMember(dest => dest.ÌnstructorId, src => src.Ignore())
+			.ReverseMap()
+			.ForMember(dest => dest.ÌnstructorId, src => src.Ignore())
 			.ForMember(dest => dest.Instructor, src => src.Ignore());
 
 		CreateMap<Instructor, InstructorDto>()

@@ -14,5 +14,5 @@ public class InstructorDto : BaseDto
 	public bool isBooked { get; set; }
 	public int CategoryDId { get; set; }
 	public IEnumerable<WorkExperienceDto> WorkExperiences { get; set; } = new List<WorkExperienceDto>();
-	public IEnumerable<InstructorCategoryLicenceDto> Licences { get; set; } = new List<InstructorCategoryLicenceDto>();
+	public IEnumerable<InstructorCategoryLicenceDto> CategoryLicences { get; set; } = new List<InstructorCategoryLicenceDto>();
 }
