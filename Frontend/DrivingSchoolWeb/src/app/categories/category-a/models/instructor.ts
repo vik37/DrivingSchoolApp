@@ -4,7 +4,7 @@ export interface Instructor extends Base{
   fullname: string,
   age: number,
   licenceId: string,
-  photo: string,
+  photo: string | null,
   startedDay:string,
   experience:number,
   isBooked:boolean,

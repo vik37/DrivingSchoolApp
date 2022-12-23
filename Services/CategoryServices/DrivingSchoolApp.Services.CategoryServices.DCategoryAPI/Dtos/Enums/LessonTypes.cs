@@ -2,5 +2,5 @@
 
 public enum LessonTypes
 {
-	Theory, Psichologic, Polygon, City
+	Theory, Psychologic, Polygon, City
 }

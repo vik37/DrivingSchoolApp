@@ -2,6 +2,6 @@
 {
 	public enum CategoryType
 	{
-		A, B,C, D
+		A, B, C, D
 	}
 }
