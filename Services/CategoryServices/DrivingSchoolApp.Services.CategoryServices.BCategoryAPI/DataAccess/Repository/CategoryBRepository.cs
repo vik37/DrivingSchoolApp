@@ -19,7 +19,7 @@ namespace DrivingSchoolApp.Services.CategoryServices.BCategoryAPI.DataAccess.Rep
 			{
 				return await _db.CategoryB
 								.Include(x => x.Instructors)
-									.ThenInclude(x => x.WorkExperiencesPerCompany)
+									.ThenInclude(x => x.WorkExperiencePerCompany)
 								.Include(x => x.CarPerCity)
 									.ThenInclude(x => x.Car)
 								.Include(x => x.CategoryLessons)
