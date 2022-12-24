@@ -4,7 +4,7 @@ import {Lesson} from 'src/app/categories/category-b/models/lesson';
 import {Truck} from 'src/app/categories/category-c/models/truck';
 
 export interface CategoryC extends Category{
-  instructors:Instructor[],
+  trucks:Truck[],
   lessons:Lesson[],
-  trucks:Truck[]
+  instructors:Instructor[]
 }
