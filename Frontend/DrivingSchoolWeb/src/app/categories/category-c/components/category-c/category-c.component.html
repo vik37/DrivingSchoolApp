@@ -1,0 +1,19 @@
+<section class="container category-container">
+  <div class="row">
+    <div class="col-1 category-c-block">
+      <h1>C</h1>
+    </div>
+    <div class="col-md-4 col-sm-8 col-xs-12 offset-md-3 offset-sm-12 category-c-heading-block">
+      <h5>Our Driving Schools by City</h5>
+      <hr>
+      <p>Choose by your city or nearest city</p>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-xs-12 col-sm-12 col-md-6" *ngFor="let category of categoryC">
+        <app-category-card
+        [category]="category"
+      ></app-category-card>
+    </div>
+  </div>
+</section>

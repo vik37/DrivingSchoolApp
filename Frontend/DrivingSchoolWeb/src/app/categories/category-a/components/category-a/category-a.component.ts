@@ -7,7 +7,7 @@ import {CategoryA} from 'src/app/categories/category-a/models/categoryA';
 @Component({
   selector: 'app-category-a',
   templateUrl: './category-a.component.html',
-  styleUrls: ['./category-a.component.css']
+  styleUrls: ['../../../shared/style/category.css','./category-a.component.css']
 })
 export class CategoryAComponent implements OnInit, OnDestroy {
   categoryA:CategoryA[] =[];
