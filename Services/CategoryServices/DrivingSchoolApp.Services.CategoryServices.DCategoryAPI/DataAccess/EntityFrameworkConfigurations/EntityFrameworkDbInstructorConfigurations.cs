@@ -15,7 +15,7 @@ public static class EntityFrameworkDbInstructorConfigurations
 			.WithOne(x => x.Instructor)
 			.HasForeignKey(x => x.ÌnstructorId);
 		modelBuilder.Entity<Instructor>()
-			.HasMany(x => x.WorkExperiences)
+			.HasMany(x => x.WorkExperiencePerCompany)
 			.WithOne(x => x.Instructor)
 			.HasForeignKey(x => x.InstructorId);
 

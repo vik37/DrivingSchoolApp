@@ -15,6 +15,6 @@ public class Instructor : Base
 	public bool isBooked { get; set; }
 	public int CategoryDId { get; set; }
 	public virtual CategoryD CategoryD { get; set; }
-	public IEnumerable<WorkExperience> WorkExperiences { get; set; } = new List<WorkExperience>();
+	public IEnumerable<WorkExperience> WorkExperiencePerCompany { get; set; } = new List<WorkExperience>();
 	public IEnumerable<InstructorCategoryLicence> CategoryLicences { get; set; } = new List<InstructorCategoryLicence>();
 }

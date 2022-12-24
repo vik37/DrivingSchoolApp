@@ -14,6 +14,6 @@ export interface Instructor extends Base{
   instructorAcademy:string,
   isBooked:boolean,
   categoryId:number,
-  workExperiences:WorkExperience[],
+  workExperiencePerCompany:WorkExperience[],
   categoryLicences:InstructorCategoryLicence[]
 }
