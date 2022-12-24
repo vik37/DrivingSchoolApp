@@ -9,11 +9,11 @@ import {ResponseError} from 'src/app/shared/models/response-error';
   providedIn: 'root'
 })
 export class CategoryAService {
-  private uri:string = "https://localhost:7149/api/"
+  private uri:string = "https://localhost:7149/api/categorya"
   constructor(private http: HttpClient) { }
 
   getAll() : Observable<CategoryA[]>{
-    return this.http.get<CategoryA[]>(this.uri+"categorya").pipe(
+    return this.http.get<CategoryA[]>(this.uri).pipe(
       tap(res => console.log('from category A service: ',res)),
       map(res => (res as CategoryA[]))
     )

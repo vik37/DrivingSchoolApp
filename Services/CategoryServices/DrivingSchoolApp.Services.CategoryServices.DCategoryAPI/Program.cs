@@ -23,7 +23,7 @@ namespace DrivingSchoolApp.Services.CategoryServices.DCategoryAPI
 				opt.AddPolicy(name: "OnlyAngular",
 					builder =>
 					{
-						builder.WithOrigins("http://localhost:4200/")
+						builder.WithOrigins("http://localhost:4200", "https://localhost:4200")
 								.AllowAnyHeader()
 								.AllowAnyMethod()
 								.AllowCredentials();

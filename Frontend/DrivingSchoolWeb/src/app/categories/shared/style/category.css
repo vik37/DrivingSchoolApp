@@ -1,0 +1,22 @@
+.category-container{
+  margin-top: 30px;
+}
+.category-a-block, .category-b-block, .category-c-block, .category-d-block{
+  background-color: rgb(24, 90, 107);
+  width: 55px;
+  height: 60px;
+  text-align: center;
+  padding: 1px;
+  transform: rotate(40deg);
+  box-shadow: 0 0 10px 2px rgb(142, 232, 255);
+  border-radius: 16px;
+}
+.category-a-block > h1, .category-b-block > h1, .category-c-block > h1, .category-d-block > h1{
+  color: rgb(10, 10, 9);
+  text-shadow: -1px 1px 3px rgb(255, 255, 255);
+  transform: rotate(320deg);
+  font-weight: bolder;
+}
+.category-a-heading-block, .category-b-heading-block, .category-c-heading-block, .category-d-heading-block{
+  text-align: center;
+}
