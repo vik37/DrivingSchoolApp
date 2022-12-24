@@ -24,7 +24,6 @@ namespace DrivingSchoolApp.Services.CategoryServices.BCategoryAPI.Helper
 				.ReverseMap()
 				.ForMember(dest => dest.Firstname, src => src.MapFrom(x => x.Fullname.Split(" ", StringSplitOptions.None).First()))
 				.ForMember(dest => dest.Lastname, src => src.MapFrom(x => x.Fullname.Split(" ", StringSplitOptions.None).Last()))
-				.ForMember(dest => dest.WorkExperiencesPerCompany,src => src.Ignore())
 				.ForMember(dest => dest.CategoryB, src => src.Ignore());
 
 			CreateMap<Lesson, LessonDto>()

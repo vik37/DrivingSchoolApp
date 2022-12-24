@@ -8,7 +8,7 @@ namespace DrivingSchoolApp.Services.CategoryServices.BCategoryAPI.DataAccess.Ent
 		public static void InstructorConfigurations(ModelBuilder modelBuilder)
 		{
 			modelBuilder.Entity<Instructor>()
-				.HasMany(x => x.WorkExperiencesPerCompany)
+				.HasMany(x => x.WorkExperiencePerCompany)
 				.WithOne(x => x.Instructor)
 				.HasForeignKey(x => x.InstructorId);
 

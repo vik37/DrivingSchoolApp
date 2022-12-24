@@ -10,14 +10,14 @@ namespace DrivingSchoolApp.Services.CategoryServices.CCategoryAPI.DataAccess.Rep
 		{ }
 		public async Task<IEnumerable<Instructor>> GetAll()
 		{
-			return await _db.Instructor.Include(x => x.WorkExperience)
+			return await _db.Instructor.Include(x => x.WorkExperiencePerCompany)
 										.Include(x => x.CategoryLicences)
 										.ToListAsync();
 		}
 
 		public async Task<Instructor> GetById(int id)
 		{
-			return await _db.Instructor.Include(x => x.WorkExperience)
+			return await _db.Instructor.Include(x => x.WorkExperiencePerCompany)
 										.Include(x => x.CategoryLicences)
 										.FirstOrDefaultAsync(x => x.Id == id);
 		}

@@ -13,6 +13,6 @@ namespace DrivingSchoolApp.Services.CategoryServices.BCategoryAPI.Dto.Models
 		public string InstructorAcademy { get; set; }
 		public bool isBooked { get; set; }
 		public int CategoryBId { get; set; }
-		public IEnumerable<WorkExperienceDto> WorkExperiencesPerCompany { get; set; } = new List<WorkExperienceDto>();
+		public IEnumerable<WorkExperienceDto> WorkExperiencePerCompany { get; set; } = new List<WorkExperienceDto>();
 	}
 }

@@ -15,7 +15,7 @@
 		public bool isBooked { get; set; }
 		public int CategoryCId { get; set; }
 		public virtual CategoryC CategoryC { get; set; }
-		public IEnumerable<WorkExperience> WorkExperience { get; set; } = new List<WorkExperience>();
+		public IEnumerable<WorkExperience> WorkExperiencePerCompany { get; set; } = new List<WorkExperience>();
 		public IEnumerable<InstructorCategoryLicence> CategoryLicences { get; set; } = new List<InstructorCategoryLicence>();
 	}
 }
