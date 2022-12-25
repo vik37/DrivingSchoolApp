@@ -16,6 +16,9 @@ import {CategoriesModule} from 'src/app/categories/categories.module';
     CommonModule,
     CategoriesModule,
     RouterModule.forChild(route)
+  ],
+  exports:[
+    CategoryAComponent
   ]
 })
 export class CategoryAModule { }
