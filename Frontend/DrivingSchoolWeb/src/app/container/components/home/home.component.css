@@ -1,6 +1,5 @@
 .home{
   margin-top: 40px;
-  padding-right: 20px;
 }
 .main-logo{
   width: 50vw;
@@ -17,6 +16,16 @@
   font-size: 28px;
   font-weight: bolder;
   color: rgb(56, 197, 248);
+}
+.main-caegory-even{
+  background-color: rgb(0,0,0);
+  border-top: 2px solid rgb(103, 102, 102);
+  border-bottom: 2px solid rgb(89, 215, 249);
+  padding-top: 10px;
+}
+.main-caegory-even > h4{
+  color: rgb(85, 206, 250);
+  text-shadow: 1px 1px rgb(255, 255, 255);
 }
 @media screen and (max-width: 768px){
   .home-main-text-block{
