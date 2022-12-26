@@ -10,9 +10,10 @@
     </div>
   </div>
   <div class="row">
-    <div class="col-xs-12 col-sm-12 col-md-6" *ngFor="let category of categoryC">
+    <div class="col-xs-12 col-sm-12 col-md-6" *ngFor="let category of (categoryC$ | async)">
         <app-category-card
         [category]="category"
+        (idEmmiter)="navigateToCategoryCDetails($event)"
       ></app-category-card>
     </div>
   </div>

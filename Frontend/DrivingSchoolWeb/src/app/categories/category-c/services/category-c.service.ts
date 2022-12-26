@@ -12,7 +12,7 @@ export class CategoryCService {
   private uri:string = "https://localhost:7275/api/categoryc";
   constructor(private http: HttpClient) { }
 
-  get(): Observable<CategoryC[]>{
+  getAll(): Observable<CategoryC[]>{
     return this.http.get<CategoryC[]>(this.uri).pipe(
       tap(res => console.log('from category c service',res)),
       map(res => (res as CategoryC[]))

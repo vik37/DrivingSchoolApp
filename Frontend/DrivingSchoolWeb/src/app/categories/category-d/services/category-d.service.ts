@@ -12,7 +12,7 @@ export class CategoryDService {
   private uri: string = "https://localhost:7206/api/categoryd";
   constructor(private http: HttpClient) { }
 
-  get(): Observable<CategoryD[]>{
+  getAll(): Observable<CategoryD[]>{
     return this.http.get<CategoryD[]>(this.uri).pipe(
       tap(res => console.log('from category d service',res)),
       map(res => (res as CategoryD[]))
