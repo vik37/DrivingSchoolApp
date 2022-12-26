@@ -1,5 +1,6 @@
-import { Component, OnInit, OnDestroy } from '@angular/core';
-import { Subscription } from 'rxjs';
+import { Component } from '@angular/core';
+import { Observable } from 'rxjs';
+import { Router } from '@angular/router';
 import {CategoryD} from 'src/app/categories/category-d/models/categoryD';
 import {CategoryDService} from 'src/app/categories/category-d/services/category-d.service';
 
@@ -8,18 +9,12 @@ import {CategoryDService} from 'src/app/categories/category-d/services/category-
   templateUrl: './category-d.component.html',
   styleUrls: ['../../../shared/style/category.css','./category-d.component.css']
 })
-export class CategoryDComponent implements OnInit, OnDestroy {
+export class CategoryDComponent {
 
-  private categoryDSubscription: Subscription = new Subscription();
-  categoryD: CategoryD[] = []
-  constructor(private categoryDService: CategoryDService) { }
+  categoryD$: Observable<CategoryD[]> = this.categoryDService.getAll();
 
-  ngOnInit(): void {
-    this.categoryDSubscription.add(this.categoryDService.get().subscribe(data => {
-      this.categoryD = data
-    }));
-  }
-  ngOnDestroy(): void {
-    this.categoryDSubscription.unsubscribe();
+  constructor(private categoryDService: CategoryDService, private router: Router) { }
+  navigateToCategoryCDetails(id:number){
+    this.router.navigate([`category-c/${id}`])
   }
 }

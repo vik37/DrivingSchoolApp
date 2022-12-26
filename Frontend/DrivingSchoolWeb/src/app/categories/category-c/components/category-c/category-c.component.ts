@@ -1,5 +1,6 @@
-import { Component, OnInit, OnDestroy } from '@angular/core';
-import { Subscription } from 'rxjs';
+import { Component } from '@angular/core';
+import { Observable } from 'rxjs';
+import { Router } from '@angular/router';
 import {CategoryC} from 'src/app/categories/category-c/models/categoryC';
 import {CategoryCService} from 'src/app/categories/category-c/services/category-c.service';
 @Component({
@@ -7,19 +8,11 @@ import {CategoryCService} from 'src/app/categories/category-c/services/category-
   templateUrl: './category-c.component.html',
   styleUrls: ['../../../shared/style/category.css','./category-c.component.css']
 })
-export class CategoryCComponent implements OnInit, OnDestroy {
+export class CategoryCComponent {
 
-  private categoryCSubscription: Subscription = new Subscription();
-  categoryC: CategoryC[] = [];
-
-  constructor(private categoryCService: CategoryCService) { }
-
-  ngOnInit(): void {
-    this.categoryCSubscription = this.categoryCService.get().subscribe(data => {
-      this.categoryC = data
-    })
-  }
-  ngOnDestroy(): void {
-    this.categoryCSubscription.unsubscribe();
+  categoryC$: Observable<CategoryC[]> = this.categoryCService.getAll();
+  constructor(private categoryCService: CategoryCService, private router: Router) { }
+  navigateToCategoryCDetails(id:number){
+    this.router.navigate([`category-c/${id}`])
   }
 }

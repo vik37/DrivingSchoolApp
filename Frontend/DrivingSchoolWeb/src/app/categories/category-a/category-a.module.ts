@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
 import { CategoryAComponent } from './components/category-a/category-a.component';
-import { CategoryABycityComponent } from './components/category-a-bycity/category-a-bycity.component';
+import { CategoryAByCityComponent } from './components/category-a-by-city/category-a-by-city.component';
 import {route} from 'src/app/categories/category-a/route';
 import {CategoriesModule} from 'src/app/categories/categories.module';
 
@@ -10,7 +10,7 @@ import {CategoriesModule} from 'src/app/categories/categories.module';
 @NgModule({
   declarations: [
     CategoryAComponent,
-    CategoryABycityComponent
+    CategoryAByCityComponent
   ],
   imports: [
     CommonModule,
