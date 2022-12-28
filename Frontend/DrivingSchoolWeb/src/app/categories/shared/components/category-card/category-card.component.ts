@@ -1,7 +1,8 @@
-import { Component,OnChanges,SimpleChanges,Input,Output,EventEmitter } from '@angular/core';
+import { Component,OnChanges,SimpleChanges,Input } from '@angular/core';
 import { faPhone } from '@fortawesome/free-solid-svg-icons';
 import {Category} from 'src/app/categories/shared/models/category';
 import {PhotoService} from 'src/app/shared/services/photo.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-category-card',
@@ -11,9 +12,10 @@ import {PhotoService} from 'src/app/shared/services/photo.service';
 export class CategoryCardComponent implements OnChanges {
 
   @Input()category:Category | null = null;
-  @Output()idEmmiter:EventEmitter<number> = new EventEmitter<number>();
+  @Input()categoryRoute: string = '';
+
   faPhone = faPhone;
-  constructor(private photoService:PhotoService) { }
+  constructor(private photoService:PhotoService,private router: Router) { }
   image:string = "";
 
   ngOnChanges(changes: SimpleChanges): void{
@@ -25,6 +27,7 @@ export class CategoryCardComponent implements OnChanges {
   }
 
   sendId(id:number): void{
-    this.idEmmiter.emit(id);
+    if(this.categoryRoute !== '')
+    this.router.navigate([`${this.categoryRoute}/${id}`]);
   }
 }

@@ -13,7 +13,7 @@
     <div class="col-xs-12 col-sm-12 col-md-6" *ngFor="let category of (categoryA$ | async)">
         <app-category-card
         [category]="category"
-        (idEmmiter)="navigateToCategoryADetails($event)"
+        [categoryRoute] = "categoryARoute"
       ></app-category-card>
     </div>
   </div>
