@@ -1,8 +1,8 @@
 import {Category} from 'src/app/categories/shared/models/category';
 import {Instructor} from 'src/app/categories/category-d/models/instructor';
-import {Lesson} from 'src/app/categories/category-d/models/lesson';
+import {CategoryDLesson} from 'src/app/categories/category-d/models/lesson-categoryD';
 
 export interface CategoryD extends Category{
-  lessons:Lesson[],
+  lessons:CategoryDLesson[],
   instructors:Instructor[]
 }
