@@ -1,0 +1,26 @@
+<div class="category-block">
+  <div class="row">
+    <div *ngIf="category" class="col-md-12 city-image-block">
+      <img class="city-image" [src]="photoUrl" [alt]="category.city" />
+    </div>
+      <div class="row">
+        <div class="col-md-2">
+          <h3>{{category?.city}}</h3>
+        </div>
+      </div>
+      <br />
+      <hr />
+      <br />
+      <div class="row">
+        <div class="col-md-6">
+          <h6>Visit Us: {{category?.address}}</h6>
+        </div>
+        <div class="col-md-6">
+          <h6>
+            Call Us:
+            <span>{{category?.phone}}</span>
+          </h6>
+        </div>
+      </div>
+  </div>
+</div>

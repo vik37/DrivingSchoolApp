@@ -9,7 +9,7 @@ import {CategoryDService} from 'src/app/categories/category-d/services/category-
   styleUrls: ['../../../shared/style/category.css','./category-d.component.css']
 })
 export class CategoryDComponent {
-  categoryDRoute: string = 'category-c';
+  categoryDRoute: string = 'category-d';
   categoryD$: Observable<CategoryD[]> = this.categoryDService.getAll();
 
   constructor(private categoryDService: CategoryDService) { }

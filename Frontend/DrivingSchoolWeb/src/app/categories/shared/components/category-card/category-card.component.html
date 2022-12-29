@@ -1,11 +1,11 @@
-<div class="card bg-dark">
-  <img [src]="image" class="card-img" [alt]="category?.city + ' image'">
+<div *ngIf="category" class="card bg-dark">
+  <img [src]="image" class="card-img" [alt]="category.city + ' image'">
   <div class="card-img-overlay">
-    <h5 class="card-title"><b>City:</b> {{category?.city}}</h5>
-    <p class="card-text"><b>Address:</b> {{category?.address}}</p>
+    <h5 class="card-title"><b>City:</b> {{category.city}}</h5>
+    <p class="card-text"><b>Address:</b> {{category.address}}</p>
     <p class="card-text">
       <fa-icon [icon]="faPhone"></fa-icon>
-      <span>{{category?.phone}}</span>
+      <span>{{category.phone}}</span>
     </p>
   </div>
     <button (click)="sendId(category!.id)" type="button" class="btn btn-warning">see details</button>

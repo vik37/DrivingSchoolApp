@@ -7,7 +7,8 @@ import { Router } from '@angular/router';
 @Component({
   selector: 'app-category-card',
   templateUrl: './category-card.component.html',
-  styleUrls: ['./category-card.component.css']
+  styleUrls: ['./category-card.component.css'],
+  providers:[PhotoService]
 })
 export class CategoryCardComponent implements OnChanges {
 

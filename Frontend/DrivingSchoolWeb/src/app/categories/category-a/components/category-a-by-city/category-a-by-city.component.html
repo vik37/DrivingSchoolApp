@@ -1,1 +1,37 @@
-<p>category-a-bycity works!</p>
+<div class="row">
+  <section class="col-md-8">
+    <div *ngIf="categoryA$ | async as categoryA">
+      <app-category-per-city
+        [category]="categoryA"
+        [photoUrl]="photoUrl"
+      ></app-category-per-city>
+    </div>
+  </section>
+  <aside class="col-md-4">
+    <div class="row lesson">
+      <div *ngIf="lesson$ | async as lesson">
+        <app-lesson
+          [lesson] = "lesson"
+        ></app-lesson>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-8">
+        <button
+          class="btn btn-outline-info"
+          [disabled]="disable"
+          (click)="getLessonByType(lessonType.Test)">
+            {{lessonType[lessonType.Test]}}
+        </button>
+      </div>
+      <div class="col-md-3">
+        <button
+          class="btn btn-outline-secondary"
+          [disabled]="!disable"
+          (click)="getLessonByType(lessonType.Practise)">
+            {{lessonType[lessonType.Practise]}}
+        </button>
+      </div>
+    </div>
+  </aside>
+</div>

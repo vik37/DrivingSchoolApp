@@ -14,7 +14,6 @@ import { ContactComponent } from './container/components/contact/contact.compone
 import { HomeComponent } from './container/components/home/home.component';
 import { NotAllowedComponent } from './shared/components/not-allowed/not-allowed.component';
 import { NotFoundComponent } from './shared/components/not-found/not-found.component';
-//import {CategoryAModule} from 'src/app/categories/category-a/category-a.module';
 import {Modules} from 'src/app/shared/shared-modules';
 @NgModule({
   declarations: [
@@ -34,7 +33,6 @@ import {Modules} from 'src/app/shared/shared-modules';
     AppRoutingModule,
     FontAwesomeModule,
     HttpClientModule,
-    //CategoryAModule
     Modules
   ],
   providers: [],
