@@ -2,6 +2,6 @@
 {
 	public enum LessonType
 	{
-		Test, Practise
+		Theory, Practice
 	}
 }

@@ -14,7 +14,7 @@ namespace DrivingSchoolApp.Services.CategoryServices.ACategoryAPI.DataAccess
 					new Lesson
 					{
 						Id = 1,
-						Type = LessonTypes.Test,
+						Type = LessonTypes.Theory,
 						Price = 45.95,
 						TestPrice= 10,
 						Duration = 20,
@@ -23,7 +23,7 @@ namespace DrivingSchoolApp.Services.CategoryServices.ACategoryAPI.DataAccess
 					new Lesson
 					{
 						Id = 2,
-						Type = LessonTypes.Practise,
+						Type = LessonTypes.Practice,
 						Price = 54.95,
 						TestPrice = 15,
 						Duration = 40,

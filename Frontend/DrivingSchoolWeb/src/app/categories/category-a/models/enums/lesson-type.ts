@@ -1,4 +1,4 @@
 export enum LessonType{
-  Test,
-  Practise
+  Theory,
+  Practice
 }
