@@ -5,12 +5,16 @@ import { CategoryAComponent } from './components/category-a/category-a.component
 import { CategoryAByCityComponent } from './components/category-a-by-city/category-a-by-city.component';
 import {route} from 'src/app/categories/category-a/route';
 import {CategoriesModule} from 'src/app/categories/categories.module';
+import { MotorcycleComponent } from './components/motorcycle/motorcycle.component';
+import { InstructorComponent } from './components/instructor/instructor.component';
 
 
 @NgModule({
   declarations: [
     CategoryAComponent,
-    CategoryAByCityComponent
+    CategoryAByCityComponent,
+    MotorcycleComponent,
+    InstructorComponent
   ],
   imports: [
     CommonModule,

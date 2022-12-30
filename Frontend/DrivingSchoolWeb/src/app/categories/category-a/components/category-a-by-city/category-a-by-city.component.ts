@@ -3,10 +3,12 @@ import { ActivatedRoute,ParamMap } from '@angular/router';
 import {CategoryAService} from 'src/app/categories/category-a/services/category-a.service';
 import {CategoryA} from 'src/app/categories/category-a/models/categoryA';
 import {CategoryALesson} from 'src/app/categories/category-a/models/lesson-categoryA';
+import {Instructor} from 'src/app/categories/category-a/models/instructor';
+import {Motorcycle} from 'src/app/categories/category-a/models/motorcycle';
 import {LessonType} from 'src/app/categories/category-a/models/enums/lesson-type';
 import {PhotoService} from 'src/app/shared/services/photo.service';
 import { Observable } from 'rxjs';
-import {switchMap, tap,map,filter} from 'rxjs/operators';
+import {switchMap, tap,map} from 'rxjs/operators';
 
 @Component({
   selector: 'app-category-a-bycity',
@@ -18,7 +20,9 @@ export class CategoryAByCityComponent implements OnInit {
 
   categoryA$: Observable<CategoryA> =  new Observable<CategoryA>();
   lesson$: Observable<CategoryALesson | undefined> = new Observable<CategoryALesson | undefined>();
-  nextLessonIndex:LessonType = LessonType.Test;
+  instructors$: Observable<Instructor[]> = new Observable<Instructor[]>();
+  motorcycles$: Observable<Motorcycle[]> = new Observable<Motorcycle[]>();
+  nextLessonIndex:LessonType = LessonType.Theory;
   lessonType = LessonType;
   photoUrl: string = '';
   disable: boolean = true;
@@ -27,9 +31,9 @@ export class CategoryAByCityComponent implements OnInit {
               private photoService: PhotoService) { }
 
   ngOnInit(): void {
-      this.categoryA$ =  this.route.paramMap.pipe(
-        switchMap((params:ParamMap) =>{
-          return this.categoryAService.getById(params.get('id') as string)
+    this.categoryA$ =  this.route.paramMap.pipe(
+      switchMap((params:ParamMap) =>{
+        return this.categoryAService.getById(params.get('id') as string)
       })
     );
     this.loadLesson();
@@ -40,16 +44,23 @@ export class CategoryAByCityComponent implements OnInit {
                   map(data => data.lessons),
                   map(x => x.find(s => s.type === this.nextLessonIndex))
                 );
-    this.lesson$.subscribe(data => console.log('lesson: ', data))
   }
   loadPhoto(city:string): void{
     this.photoUrl = this.photoService.uri+'city/'+city;
-    console.log(this.photoUrl);
   }
   getLessonByType(type:LessonType): void{
-    console.log('lesson type: ',type);
     this.nextLessonIndex = type;
     this.disable = !this.disable;
     this.loadLesson();
+  }
+  getInstructors(): void{
+    this.instructors$ = this.categoryA$.pipe(
+      map(data => data.instructors)
+    );
+  }
+  getMotorcycles(): void{
+    this.motorcycles$ = this.categoryA$.pipe(
+      map(data => data.motorcycles)
+    )
   }
 }

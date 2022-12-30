@@ -20,16 +20,16 @@
         <button
           class="btn btn-outline-info"
           [disabled]="disable"
-          (click)="getLessonByType(lessonType.Test)">
-            {{lessonType[lessonType.Test]}}
+          (click)="getLessonByType(lessonType.Theory)">
+            {{lessonType[lessonType.Theory]}}
         </button>
       </div>
       <div class="col-md-3">
         <button
           class="btn btn-outline-secondary"
           [disabled]="!disable"
-          (click)="getLessonByType(lessonType.Practise)">
-            {{lessonType[lessonType.Practise]}}
+          (click)="getLessonByType(lessonType.Practice)">
+            {{lessonType[lessonType.Practice]}}
         </button>
       </div>
     </div>
