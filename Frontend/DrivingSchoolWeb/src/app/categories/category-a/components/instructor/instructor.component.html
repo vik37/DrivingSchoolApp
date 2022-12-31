@@ -1,1 +1,25 @@
-<p>instructor works!</p>
+<div  *ngIf="instructor">
+  <div class="card instructor-card">
+    <img [src]="photoUrl" class="card-img-top" [alt]="instructor.fullname">
+    <div class="card-body instructor-card-body">
+      <h5 class="card-title">{{instructor.fullname}}</h5>
+      <p class="card-text">Age: {{instructor.age}}</p>
+    </div>
+    <ul class="list-group list-group-flush instructor-card-list">
+      <li class="list-group-item">Drive Experience: {{instructor.experience}} years</li>
+      <li class="list-group-item">Started Working in the Company:
+        <br />
+        <span>{{instructor.startedDay | date}}</span>
+      </li>
+      <li *ngIf="instructor.isBooked" class="list-group-item">Booked</li>
+    </ul>
+    <div class="card-body">
+      <button [disabled]="instructor.isBooked"
+        type="button" class="btn btn-light" data-bs-toggle="tooltip"
+        data-bs-placement="top" title="Tooltip on bottom">
+          choose
+      </button>
+      
+    </div>
+  </div>
+</div>

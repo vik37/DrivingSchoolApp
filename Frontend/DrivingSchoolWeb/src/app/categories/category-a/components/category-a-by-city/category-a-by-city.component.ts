@@ -37,6 +37,7 @@ export class CategoryAByCityComponent implements OnInit {
       })
     );
     this.loadLesson();
+    this.loadInstructors();
   }
   loadLesson():  void{
     this.lesson$ = this.categoryA$.pipe(
@@ -53,12 +54,12 @@ export class CategoryAByCityComponent implements OnInit {
     this.disable = !this.disable;
     this.loadLesson();
   }
-  getInstructors(): void{
+  loadInstructors(): void{
     this.instructors$ = this.categoryA$.pipe(
       map(data => data.instructors)
     );
   }
-  getMotorcycles(): void{
+  loadMotorcycles(): void{
     this.motorcycles$ = this.categoryA$.pipe(
       map(data => data.motorcycles)
     )
