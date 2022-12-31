@@ -35,3 +35,17 @@
     </div>
   </aside>
 </div>
+<br />
+<br />
+<hr />
+<br />
+<div class="container">
+  <div class="row">
+    <section *ngFor="let instructor of (instructors$ | async)" class="col-md-4">
+      <app-instructor
+        [instructor]="instructor"
+      ></app-instructor>
+    </section>
+  </div>
+
+</div>
