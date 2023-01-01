@@ -1,4 +1,4 @@
-import { Component, OnInit, Input, OnChanges, SimpleChanges } from '@angular/core';
+import { Component,Input, OnChanges, SimpleChanges } from '@angular/core';
 import {Lesson} from 'src/app/categories/shared/models/lesson';
 
 @Component({
@@ -9,13 +9,12 @@ import {Lesson} from 'src/app/categories/shared/models/lesson';
 export class LessonComponent implements OnChanges {
 
   @Input()lesson: Lesson | undefined;
-
   constructor() { }
 
   ngOnChanges(changes: SimpleChanges): void{
     let firstLessonChanges = changes['lesson'];
     if(firstLessonChanges.firstChange){
-      console.log('lesson from lesson component: ', this.lesson)
+      console.log('lesson from lesson component: ', this.lesson);
     }
   }
 }

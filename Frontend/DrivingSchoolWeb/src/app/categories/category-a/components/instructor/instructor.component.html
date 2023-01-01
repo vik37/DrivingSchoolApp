@@ -15,11 +15,10 @@
     </ul>
     <div class="card-body">
       <button [disabled]="instructor.isBooked"
-        type="button" class="btn btn-light" data-bs-toggle="tooltip"
-        data-bs-placement="top" title="Tooltip on bottom">
-          choose
+        type="button" class="btn btn-outline-info" data-bs-toggle="tooltip"
+        data-bs-placement="right">
+          <fa-icon class="instructor-check-icon" [icon]="faUserCheck"></fa-icon>
       </button>
-      
     </div>
   </div>
 </div>
