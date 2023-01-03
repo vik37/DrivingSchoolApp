@@ -1,0 +1,30 @@
+.motorcycle{
+  margin-bottom: 150px;
+}
+.motorcycle-image{
+  height: 150px;
+  border-bottom: 3px double rgb(135, 236, 249);
+}
+.motorcycle-title, .motorcycle-text{
+  font-size: 16px;
+  color: rgba(123, 140, 13,0.4);
+  text-shadow: -1px -1px 1px rgba(245, 245, 245, 1);
+}
+.offcanvas-motorcycle-image{
+  border-radius: 20px;
+}
+.btn-motorcycle-description{
+  margin-left: 60px;
+}
+.offcanvas-title-motor{
+  text-shadow: -1px 1px 2px rgb(39, 226, 76);
+  letter-spacing: 7px;
+}
+.offcanvas-title-motor,.motorcycle-subtitle{
+  font-weight: bolder;
+  text-decoration: underline;
+}
+.offcanvas-title-motor,.motorcycle-subtitle, .motorcycle-list-description >li{
+  background-color: rgba(0, 0, 0,0.4);
+  text-align: center;
+}

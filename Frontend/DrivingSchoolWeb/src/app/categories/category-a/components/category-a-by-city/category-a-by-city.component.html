@@ -41,7 +41,7 @@
 <br />
 <div class="container">
   <div class="row">
-    <h3>Instructors</h3>
+    <h3>Instructors:</h3>
   </div>
   <br />
   <div class="row">
@@ -49,6 +49,19 @@
       <app-instructor
         [instructor]="instructor"
       ></app-instructor>
+    </section>
+  </div>
+</div>
+<div class="container">
+  <div class="row">
+    <h3>Motorcyces:</h3>
+  </div>
+  <br />
+  <div class="row">
+    <section *ngFor="let motorcycle of (motorcycles$ | async)" class="col-md-3">
+      <app-motorcycle
+        [motorcycle]="motorcycle"
+      ></app-motorcycle>
     </section>
   </div>
 </div>

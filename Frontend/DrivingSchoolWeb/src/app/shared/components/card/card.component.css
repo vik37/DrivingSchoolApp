@@ -1,0 +1,6 @@
+.card{
+  width: 250px;
+  background-color: rgb(0,0,0);
+  margin-bottom: 50px;
+  filter:drop-shadow(-30px 10px 10px  rgb(13, 13, 13));
+}

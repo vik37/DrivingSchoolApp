@@ -1,3 +1,25 @@
+<div *ngIf="instructor">
+  <app-card>
+    <img [src]="photoUrl" class="card-img-top" [alt]="instructor.fullname">
+    <h5 class="card-title instructor-title">{{instructor.fullname}}</h5>
+    <p class="card-text instructor-text">Age: {{instructor.age}}</p>
+    <ul class="list-group list-group-flush instructor-card-list">
+      <li class="list-group-item">Drive Experience: {{instructor.experience}} years</li>
+      <li class="list-group-item">Started Working in the Company:
+        <br />
+        <span>{{instructor.startedDay | date}}</span>
+      </li>
+      <li *ngIf="instructor.isBooked" class="list-group-item">Booked</li>
+    </ul>
+    <button [disabled]="instructor.isBooked"
+        type="button" class="btn btn-outline-info btn-book" data-bs-toggle="tooltip"
+        data-bs-placement="right">
+          <fa-icon class="instructor-check-icon" [icon]="faUserCheck"></fa-icon>
+      </button>
+  </app-card>
+</div>
+
+<!--
 <div  *ngIf="instructor">
   <div class="card instructor-card">
     <img [src]="photoUrl" class="card-img-top" [alt]="instructor.fullname">
@@ -22,3 +44,4 @@
     </div>
   </div>
 </div>
+-->

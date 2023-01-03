@@ -1,1 +1,35 @@
-<p>motorcycle works!</p>
+<div class="motorcycle" *ngIf="motorcycle">
+  <app-card>
+    <img [src]="photoUrl" class="card-img-top motorcycle-image" [alt]="motorcycle.type">
+    <h5 class="card-title motorcycle-title">Type: {{motorcycle.type}}</h5>
+    <p class="card-text motorcycle-text">Model: {{motorcycle.model}}</p>
+    <button
+        type="button" class="btn btn-outline-info btn-book" data-bs-toggle="tooltip"
+        data-bs-placement="bottom">
+          <fa-icon class="instructor-check-icon" [icon]="faMotorcycle"></fa-icon>
+    </button>
+    <button class="btn btn-dark btn-motorcycle-description"
+            type="button" data-bs-toggle="offcanvas"
+            data-bs-target="#offcanvasRight" aria-controls="offcanvasRight"
+    >
+      Description
+    </button>
+  </app-card>
+</div>
+<div *ngIf="motorcycle">
+  <app-offcanvas>
+    <img [src]="photoUrl" class="card-img-top offcanvas-motorcycle-image" [alt]="motorcycle.type">
+    <h5 class="offcanvas-title-motor">{{motorcycle.type}}</h5>
+    <h6 class="motorcycle-subtitle">{{motorcycle.model}}</h6>
+      <ul class="motorcycle-list-description">
+        <b>Descriptions:</b>
+        <li>Year of Production: {{motorcycle.year}}</li>
+        <li>Fuel Capacity: {{motorcycle.fuel}} l</li>
+        <li>Engine Capacity of: {{motorcycle.capacity}} cc</li>
+        <li>Weight: {{motorcycle.weight}}</li>
+        <li>Speed: {{motorcycle.speed}}</li>
+        <li>Available Motorcycles: {{motorcycle.availableMotorcycles}}</li>
+      </ul>
+  </app-offcanvas>
+</div>
+

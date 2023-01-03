@@ -1,0 +1,10 @@
+.offcanvas{
+  background-image:
+     radial-gradient(closest-side at 25% 25%,rgb(23, 169, 248) 40%,rgba(16, 16, 16, 1) 71%);
+   background-size: 150px 100px;
+}
+.text-reset{
+  background-color: rgb(70, 84, 4);
+  box-shadow: 0 0 8px 2px rgb(244, 245, 242)inset;
+  border: 2px solid rgba(16, 16, 16, 1);
+}

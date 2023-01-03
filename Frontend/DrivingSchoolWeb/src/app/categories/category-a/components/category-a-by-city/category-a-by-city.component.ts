@@ -38,6 +38,7 @@ export class CategoryAByCityComponent implements OnInit {
     );
     this.loadLesson();
     this.loadInstructors();
+    this.loadMotorcycles();
   }
   loadLesson():  void{
     this.lesson$ = this.categoryA$.pipe(
