@@ -4,11 +4,11 @@ import { RouterModule } from '@angular/router';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { CategoryAComponent } from './components/category-a/category-a.component';
 import { CategoryAByCityComponent } from './components/category-a-by-city/category-a-by-city.component';
+import { MotorcycleComponent } from 'src/app/categories/category-a/components/motorcycle/motorcycle.component';
+import { InstructorComponent } from 'src/app/categories/category-a/components/instructor/instructor.component';
 import {route} from 'src/app/categories/category-a/route';
 import {CategoriesModule} from 'src/app/categories/categories.module';
-import { MotorcycleComponent } from './components/motorcycle/motorcycle.component';
-import { InstructorComponent } from './components/instructor/instructor.component';
-
+import {SharedModule} from 'src/app/shared/shared.module';
 
 @NgModule({
   declarations: [
@@ -21,6 +21,7 @@ import { InstructorComponent } from './components/instructor/instructor.componen
     CommonModule,
     CategoriesModule,
     FontAwesomeModule,
+    SharedModule,
     RouterModule.forChild(route)
   ],
   exports:[

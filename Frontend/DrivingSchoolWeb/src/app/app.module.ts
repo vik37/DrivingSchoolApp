@@ -12,9 +12,9 @@ import { FooterComponent } from './container/components/footer/footer.component'
 import { AboutComponent } from './container/components/about/about.component';
 import { ContactComponent } from './container/components/contact/contact.component';
 import { HomeComponent } from './container/components/home/home.component';
-import { NotAllowedComponent } from './shared/components/not-allowed/not-allowed.component';
-import { NotFoundComponent } from './shared/components/not-found/not-found.component';
-import {Modules} from 'src/app/shared/shared-modules';
+import { NotAllowedComponent } from './container/components/not-allowed/not-allowed.component';
+import { NotFoundComponent } from './container/components/not-found/not-found.component';
+import {Modules} from 'src/app/shared-modules';
 @NgModule({
   declarations: [
     AppComponent,

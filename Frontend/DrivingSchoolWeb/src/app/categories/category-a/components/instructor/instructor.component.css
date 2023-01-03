@@ -4,7 +4,7 @@
   margin-bottom: 50px;
   filter:drop-shadow(-30px 10px 10px  rgb(13, 13, 13));
 }
-.instructor-card-body > h5, .instructor-card-body > p{
+.instructor-title, .instructor-text{
   font-size: 18px;
   color: rgb(0,0,0);
   text-shadow: -1px 1px rgb(103, 246, 253);
