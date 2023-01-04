@@ -9,13 +9,15 @@ import { InstructorComponent } from 'src/app/categories/category-a/components/in
 import {route} from 'src/app/categories/category-a/route';
 import {CategoriesModule} from 'src/app/categories/categories.module';
 import {SharedModule} from 'src/app/shared/shared.module';
+import { MotorcycleDetailComponent } from './components/motorcycle-detail/motorcycle-detail.component';
 
 @NgModule({
   declarations: [
     CategoryAComponent,
     CategoryAByCityComponent,
     MotorcycleComponent,
-    InstructorComponent
+    InstructorComponent,
+    MotorcycleDetailComponent
   ],
   imports: [
     CommonModule,

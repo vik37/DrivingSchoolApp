@@ -1,3 +1,19 @@
 .lesson-block{
   padding: 30px 0;
 }
+.br-lesson-price{
+  display: none;
+}
+@media screen and (max-width: 1300px) {
+  .br-lesson-price{
+    display: block;
+  }
+  .lesson-description{
+    font-size: 10px;
+  }
+}
+@media screen and (max-width: 768px) {
+  .br-lesson-price{
+    display: none;
+  }
+}

@@ -1,3 +1,43 @@
 .lesson{
   height: 300px;
 }
+section{
+  margin-bottom: 70px;
+}
+@media screen and (max-width: 1300px){
+  .lesson{
+    height: 400px;
+  }
+}
+@media screen and (max-width: 1050px){
+  .lesson{
+    height: 80vh;
+  }
+}
+@media screen and (max-width: 900px){
+  aside{
+    padding: 0;
+  }
+  .motorcycle-container{
+    margin: 1px 0;
+  }
+}
+@media screen and (max-width: 768px){
+  .category-a-city-header-section{
+    margin-bottom: 20px;
+  }
+  .lesson{
+    height: 50vh;
+  }
+}
+@media screen and (max-width: 576px){
+  .lesson{
+    height: 70vh;
+  }
+  .btn-select-lesson{
+    width: 90%;
+  }
+  .motorcycle-container{
+    margin-bottom: 90px;
+  }
+}

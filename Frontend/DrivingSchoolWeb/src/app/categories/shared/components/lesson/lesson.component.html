@@ -1,14 +1,14 @@
 <div *ngIf="lesson" class="row lesson-block">
-  <div class="col-md-7">
-    <p><i> Price:</i> {{lesson.price | currency}}</p>
+  <div class="col-sm-12 col-md-6">
+    <p><i> Price:</i> <br class="br-lesson-price"/> {{lesson.price | currency}}</p>
   </div>
-  <div class="col-md-5">
-    <p><i>Test Price:</i> {{lesson.testPrice | currency}}</p>
+  <div class="col-sm-12 col-md-5">
+    <p><i>Test Price:</i> <br class="br-lesson-price"/> {{lesson.testPrice | currency}}</p>
   </div>
-  <div class="col-md-12">
+  <div class="col-sm-12 col-md-12">
     <p>{{lesson.description}}</p>
   </div>
-  <div class="col-md-12">
+  <div class="col-sm-12 col-md-12 lesson-description">
     <p><i>Duration of Classes:</i> {{lesson.duration}}</p>
   </div>
 </div>
