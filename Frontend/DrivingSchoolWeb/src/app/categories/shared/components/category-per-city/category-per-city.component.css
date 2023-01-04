@@ -4,7 +4,7 @@
   padding: 0 20px;
 }
 .city-image{
-  width: 60vw;
+  width: 100%;
   height: 250px;
 }
 .city-image-block{
@@ -16,4 +16,14 @@
 }
 .city-image-block:hover{
   box-shadow: 0 0 6px 1px rgb(44, 179, 247);
+}
+@media screen and (max-width: 990px) {
+  .city-contact{
+    font-size: 11px;
+  }
+}
+@media screen and (max-width: 320px) {
+  .category-block{
+    padding: 0 2px;
+  }
 }

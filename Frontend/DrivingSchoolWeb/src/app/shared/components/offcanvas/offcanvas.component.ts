@@ -1,15 +1,12 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 
 @Component({
   selector: 'app-offcanvas',
   templateUrl: './offcanvas.component.html',
   styleUrls: ['./offcanvas.component.css']
 })
-export class OffcanvasComponent implements OnInit {
+export class OffcanvasComponent {
 
   constructor() { }
-
-  ngOnInit(): void {
-  }
 
 }

@@ -8,7 +8,7 @@ import {Motorcycle} from 'src/app/categories/category-a/models/motorcycle';
 import {LessonType} from 'src/app/categories/category-a/models/enums/lesson-type';
 import {PhotoService} from 'src/app/shared/services/photo.service';
 import { Observable } from 'rxjs';
-import {switchMap, tap,map} from 'rxjs/operators';
+import {switchMap, tap,map,filter} from 'rxjs/operators';
 
 @Component({
   selector: 'app-category-a-bycity',
@@ -26,6 +26,7 @@ export class CategoryAByCityComponent implements OnInit {
   lessonType = LessonType;
   photoUrl: string = '';
   disable: boolean = true;
+  motorcycleDetail: Motorcycle | undefined;
 
   constructor(private route: ActivatedRoute, private categoryAService: CategoryAService,
               private photoService: PhotoService) { }
@@ -50,7 +51,7 @@ export class CategoryAByCityComponent implements OnInit {
   loadPhoto(city:string): void{
     this.photoUrl = this.photoService.uri+'city/'+city;
   }
-  getLessonByType(type:LessonType): void{
+  selectLessonByType(type:LessonType): void{
     this.nextLessonIndex = type;
     this.disable = !this.disable;
     this.loadLesson();
@@ -62,7 +63,11 @@ export class CategoryAByCityComponent implements OnInit {
   }
   loadMotorcycles(): void{
     this.motorcycles$ = this.categoryA$.pipe(
-      map(data => data.motorcycles)
-    )
+      map(data => data.motorcycles),
+      tap(data => this.motorcycleDetail = data.find(x => x.id === 1)??undefined)
+    );
+  }
+  getMotorDetail(motor: Motorcycle): void{
+    this.motorcycleDetail = motor;
   }
 }

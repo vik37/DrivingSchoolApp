@@ -1,6 +1,6 @@
 <div *ngIf="instructor">
   <app-card>
-    <img [src]="photoUrl" class="card-img-top" [alt]="instructor.fullname">
+    <img [src]="photoUrl" class="card-img-top instructor-card-image" [alt]="instructor.fullname">
     <h5 class="card-title instructor-title">{{instructor.fullname}}</h5>
     <p class="card-text instructor-text">Age: {{instructor.age}}</p>
     <ul class="list-group list-group-flush instructor-card-list">
