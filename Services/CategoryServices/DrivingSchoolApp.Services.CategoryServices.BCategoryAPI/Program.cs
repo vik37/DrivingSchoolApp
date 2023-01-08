@@ -41,8 +41,10 @@ namespace DrivingSchoolApp.Services.CategoryServices.BCategoryAPI
 				opt.UseSqlServer(configuration.GetConnectionString("DefaultConnection")));
 
 			services.AddTransient<IRepository<CategoryB>, CategoryBRepository>();
+			services.AddTransient<IRepository<Instructor>,InstructorRepository>();
 
 			services.AddTransient<ICategoryBService, CategoryBService>();
+			services.AddTransient<IInstructorService, InstructorService>();
 
 			services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
 

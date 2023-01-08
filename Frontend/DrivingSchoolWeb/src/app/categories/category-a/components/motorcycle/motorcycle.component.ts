@@ -12,17 +12,27 @@ declare var jQuery: any;
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class MotorcycleComponent implements OnChanges, AfterViewInit {
-  @Input() motorcycle: Motorcycle | undefined;
+  private _motorcycle!: Motorcycle;
+  @Input()
+  set motorcycle(value:Motorcycle){
+    if(value){
+      this._motorcycle = value;
+      this.photoUrl = this.photoService.uri + "motorcycles/" + value.photo;
+    }
+  };
+  get motorcycle(): Motorcycle{
+    return this._motorcycle;
+  }
   photoUrl:string = '';
   faMotorcycle = faMotorcycle;
 
   constructor(private photoService: PhotoService) { }
 
   ngOnChanges(changes: SimpleChanges): void {
-    let motorcycleChanges = changes['motorcycle'];
-    if(motorcycleChanges.firstChange){
-      this.photoUrl = this.photoService.uri + "motorcycles/" + this.motorcycle?.photo;
-    }
+    //let motorcycleChanges = changes['motorcycle'];
+    //if(motorcycleChanges.firstChange){
+    //  this.photoUrl = this.photoService.uri + "motorcycles/" + this.motorcycle?.photo;
+    //}
   }
   ngAfterViewInit(): void {
     jQuery('[data-bs-toggle="tooltip"]').tooltip({
