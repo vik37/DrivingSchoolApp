@@ -9,7 +9,7 @@ declare var jQuery: any;
   templateUrl: './motorcycle.component.html',
   styleUrls: ['./motorcycle.component.css'],
   providers: [PhotoService],
-  changeDetection: ChangeDetectionStrategy.Default
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class MotorcycleComponent implements OnChanges, AfterViewInit {
   @Input() motorcycle: Motorcycle | undefined;
@@ -22,7 +22,6 @@ export class MotorcycleComponent implements OnChanges, AfterViewInit {
     let motorcycleChanges = changes['motorcycle'];
     if(motorcycleChanges.firstChange){
       this.photoUrl = this.photoService.uri + "motorcycles/" + this.motorcycle?.photo;
-      console.log(this.motorcycle)
     }
   }
   ngAfterViewInit(): void {
