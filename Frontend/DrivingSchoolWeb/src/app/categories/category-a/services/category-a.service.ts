@@ -14,13 +14,11 @@ export class CategoryAService {
 
   getAll() : Observable<CategoryA[]>{
     return this.http.get<CategoryA[]>(this.uri).pipe(
-      tap(res => console.log('from category A service: ',res)),
       map(res => (res as CategoryA[]))
     )
   }
   getById(id:string): Observable<CategoryA>{
     return this,this.http.get<CategoryA>(this.uri+'/'+id).pipe(
-      tap(res => console.log('from category A service by id: ',res)),
       map(res => res as CategoryA)
     )
   }

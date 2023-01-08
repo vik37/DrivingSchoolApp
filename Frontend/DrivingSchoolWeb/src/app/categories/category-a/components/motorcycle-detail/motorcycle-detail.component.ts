@@ -9,9 +9,12 @@ import {PhotoService} from 'src/app/shared/services/photo.service';
   styleUrls: ['./motorcycle-detail.component.css']
 })
 export class MotorcycleDetailComponent {
-  
+
   private _motorcycle!: Motorcycle;
   photoUrl:string = '';
+
+  constructor(private photoService: PhotoService) { }
+
   @Input()
   set motorcycle(value:Motorcycle){
     if(value){
@@ -22,7 +25,4 @@ export class MotorcycleDetailComponent {
   get motorcycle(): Motorcycle{
     return this._motorcycle;
   }
-
-  constructor(private photoService: PhotoService) { }
-
 }
