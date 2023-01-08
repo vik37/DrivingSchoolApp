@@ -1,4 +1,4 @@
-import { Component, OnChanges, SimpleChanges, Input } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import {Motorcycle} from 'src/app/categories/category-a/models/motorcycle';
 import {PhotoService} from 'src/app/shared/services/photo.service';
 
@@ -8,20 +8,21 @@ import {PhotoService} from 'src/app/shared/services/photo.service';
   templateUrl: './motorcycle-detail.component.html',
   styleUrls: ['./motorcycle-detail.component.css']
 })
-export class MotorcycleDetailComponent implements OnChanges {
-
+export class MotorcycleDetailComponent {
+  
+  private _motorcycle!: Motorcycle;
   photoUrl:string = '';
-  @Input()motorcycle: Motorcycle | undefined;
-  constructor(private photoService: PhotoService) { }
-
-  ngOnChanges(changes: SimpleChanges): void {
-    let motorcycleChanges = changes['motorcycle'];
-
-    console.log('simple change: ', motorcycleChanges)
-    if(!motorcycleChanges.firstChange){
-      this.photoUrl = this.photoService.uri + "motorcycles/" + this.motorcycle!.photo;
-      console.log(this.photoUrl)
+  @Input()
+  set motorcycle(value:Motorcycle){
+    if(value){
+      this._motorcycle = value;
+      this.photoUrl = this.photoService.uri + "motorcycles/" + value.photo;
     }
+  };
+  get motorcycle(): Motorcycle{
+    return this._motorcycle;
   }
+
+  constructor(private photoService: PhotoService) { }
 
 }

@@ -8,7 +8,7 @@ import {Motorcycle} from 'src/app/categories/category-a/models/motorcycle';
 import {LessonType} from 'src/app/categories/category-a/models/enums/lesson-type';
 import {PhotoService} from 'src/app/shared/services/photo.service';
 import { Observable } from 'rxjs';
-import {switchMap, tap,map,filter} from 'rxjs/operators';
+import {switchMap, tap,map} from 'rxjs/operators';
 
 @Component({
   selector: 'app-category-a-bycity',
@@ -22,7 +22,7 @@ export class CategoryAByCityComponent implements OnInit {
   lesson$: Observable<CategoryALesson | undefined> = new Observable<CategoryALesson | undefined>();
   instructors$: Observable<Instructor[]> = new Observable<Instructor[]>();
   motorcycles$: Observable<Motorcycle[]> = new Observable<Motorcycle[]>();
-  nextLessonIndex:LessonType = LessonType.Theory;
+  currentLessonType:LessonType = LessonType.Theory;
   lessonType = LessonType;
   photoUrl: string = '';
   disable: boolean = true;
@@ -45,14 +45,14 @@ export class CategoryAByCityComponent implements OnInit {
     this.lesson$ = this.categoryA$.pipe(
                   tap(data => this.loadPhoto(data.city.toLocaleLowerCase())),
                   map(data => data.lessons),
-                  map(x => x.find(s => s.type === this.nextLessonIndex))
+                  map(x => x.find(s => s.type === this.currentLessonType))
                 );
   }
   loadPhoto(city:string): void{
     this.photoUrl = this.photoService.uri+'city/'+city;
   }
   selectLessonByType(type:LessonType): void{
-    this.nextLessonIndex = type;
+    this.currentLessonType = type;
     this.disable = !this.disable;
     this.loadLesson();
   }
