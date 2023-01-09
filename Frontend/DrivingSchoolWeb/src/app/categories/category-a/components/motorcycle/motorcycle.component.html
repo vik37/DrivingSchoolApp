@@ -3,6 +3,12 @@
     <img [src]="photoUrl" class="card-img-top motorcycle-image" [alt]="motorcycle.type">
     <h5 class="card-title motorcycle-title">Type: {{motorcycle.type}}</h5>
     <p class="card-text motorcycle-text">Model: {{motorcycle.model}}</p>
+    <div class="color-box">
+        <app-color-box
+          [colorText]="motorcycle.color"
+        >
+        </app-color-box>
+    </div>
     <button
         type="button" class="btn btn-outline-info btn-book" data-bs-toggle="tooltip"
         data-bs-placement="right">
@@ -10,3 +16,4 @@
     </button>
   </app-card>
 </div>
+
