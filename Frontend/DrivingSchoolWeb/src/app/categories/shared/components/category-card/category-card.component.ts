@@ -23,7 +23,6 @@ export class CategoryCardComponent implements OnChanges {
     let categoryChanges = changes['category'];
     if(categoryChanges.firstChange){
       this.image = `${this.photoService.uri}city/${this.category?.city.toLowerCase()}`;
-      console.log('check photo url',this.image);
     }
   }
 

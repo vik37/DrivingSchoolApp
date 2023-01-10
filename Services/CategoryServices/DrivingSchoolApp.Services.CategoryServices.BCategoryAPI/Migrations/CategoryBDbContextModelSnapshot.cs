@@ -595,7 +595,7 @@ namespace DrivingSchoolApp.Services.CategoryServices.BCategoryAPI.Migrations
                             InstructorAcademy = "InstructorsMKD Company",
                             Lastname = "Spasovski",
                             LicenceId = "3f362685-b8b0-4fa3-aa96-1b1c700e4d31",
-                            StartedDay = "29/01/2021",
+                            StartedDay = "01/29/2021",
                             TotalWorkExperience = 5,
                             isBooked = false
                         },
@@ -609,7 +609,7 @@ namespace DrivingSchoolApp.Services.CategoryServices.BCategoryAPI.Migrations
                             InstructorAcademy = "Oslomej Kicevo",
                             Lastname = "Ristoski",
                             LicenceId = "083d6982-6234-4553-934f-e75f2b58b921",
-                            StartedDay = "29/01/2019",
+                            StartedDay = "09/01/2019",
                             TotalWorkExperience = 15,
                             isBooked = false
                         },
@@ -637,7 +637,7 @@ namespace DrivingSchoolApp.Services.CategoryServices.BCategoryAPI.Migrations
                             InstructorAcademy = "AMSM",
                             Lastname = "Neagu",
                             LicenceId = "51a01164-2e9b-423e-bb57-c4286695caf0",
-                            StartedDay = "26/05/2012",
+                            StartedDay = "05/29/2012",
                             TotalWorkExperience = 29,
                             isBooked = false
                         },
@@ -665,7 +665,7 @@ namespace DrivingSchoolApp.Services.CategoryServices.BCategoryAPI.Migrations
                             InstructorAcademy = "AS Vardar",
                             Lastname = "Janevski",
                             LicenceId = "b1952570-ecd5-4f14-9cce-4968a2d7c296",
-                            StartedDay = "02/02/2017",
+                            StartedDay = "06/02/2017",
                             TotalWorkExperience = 16,
                             isBooked = false
                         },
@@ -693,7 +693,7 @@ namespace DrivingSchoolApp.Services.CategoryServices.BCategoryAPI.Migrations
                             InstructorAcademy = "ASMS",
                             Lastname = "Milosevski",
                             LicenceId = "748cf5dd-67f6-4fae-a816-9d8aa067019d",
-                            StartedDay = "03/19/2018",
+                            StartedDay = "12/19/2018",
                             TotalWorkExperience = 4,
                             isBooked = false
                         },
@@ -707,7 +707,7 @@ namespace DrivingSchoolApp.Services.CategoryServices.BCategoryAPI.Migrations
                             InstructorAcademy = "AS Vardar",
                             Lastname = "Asan",
                             LicenceId = "9d297b8a-0f70-43bd-ba7c-154a2ea54f53",
-                            StartedDay = "03/19/2020",
+                            StartedDay = "01/29/2020",
                             TotalWorkExperience = 5,
                             isBooked = false
                         },

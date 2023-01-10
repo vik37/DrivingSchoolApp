@@ -12,9 +12,6 @@ export class LessonComponent implements OnChanges {
   constructor() { }
 
   ngOnChanges(changes: SimpleChanges): void{
-    let firstLessonChanges = changes['lesson'];
-    if(firstLessonChanges.firstChange){
-      console.log('lesson from lesson component: ', this.lesson);
-    }
+
   }
 }

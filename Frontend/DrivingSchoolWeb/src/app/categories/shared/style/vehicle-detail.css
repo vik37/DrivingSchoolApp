@@ -1,0 +1,22 @@
+.vehicle-detail-image{
+  border-radius: 10px;
+}
+.vehicle-detail-title{
+  text-shadow: -1px 2px  rgb(7, 14, 56);
+  color: rgb(89, 221, 247);
+  font-weight: bolder;
+  letter-spacing: 1.2px;
+  font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
+.vehicle-detail-subtitle{
+  color: rgba(12, 12, 12,0.6);
+  text-shadow: 1px 2px rgb(251, 252, 252);
+  font-weight: 800;
+}
+.vehicle-detail-list-description > li{
+  background-color: rgba(130, 158, 6, 0);
+  margin: 14px 0;
+  padding: 3px 0;
+  box-shadow: 0 0 6px 4px rgba(251, 252, 253, 0.3);
+  border-radius: 7px;
+}

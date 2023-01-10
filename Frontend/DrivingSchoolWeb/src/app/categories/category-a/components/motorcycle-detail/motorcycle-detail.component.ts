@@ -6,7 +6,8 @@ import {PhotoService} from 'src/app/shared/services/photo.service';
 @Component({
   selector: 'app-motorcycle-detail',
   templateUrl: './motorcycle-detail.component.html',
-  styleUrls: ['./motorcycle-detail.component.css']
+  styleUrls: ['./motorcycle-detail.component.css','../../../shared/style/vehicle-detail.css'],
+  providers:[PhotoService]
 })
 export class MotorcycleDetailComponent {
 
