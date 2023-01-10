@@ -1,7 +1,8 @@
 .offcanvas{
   background-image:
-     radial-gradient(closest-side at 65% 15%,rgb(12, 92, 134) 9%,rgb(50, 50, 50) 68%);
+    radial-gradient(closest-side at 65% 15%,rgb(12, 92, 134) 9%,rgb(50, 50, 50) 68%);
    background-size: 150px 100px;
+
 }
 .offcanvas-body{
   text-align: center;
