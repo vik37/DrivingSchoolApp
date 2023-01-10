@@ -1,9 +1,10 @@
 <div *ngIf="motorcycle">
   <app-offcanvas>
-    <img [src]="photoUrl" class="card-img-top offcanvas-motorcycle-image" [alt]="motorcycle.type">
-    <h4 class="offcanvas-title-motor">{{motorcycle.type}}</h4>
-    <h5 class="motorcycle-subtitle">{{motorcycle.model}}</h5>
-      <ul class="motorcycle-list-description">
+    <img [src]="photoUrl" class="card-img-top offcanvas-image vehicle-detail-image"
+          [alt]="motorcycle.type">
+    <h4 class="offcanvas-title vehicle-detail-title">{{motorcycle.type}}</h4>
+    <h5 class="offcanvas-subtitle vehicle-detail-subtitle">{{motorcycle.model}}</h5>
+      <ul class="offcanvas-list-description vehicle-detail-list-description">
         <h5>Descriptions:</h5>
         <li><b>Year of Production: </b><i>{{motorcycle.year}}</i></li>
         <li><b>Fuel Capacity: </b><i>{{motorcycle.fuel}} l</i></li>

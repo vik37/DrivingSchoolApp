@@ -11,8 +11,8 @@ import {CategoryA} from 'src/app/categories/category-a/models/categoryA';
 })
 export class CategoryAComponent {
 
-  categoryARoute:string = 'category-a';
-  categoryA$: Observable<CategoryA[]> = this.categoryAService.getAll();
+  public categoryARoute:string = 'category-a';
+  public categoryA$: Observable<CategoryA[]> = this.categoryAService.getAll();
 
   constructor(private categoryAService: CategoryAService) { }
 

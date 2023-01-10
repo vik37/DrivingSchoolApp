@@ -1,1 +1,18 @@
-<p>car works!</p>
+<div class="car" *ngIf="car">
+  <app-card>
+    <img [src]="photoUrl" class="card-img-top vehicle-image" [alt]="car.type">
+    <h5 class="card-title vehicle-title">Type: {{car.type}}</h5>
+    <p class="card-text vehicle-text">Model: {{car.model}}</p>
+    <div class="color-box">
+        <app-color-box
+          [colorText]="car.color"
+        >
+        </app-color-box>
+    </div>
+    <button
+        type="button" class="btn btn-outline-info btn-book" data-bs-toggle="tooltip"
+        data-bs-placement="right">
+          <fa-icon class="instructor-check-icon" [icon]="faMotorcycle"></fa-icon>
+    </button>
+  </app-card>
+</div>

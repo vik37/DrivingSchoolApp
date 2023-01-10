@@ -9,8 +9,8 @@ import {CategoryBService} from 'src/app/categories/category-b/services/category-
   styleUrls: ['../../../shared/style/category.css','./category-b.component.css']
 })
 export class CategoryBComponent {
-  categoryBRoute:string = 'category-b';
-  categoryB$: Observable<CategoryB[]> = this.categoryBService.getAll();
+  public categoryBRoute:string = 'category-b';
+  public categoryB$: Observable<CategoryB[]> = this.categoryBService.getAll();
 
   constructor(private categoryBService: CategoryBService) { }
 

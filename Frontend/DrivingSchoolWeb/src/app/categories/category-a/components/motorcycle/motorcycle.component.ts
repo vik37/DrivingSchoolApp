@@ -7,12 +7,18 @@ declare var jQuery: any;
 @Component({
   selector: 'app-motorcycle',
   templateUrl: './motorcycle.component.html',
-  styleUrls: ['./motorcycle.component.css'],
+  styleUrls: ['./motorcycle.component.css','../../../shared/style/vehicle.css'],
   providers: [PhotoService],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class MotorcycleComponent implements AfterViewInit {
   private _motorcycle!: Motorcycle;
+
+  photoUrl:string = '';
+  faMotorcycle = faMotorcycle;
+
+  constructor(private photoService: PhotoService) { }
+
   @Input()
   set motorcycle(value:Motorcycle){
     if(value){
@@ -23,10 +29,6 @@ export class MotorcycleComponent implements AfterViewInit {
   get motorcycle(): Motorcycle{
     return this._motorcycle;
   }
-  photoUrl:string = '';
-  faMotorcycle = faMotorcycle;
-
-  constructor(private photoService: PhotoService) { }
 
   ngAfterViewInit(): void {
     jQuery('[data-bs-toggle="tooltip"]').tooltip({

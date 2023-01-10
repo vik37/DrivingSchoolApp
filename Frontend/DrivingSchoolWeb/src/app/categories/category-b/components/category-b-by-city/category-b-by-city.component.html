@@ -1,1 +1,79 @@
-<p>category-b-by-city works!</p>
+<div class="row">
+  <section class="col-sm-12 col-md-8 category-b-city-header-section">
+    <div *ngIf="categoryB$ | async as categoryB">
+      <app-category-per-city
+        [category]="categoryB"
+      ></app-category-per-city>
+    </div>
+  </section>
+  <aside class="col-sm-12 col-md-4">
+    <div class="row lesson">
+      <div *ngIf="lesson$ | async as lesson">
+        <app-lesson
+          [lesson] = "lesson"
+        ></app-lesson>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-xs-12 col-sm-3 col-md-8">
+        <button
+          class="btn btn-outline-info btn-select-lesson"
+          [disabled]="disable"
+          (click)="selectLessonByType(lessonType.Theory)">
+            {{lessonType[lessonType.Theory]}}
+        </button>
+      </div>
+      <div class="col-xs-12 col-sm-3 col-md-3">
+        <button
+          class="btn btn-outline-secondary btn-select-lesson"
+          [disabled]="!disable"
+          (click)="selectLessonByType(lessonType.Polygon)">
+            {{lessonType[lessonType.Polygon]}}
+        </button>
+      </div>
+    </div>
+  </aside>
+</div>
+<br />
+<br />
+<hr />
+<br />
+<div class="container">
+  <div class="row">
+    <h3>Instructors:</h3>
+  </div>
+  <br />
+  <div class="row">
+    <section *ngFor="let instructor of (instructors$ | async)" class="col-xs-12 col-sm-6 col-md-4">
+      <app-instructor
+        [instructor]="instructor"
+      ></app-instructor>
+    </section>
+  </div>
+</div>
+<div class="container car-container">
+  <div class="row">
+    <h3>Cars:</h3>
+  </div>
+  <br />
+  <div class="row">
+    <section *ngFor="let car of (cars$ | async)" class="col-xs-12 col-sm-6 col-md-3">
+      <app-car
+        [car]="car"
+      ></app-car>
+      <button class="btn btn-dark btn-motorcycle-description"
+            type="button" data-bs-toggle="offcanvas"
+            data-bs-target="#offcanvasRight" aria-controls="offcanvasRight"
+            (click)="getCarDetail(car)"
+      >
+        {{car.type}}
+      </button>
+    </section>
+  </div>
+</div>
+
+<app-car-detail
+  *ngIf="carDetail"
+  [car]="carDetail"
+>
+</app-car-detail>
