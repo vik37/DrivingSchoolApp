@@ -20,7 +20,6 @@ export class InstructorComponent implements OnChanges,AfterViewInit {
     if(firstInstructorChanges.firstChange){
       if(this.instructor?.photo === null){
         this.photoUrl = `${this.photoService.uri}empty/empty-person`;
-        console.log('category b instructor: ', this.instructor)
       }
       else{
         this.photoUrl = `${this.photoService.uri}instructor/${this.instructor?.photo}`;

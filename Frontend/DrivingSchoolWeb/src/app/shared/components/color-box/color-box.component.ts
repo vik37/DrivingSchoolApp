@@ -13,7 +13,6 @@ export class ColorBoxComponent implements OnChanges {
   ngOnChanges(changes: SimpleChanges): void {
     if(changes['colorText'].firstChange){
       this.colors = this.colorText.split("&").map(color => color.trim().toLowerCase());
-      console.log('color text',this.colors)
     }
   }
 
