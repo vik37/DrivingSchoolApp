@@ -3,6 +3,8 @@ import { CommonModule } from '@angular/common';
 import { CardComponent } from './components/card/card.component';
 import { OffcanvasComponent } from './components/offcanvas/offcanvas.component';
 import { ColorBoxComponent } from './components/color-box/color-box.component';
+import { EnumConverterPipe } from './pipes/enum-converter.pipe';
+import { ConvertEnumToArrayPipe } from './pipes/convert-enum-to-array.pipe';
 
 
 
@@ -10,7 +12,9 @@ import { ColorBoxComponent } from './components/color-box/color-box.component';
   declarations: [
     CardComponent,
     OffcanvasComponent,
-    ColorBoxComponent
+    ColorBoxComponent,
+    EnumConverterPipe,
+    ConvertEnumToArrayPipe
   ],
   imports: [
     CommonModule
@@ -18,7 +22,9 @@ import { ColorBoxComponent } from './components/color-box/color-box.component';
   exports:[
     CardComponent,
     OffcanvasComponent,
-    ColorBoxComponent
+    ColorBoxComponent,
+    EnumConverterPipe,
+    ConvertEnumToArrayPipe
   ]
 })
 export class SharedModule { }

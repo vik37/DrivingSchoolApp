@@ -23,7 +23,6 @@ export class CategoryBByCityComponent implements OnInit {
   public cars$: Observable<Car[]> = new Observable<Car[]>();
   public currentLessonType:LessonType = LessonType.Theory;
   public lessonType = LessonType;
-  public disable: boolean = true;
   public carDetail: Car | undefined;
 
   constructor(private route: ActivatedRoute, private categoryBService: CategoryBService)
@@ -51,9 +50,8 @@ export class CategoryBByCityComponent implements OnInit {
       map(data => data.instructors)
     );
   }
-  selectLessonByType(type:LessonType): void{
-    this.currentLessonType = type;
-    this.disable = !this.disable;
+  selectLessonByType(type:number): void{
+    this.currentLessonType = type as LessonType;
     this.loadLesson();
   }
   loadCars(): void{
@@ -63,8 +61,6 @@ export class CategoryBByCityComponent implements OnInit {
     );
   }
   getCarDetail(car: Car): void{
-    console.log('get car: ', car)
     this.carDetail = car;
-    console.log('get car detai: ', this.carDetail)
   }
 }

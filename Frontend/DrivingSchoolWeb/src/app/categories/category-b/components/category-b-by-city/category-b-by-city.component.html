@@ -8,28 +8,22 @@
   </section>
   <aside class="col-sm-12 col-md-4">
     <div class="row lesson">
+      <h5>{{currentLessonType | enumConverter: lessonType}}</h5>
       <div *ngIf="lesson$ | async as lesson">
         <app-lesson
           [lesson] = "lesson"
         ></app-lesson>
       </div>
     </div>
-    <div class="row">
-      <div class="col-xs-12 col-sm-3 col-md-8">
-        <button
-          class="btn btn-outline-info btn-select-lesson"
-          [disabled]="disable"
-          (click)="selectLessonByType(lessonType.Theory)">
-            {{lessonType[lessonType.Theory]}}
-        </button>
-      </div>
-      <div class="col-xs-12 col-sm-3 col-md-3">
-        <button
-          class="btn btn-outline-secondary btn-select-lesson"
-          [disabled]="!disable"
-          (click)="selectLessonByType(lessonType.Polygon)">
-            {{lessonType[lessonType.Polygon]}}
-        </button>
+    <br />
+    <hr />
+    <div *ngIf="lesson$ | async as lesson" class="row justify-content-center">
+      <div  *ngFor="let type of lessonType | convertEnumToArray"
+              class="col-xs-3 col-sm-2 col-md-1 lesson-type-selector-block">
+        <div class="lesson-type-selector"
+          (click)="selectLessonByType(type.value)"
+        >
+        </div>
       </div>
     </div>
   </aside>
