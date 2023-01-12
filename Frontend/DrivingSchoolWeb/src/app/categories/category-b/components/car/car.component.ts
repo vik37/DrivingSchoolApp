@@ -1,7 +1,7 @@
 import { Component, Input,AfterViewInit, ChangeDetectionStrategy } from '@angular/core';
 import {Car} from 'src/app/categories/category-b/models/car';
 import {PhotoService} from 'src/app/shared/services/photo.service';
-import {faMotorcycle} from '@fortawesome/free-solid-svg-icons';
+import {faCar} from '@fortawesome/free-solid-svg-icons';
 declare var jQuery: any;
 
 @Component({
@@ -15,7 +15,7 @@ export class CarComponent implements AfterViewInit {
   private _car!: Car;
 
   photoUrl:string = '';
-  faMotorcycle = faMotorcycle;
+  faCar = faCar;
 
   constructor(private photoService: PhotoService) { }
 

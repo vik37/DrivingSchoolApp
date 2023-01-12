@@ -29,8 +29,11 @@ section{
   transform: rotateY(210deg);
   transform: rotateZ(70deg);
 }
-.lesson-type-selector:active{
-  box-shadow: 0 0 10px 4px rgba(247, 243, 243,0.7);
+.lesson-type-selector-active{
+  border: 2px solid rgb(250, 96, 96);
+  background-color: rgba(248, 17, 17,0.7);
+  cursor:default;
+  
 }
 @media screen and (max-width: 1300px){
   .lesson{

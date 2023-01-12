@@ -24,6 +24,8 @@ export class CategoryBByCityComponent implements OnInit {
   public currentLessonType:LessonType = LessonType.Theory;
   public lessonType = LessonType;
   public carDetail: Car | undefined;
+  public currentLessonIndex: number = 0;
+  public activeClass:string = "lesson-type-selector-active";
 
   constructor(private route: ActivatedRoute, private categoryBService: CategoryBService)
         { }
@@ -50,8 +52,9 @@ export class CategoryBByCityComponent implements OnInit {
       map(data => data.instructors)
     );
   }
-  selectLessonByType(type:number): void{
+  selectLessonByType(type:number,index:number): void{
     this.currentLessonType = type as LessonType;
+    this.currentLessonIndex = index;
     this.loadLesson();
   }
   loadCars(): void{
