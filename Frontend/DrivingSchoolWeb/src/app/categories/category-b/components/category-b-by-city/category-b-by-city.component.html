@@ -17,13 +17,15 @@
     </div>
     <br />
     <hr />
-    <div *ngIf="lesson$ | async as lesson" class="row justify-content-center">
-      <div  *ngFor="let type of lessonType | convertEnumToArray"
+    <div class="row justify-content-center">
+      <div *ngFor="let type of lessonType | convertEnumToArray; let i = index"
               class="col-xs-3 col-sm-2 col-md-1 lesson-type-selector-block">
-        <div class="lesson-type-selector"
-          (click)="selectLessonByType(type.value)"
+        <button appChangeRotationButtons class="lesson-type-selector"
+          (click)="selectLessonByType(type.value,i)"
+          [ngClass]="[i===currentLessonIndex?activeClass:'']"
+          [disabled]="i===currentLessonIndex"
         >
-        </div>
+    </button>
       </div>
     </div>
   </aside>

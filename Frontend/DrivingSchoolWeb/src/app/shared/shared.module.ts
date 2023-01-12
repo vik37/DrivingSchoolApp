@@ -5,6 +5,7 @@ import { OffcanvasComponent } from './components/offcanvas/offcanvas.component';
 import { ColorBoxComponent } from './components/color-box/color-box.component';
 import { EnumConverterPipe } from './pipes/enum-converter.pipe';
 import { ConvertEnumToArrayPipe } from './pipes/convert-enum-to-array.pipe';
+import { ChangeRotationButtonsDirective } from './directives/changeRotationButtons';
 
 
 
@@ -14,7 +15,8 @@ import { ConvertEnumToArrayPipe } from './pipes/convert-enum-to-array.pipe';
     OffcanvasComponent,
     ColorBoxComponent,
     EnumConverterPipe,
-    ConvertEnumToArrayPipe
+    ConvertEnumToArrayPipe,
+    ChangeRotationButtonsDirective
   ],
   imports: [
     CommonModule
@@ -24,7 +26,8 @@ import { ConvertEnumToArrayPipe } from './pipes/convert-enum-to-array.pipe';
     OffcanvasComponent,
     ColorBoxComponent,
     EnumConverterPipe,
-    ConvertEnumToArrayPipe
+    ConvertEnumToArrayPipe,
+    ChangeRotationButtonsDirective
   ]
 })
 export class SharedModule { }
