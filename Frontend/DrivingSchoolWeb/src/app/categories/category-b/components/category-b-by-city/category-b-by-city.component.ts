@@ -16,7 +16,11 @@ import {LessonType} from 'src/app/categories/category-b/models/enums/lesson-type
 })
 export class CategoryBByCityComponent implements OnInit {
 
-  public categoryB$: Observable<CategoryB> =  new Observable<CategoryB>();
+  public categoryB$: Observable<CategoryB> = this.route.paramMap.pipe(
+                        switchMap((params:ParamMap) =>{
+                          return this.categoryBService.getById(params.get('id') as string)
+                          })
+                        );
   public lesson$: Observable<CategoryBLesson | undefined>
                     = new Observable<CategoryBLesson | undefined>();
   public instructors$: Observable<Instructor[]> = new Observable<Instructor[]>();
@@ -31,11 +35,6 @@ export class CategoryBByCityComponent implements OnInit {
         { }
 
   ngOnInit(): void {
-    this.categoryB$ =  this.route.paramMap.pipe(
-      switchMap((params:ParamMap) =>{
-        return this.categoryBService.getById(params.get('id') as string)
-      })
-    );
     this.loadLesson();
     this.loadInstructors();
     this.loadCars();
@@ -64,6 +63,8 @@ export class CategoryBByCityComponent implements OnInit {
     );
   }
   getCarDetail(car: Car): void{
-    this.carDetail = car;
+    if(car){
+      this.carDetail = car;
+    }
   }
 }

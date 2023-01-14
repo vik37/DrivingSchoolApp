@@ -6,7 +6,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace DrivingSchoolApp.Services.CategoryServices.BCategoryAPI.Controllers
 {
-	[Route("api/[controller]")]
+	[Route("api/categoryb/{id}/[controller]")]
 	[ApiController]
 	public class InstructorController : ControllerBase
 	{
@@ -17,12 +17,12 @@ namespace DrivingSchoolApp.Services.CategoryServices.BCategoryAPI.Controllers
 			_instructorService = instructorService;
 			_response = new ResponseErrorDto();
 		}
-		[HttpGet("{id}")]
-		public async Task<IActionResult> Get(int id)
+		[HttpGet("{instructorId}")]
+		public async Task<IActionResult> Get([FromRoute] int id,[FromRoute]int instructorId)
 		{
 			try
 			{
-				var instructor = await _instructorService.GetInstructorById(id);
+				var instructor = await _instructorService.GetInstructorById(id,instructorId);
 				return Ok(instructor);
 			}
 			catch (CategoryBExceptions ex)

@@ -10,6 +10,7 @@ import {CategoryBByCityComponent} from './components/category-b-by-city/category
 import {InstructorComponent} from 'src/app/categories/category-b/components/instructor/instructor.component';
 import {CarComponent} from 'src/app/categories/category-b/components/car/car.component';
 import {CarDetailComponent} from 'src/app/categories/category-b/components/car-detail/car-detail.component';
+import { InstructorDetailComponent } from './components/instructor-detail/instructor-detail.component';
 
 @NgModule({
   declarations: [
@@ -17,7 +18,8 @@ import {CarDetailComponent} from 'src/app/categories/category-b/components/car-d
     CategoryBByCityComponent,
     InstructorComponent,
     CarComponent,
-    CarDetailComponent
+    CarDetailComponent,
+    InstructorDetailComponent
   ],
   imports: [
     CommonModule,

@@ -1,0 +1,4 @@
+<div *ngIf="instructor$ | async as instructor">
+  <p>Name: {{instructor.fullname}}</p>
+  <img width="100px" height="100px" [src]="asyncPhoto$ | async" [alt]="instructor.fullname" />
+</div>

@@ -34,7 +34,7 @@ namespace DrivingSchoolApp.Services.CategoryServices.DCategoryAPI
 				opt.UseSqlServer(configuration.GetConnectionString("DefaultConnection")));
 
 			services.AddTransient<IRepository<CategoryD>, CategoryDRepository>();
-			services.AddTransient<IRepository<Instructor>,InstructorRepository>();
+			services.AddTransient<IInstructorRepository,InstructorRepository>();
 
 			services.AddTransient<ICategoryDService,CategoryDService>();
 			services.AddTransient<IInstructorService,InstructorService>();

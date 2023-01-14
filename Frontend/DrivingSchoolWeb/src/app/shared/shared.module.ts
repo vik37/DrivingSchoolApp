@@ -6,6 +6,7 @@ import { ColorBoxComponent } from './components/color-box/color-box.component';
 import { EnumConverterPipe } from './pipes/enum-converter.pipe';
 import { ConvertEnumToArrayPipe } from './pipes/convert-enum-to-array.pipe';
 import { ChangeRotationButtonsDirective } from './directives/changeRotationButtons';
+import { EmptySpaceSplitPipe } from './pipes/empty-space-split.pipe';
 
 
 
@@ -16,7 +17,8 @@ import { ChangeRotationButtonsDirective } from './directives/changeRotationButto
     ColorBoxComponent,
     EnumConverterPipe,
     ConvertEnumToArrayPipe,
-    ChangeRotationButtonsDirective
+    ChangeRotationButtonsDirective,
+    EmptySpaceSplitPipe
   ],
   imports: [
     CommonModule
@@ -27,6 +29,7 @@ import { ChangeRotationButtonsDirective } from './directives/changeRotationButto
     ColorBoxComponent,
     EnumConverterPipe,
     ConvertEnumToArrayPipe,
+    EmptySpaceSplitPipe,
     ChangeRotationButtonsDirective
   ]
 })

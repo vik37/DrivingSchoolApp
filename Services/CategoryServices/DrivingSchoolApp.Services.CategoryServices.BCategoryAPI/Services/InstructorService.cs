@@ -9,18 +9,18 @@ namespace DrivingSchoolApp.Services.CategoryServices.BCategoryAPI.Services
 {
 	public class InstructorService : BaseService, IInstructorService
 	{
-		private readonly IRepository<Instructor> _instructorRepository;
-		public InstructorService(IMapper mapper, IRepository<Instructor> instructorRepository)
+		private readonly IInstructorRepository _instructorRepository;
+		public InstructorService(IMapper mapper, IInstructorRepository instructorRepository)
 			: base(mapper)
 		{
 			_instructorRepository = instructorRepository;
 		}
 
-		public async Task<InstructorDto> GetInstructorById(int id)
+		public async Task<InstructorDto> GetInstructorById(int id, int instructorId)
 		{
 			try
 			{
-				var instructor = await _instructorRepository.GetById(id);
+				var instructor = await _instructorRepository.GetById(id, instructorId);
 				if (instructor == null)
 					throw new CategoryBExceptions("Instructor thoes not exist");
 				return _mapper.Map<InstructorDto>(instructor);

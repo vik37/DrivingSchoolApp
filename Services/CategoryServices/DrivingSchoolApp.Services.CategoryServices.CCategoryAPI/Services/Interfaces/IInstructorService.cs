@@ -4,6 +4,6 @@ namespace DrivingSchoolApp.Services.CategoryServices.CCategoryAPI.Services.Inter
 {
 	public interface IInstructorService
 	{
-		Task<InstructorDto> GetInstructorById(int id);
+		Task<InstructorDto> GetInstructorById(int id, int instructorId);
 	}
 }
