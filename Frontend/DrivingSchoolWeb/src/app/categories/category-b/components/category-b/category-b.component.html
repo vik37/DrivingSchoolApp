@@ -11,7 +11,8 @@
   </div>
   <div class="row">
     <div class="col-xs-12 col-sm-12 col-md-6" *ngFor="let category of (categoryB$ | async)">
-        <app-category-card
+      <app-category-card
+        *ngIf="category"
         [category]="category"
         [categoryRoute] = "categoryBRoute"
       ></app-category-card>

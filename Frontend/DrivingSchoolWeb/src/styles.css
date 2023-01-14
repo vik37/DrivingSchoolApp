@@ -20,4 +20,9 @@ p{
   font-size: 14px;
   letter-spacing: 2px;
 }
-
+.instructor-booked{
+  font-size: 8px;
+  font-weight: 700;
+  color:rgba(255, 255, 255,0.7)!important;
+  background-color: rgb(237, 21, 21)!important;
+}

@@ -11,3 +11,13 @@
   color: rgb(255, 255, 255);
   font-size: 11px;
 }
+.btn-instructor-detail{
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 0.4px;
+  border-radius: 0;
+  border-style: dashed;
+  margin-left: 35px;
+  box-shadow: 0 0 6px 3px rgba(254, 254, 254,0.4)inset;
+}
+

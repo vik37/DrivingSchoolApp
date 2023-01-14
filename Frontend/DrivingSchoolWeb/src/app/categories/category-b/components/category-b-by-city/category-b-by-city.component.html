@@ -57,7 +57,7 @@
       <app-car
         [car]="car"
       ></app-car>
-      <button class="btn btn-dark btn-motorcycle-description"
+      <button *ngIf="car" class="btn btn-dark btn-motorcycle-description"
             type="button" data-bs-toggle="offcanvas"
             data-bs-target="#offcanvasRight" aria-controls="offcanvasRight"
             (click)="getCarDetail(car)"

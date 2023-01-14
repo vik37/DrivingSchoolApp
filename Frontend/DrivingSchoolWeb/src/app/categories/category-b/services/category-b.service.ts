@@ -19,7 +19,7 @@ export class CategoryBService {
     )
   }
   getById(id:string): Observable<CategoryB>{
-    return this,this.http.get<CategoryB>(this.uri+'/'+id).pipe(
+    return this.http.get<CategoryB>(this.uri+'/'+id).pipe(
       map(res => res as CategoryB)
     )
   }

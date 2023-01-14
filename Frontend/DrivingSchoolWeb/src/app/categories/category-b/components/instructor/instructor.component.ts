@@ -1,4 +1,5 @@
 import { Component,OnChanges,SimpleChanges,Input,AfterViewInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 import {Instructor} from 'src/app/categories/category-b/models/instructor';
 import {PhotoService} from 'src/app/shared/services/photo.service';
 import {faUserCheck} from '@fortawesome/free-solid-svg-icons';
@@ -11,15 +12,17 @@ declare var jQuery: any;
   providers: [PhotoService]
 })
 export class InstructorComponent implements OnChanges,AfterViewInit {
-  photoUrl: string = '';
-  faUserCheck = faUserCheck;
+  public photoUrl: string = '';
+  public faUserCheck = faUserCheck;
+  public categoryBId:string | null = null;
   @Input() instructor: Instructor | undefined;
-  constructor(private photoService: PhotoService) { }
+  constructor(private photoService: PhotoService,private route: ActivatedRoute) { }
   ngOnChanges(changes: SimpleChanges): void{
-    let firstInstructorChanges = changes['instructor'];
-    if(firstInstructorChanges.firstChange){
+    let instructorChanges = changes['instructor'];
+    if(instructorChanges.firstChange){
       if(this.instructor?.photo === null){
         this.photoUrl = `${this.photoService.uri}empty/empty-person`;
+        this.categoryBId = this.route.snapshot.paramMap.get('id');
       }
       else{
         this.photoUrl = `${this.photoService.uri}instructor/${this.instructor?.photo}`;

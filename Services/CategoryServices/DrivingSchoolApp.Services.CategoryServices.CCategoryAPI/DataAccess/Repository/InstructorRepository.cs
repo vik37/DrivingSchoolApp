@@ -4,7 +4,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace DrivingSchoolApp.Services.CategoryServices.CCategoryAPI.DataAccess.Repository
 {
-	public class InstructorRepository : BaseRepository, IRepository<Instructor>
+	public class InstructorRepository : BaseRepository, IInstructorRepository
 	{
 		public InstructorRepository(CategoryCDbContext db) : base(db)
 		{ }
@@ -21,7 +21,20 @@ namespace DrivingSchoolApp.Services.CategoryServices.CCategoryAPI.DataAccess.Rep
 										.Include(x => x.CategoryLicences)
 										.FirstOrDefaultAsync(x => x.Id == id);
 		}
-
+		public async Task<Instructor> GetById(int id, int instructorId)
+		{
+			try
+			{
+				return await _db.Instructor.Where(x => x.CategoryCId == id && x.Id == instructorId)
+											.Include(x => x.WorkExperiencePerCompany)
+											.Include(x => x.CategoryLicences)
+											.FirstOrDefaultAsync();
+			}
+			catch (Exception ex)
+			{
+				throw new Exception(ex.InnerException.Message);
+			}
+		}
 		public async Task<int> Add(Instructor entity)
 		{
 			try

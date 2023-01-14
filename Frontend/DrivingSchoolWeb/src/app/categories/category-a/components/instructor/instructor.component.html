@@ -3,13 +3,14 @@
     <img [src]="photoUrl" class="card-img-top instructor-card-image" [alt]="instructor.fullname">
     <h5 class="card-title instructor-title">{{instructor.fullname}}</h5>
     <p class="card-text instructor-text">Age: {{instructor.age}}</p>
-    <ul class="list-group list-group-flush instructor-card-list">
+    <ul [ngStyle]="{'background-color':instructor.isBooked?'red':''}"
+        class="list-group list-group-flush instructor-card-list">
       <li class="list-group-item">Drive Experience: {{instructor.experience}} years</li>
-      <li class="list-group-item">Started Working in the Company:
+      <li *ngIf="!instructor.isBooked" class="list-group-item">Started Working in the Company:
         <br />
         <span>{{instructor.startedDay | date}}</span>
       </li>
-      <li *ngIf="instructor.isBooked" class="list-group-item">Booked</li>
+      <li *ngIf="instructor.isBooked" class="list-group-item instructor-booked">Booked</li>
     </ul>
     <button [disabled]="instructor.isBooked"
         type="button" class="btn btn-outline-info btn-book" data-bs-toggle="tooltip"
