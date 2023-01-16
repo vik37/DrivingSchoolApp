@@ -29,7 +29,8 @@ import { InstructorDetailComponent } from './components/instructor-detail/instru
     RouterModule.forChild(route)
   ],
   exports:[
-    CategoryBComponent
+    CategoryBComponent,
+    InstructorDetailComponent
   ]
 })
 export class CategoryBModule { }

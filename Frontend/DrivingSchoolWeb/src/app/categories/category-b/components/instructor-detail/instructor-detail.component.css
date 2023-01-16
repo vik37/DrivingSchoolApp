@@ -1,1 +1,22 @@
-
+.widget-title-image{
+  width: 100px;
+  height: 100px;
+  border-radius: 50px;
+  outline: 2px solid rgba(252, 250, 250,0.2);
+  outline-offset: 3px;
+  filter:opacity(80%)
+}
+.widget-title-title, .widget-title-subtitle{
+  color: rgb(27, 85, 98);
+  letter-spacing: 2.1px;
+  text-shadow: -1px 2px rgba(252, 250, 250,1);
+}
+h6{
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  font-size: 17px;
+  text-align: center;
+  letter-spacing: 2px;
+  color: rgba(0, 0, 0, 0.5);
+  text-shadow: 1px -2px rgba(59, 227, 245, 1);
+  text-decoration: underline dashed 1px rgba(59, 227, 245, 1);
+}

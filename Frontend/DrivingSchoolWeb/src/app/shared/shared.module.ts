@@ -7,9 +7,7 @@ import { EnumConverterPipe } from './pipes/enum-converter.pipe';
 import { ConvertEnumToArrayPipe } from './pipes/convert-enum-to-array.pipe';
 import { ChangeRotationButtonsDirective } from './directives/changeRotationButtons';
 import { EmptySpaceSplitPipe } from './pipes/empty-space-split.pipe';
-
-
-
+import { WidgetTitleDetailComponent } from './components/widget-title-detail/widget-title-detail.component';
 @NgModule({
   declarations: [
     CardComponent,
@@ -18,7 +16,8 @@ import { EmptySpaceSplitPipe } from './pipes/empty-space-split.pipe';
     EnumConverterPipe,
     ConvertEnumToArrayPipe,
     ChangeRotationButtonsDirective,
-    EmptySpaceSplitPipe
+    EmptySpaceSplitPipe,
+    WidgetTitleDetailComponent
   ],
   imports: [
     CommonModule
@@ -30,7 +29,8 @@ import { EmptySpaceSplitPipe } from './pipes/empty-space-split.pipe';
     EnumConverterPipe,
     ConvertEnumToArrayPipe,
     EmptySpaceSplitPipe,
-    ChangeRotationButtonsDirective
+    ChangeRotationButtonsDirective,
+    WidgetTitleDetailComponent
   ]
 })
 export class SharedModule { }
