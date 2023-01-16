@@ -1,4 +1,15 @@
-<div *ngIf="instructor$ | async as instructor">
-  <p>Name: {{instructor.fullname}}</p>
-  <img width="100px" height="100px" [src]="asyncPhoto$ | async" [alt]="instructor.fullname" />
-</div>
+<main class="container">
+  <div *ngIf="instructor$ | async as instructor" class="row">
+    <section class="col-md-6">
+      <app-widget-title-detail
+        [description]="description"
+      >
+          <img class="widget-title-image" [src]="photoUrl$ | async" [alt]="instructor.fullname" />
+          <h3 class="widget-title-title">Instructor</h3>
+          <h5 class="widget-title-subtitle">{{instructor.fullname}}</h5>
+          <h6>Hello There!!!</h6>
+      </app-widget-title-detail>
+    </section>
+  </div>
+</main>
+

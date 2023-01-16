@@ -1,0 +1,20 @@
+.widget-title-image-block{
+  margin: 10px;
+  padding: 10px;
+}
+.widget-title-body-description-block{
+  padding: 10px 20px;
+  background: linear-gradient(20deg, rgba(0,0,0,0.7) 2%, rgb(36, 106, 185,0.4) 80%, rgba(14, 48, 81, 0.8) 100%);
+  border-radius: 10px;
+  border-left: 5px solid rgba(59, 8, 8, 0.3);
+  border-right: 15px solid rgba(0,0,0,0.6);
+}
+.widget-title-body-description-block >p,b,i{
+  text-align: center;
+  font-size: 12px;
+}
+.widget-title-body-description-block >p::first-letter{
+  color: rgb(220, 250, 46);
+  font-size: 24px;
+}
+
