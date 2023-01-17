@@ -7,7 +7,6 @@ import { Component, Input } from '@angular/core';
 })
 export class WidgetTitleDetailComponent {
   private _descriptionHTMLText:string = '';
-  private _additionalCheck:boolean = false;
   constructor() { }
   @Input('description')
   set descriptionHTMLText(value: string){
@@ -18,11 +17,4 @@ export class WidgetTitleDetailComponent {
   get descriptionHTMLText(): string{
     return this._descriptionHTMLText;
   }
-  @Input() set additionalCheck(value:boolean){
-    this._additionalCheck = value;
-  }
-  get additionalCheck(): boolean{
-    return this._additionalCheck;
-  }
-
 }

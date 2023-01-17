@@ -11,6 +11,7 @@ import {InstructorComponent} from 'src/app/categories/category-b/components/inst
 import {CarComponent} from 'src/app/categories/category-b/components/car/car.component';
 import {CarDetailComponent} from 'src/app/categories/category-b/components/car-detail/car-detail.component';
 import { InstructorDetailComponent } from './components/instructor-detail/instructor-detail.component';
+import { WorkExperienceComponent } from './components/work-experience/work-experience.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,8 @@ import { InstructorDetailComponent } from './components/instructor-detail/instru
     InstructorComponent,
     CarComponent,
     CarDetailComponent,
-    InstructorDetailComponent
+    InstructorDetailComponent,
+    WorkExperienceComponent
   ],
   imports: [
     CommonModule,
