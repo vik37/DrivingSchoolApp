@@ -1,13 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
-import { tap,map, switchMap } from 'rxjs/operators';
+import { tap,map, switchMap,filter } from 'rxjs/operators';
 import { ActivatedRoute,ParamMap } from '@angular/router';
 import {Instructor} from 'src/app/categories/category-b/models/instructor';
 import {WorkExperience} from 'src/app/categories/category-b/models/work-experience';
 import {InstructorService} from 'src/app/categories/category-b/services/instructor.service';
 import {PhotoService} from 'src/app/shared/services/photo.service';
-import { faL } from '@fortawesome/free-solid-svg-icons';
-import { formatDate } from '@angular/common';
 
 @Component({
   selector: 'app-instructor-detail',
@@ -22,9 +20,11 @@ export class InstructorDetailComponent implements OnInit {
                         const instructorId = params.get('instructorId' as string);
                         return this.instructorService.getInstructorById(categoryBId??'',instructorId??'')
                       }));
+  public workExperience$: Observable<WorkExperience[]> = this.instructor$.pipe(
+    map(data => data.workExperiencePerCompany as WorkExperience[])
+  );
   public photoUrl$!:Observable<string>;
   public description:string = '';
-
   constructor(private route: ActivatedRoute, private instructorService: InstructorService,
                 private photoService:PhotoService) { }
 
@@ -45,9 +45,8 @@ export class InstructorDetailComponent implements OnInit {
                           ${instructor.age} years old with ${instructor.driveExperience} years drive experience
                           and ${instructor.totalWorkExperience} total work experience like instructor.
                           I finished at the driving school academy in <b>${instructor.instructorAcademy}</b>.
-                          I started working in this company from
-                            <i>${new Date(instructor.startedDay).getFullYear()} year</i>.
-                          Come for fellowship and learning. Our Moto: Choose wisely, drive right."`
-                        console.log(this.description)
+                          I started working in this company from year
+                            <i>${new Date(instructor.startedDay).getFullYear()}</i>.
+                          Come for fellowship and learning. Our Moto: Choose wisely, drive right."`;
   }
 }
