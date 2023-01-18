@@ -29,3 +29,11 @@ h6{
 .work-experience-title{
   margin-bottom: 20px;
 }
+
+@media screen and (max-width: 768px){
+  .work-experience{
+    margin-bottom: 70px;
+    margin-top: 40px;
+    border-left: 2px solid rgba(0, 0, 0, 0);
+  }
+}

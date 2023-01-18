@@ -1,70 +1,72 @@
-<div class="row">
-  <section class="col-sm-12 col-md-8 category-b-city-header-section">
-    <div *ngIf="categoryB$ | async as categoryB">
-      <app-category-per-city
-        [category]="categoryB"
-      ></app-category-per-city>
-    </div>
-  </section>
-  <aside class="col-sm-12 col-md-4">
-    <div class="row lesson">
-      <h5>{{currentLessonType | enumConverter: lessonType}}</h5>
-      <div *ngIf="lesson$ | async as lesson">
-        <app-lesson
-          [lesson] = "lesson"
-        ></app-lesson>
+<div *ngIf="categoryB$ | async as categoryB">
+  <div class="row">
+    <section class="col-sm-12 col-md-8 category-b-city-header-section">
+      <div >
+        <app-category-per-city
+          [category]="categoryB"
+        ></app-category-per-city>
       </div>
+    </section>
+    <aside class="col-sm-12 col-md-4">
+      <div class="row lesson">
+        <h5>{{currentLessonType | enumConverter: lessonType}}</h5>
+        <div *ngIf="lesson$ | async as lesson">
+          <app-lesson
+            [lesson] = "lesson"
+          ></app-lesson>
+        </div>
+      </div>
+      <br />
+      <hr />
+      <div class="row justify-content-center">
+        <div *ngFor="let type of lessonType | convertEnumToArray; let i = index"
+                class="col-xs-3 col-sm-2 col-md-1 lesson-type-selector-block">
+          <button appChangeRotationButtons class="lesson-type-selector"
+            (click)="selectLessonByType(type.value,i)"
+            [ngClass]="[i===currentLessonIndex?activeClass:'']"
+            [disabled]="i===currentLessonIndex"
+          >
+      </button>
+        </div>
+      </div>
+    </aside>
+  </div>
+  <br />
+  <br />
+  <hr />
+  <br />
+  <div class="container">
+    <div class="row">
+      <h3>Instructors:</h3>
     </div>
     <br />
-    <hr />
-    <div class="row justify-content-center">
-      <div *ngFor="let type of lessonType | convertEnumToArray; let i = index"
-              class="col-xs-3 col-sm-2 col-md-1 lesson-type-selector-block">
-        <button appChangeRotationButtons class="lesson-type-selector"
-          (click)="selectLessonByType(type.value,i)"
-          [ngClass]="[i===currentLessonIndex?activeClass:'']"
-          [disabled]="i===currentLessonIndex"
-        >
-    </button>
-      </div>
+    <div class="row">
+      <section *ngFor="let instructor of (instructors$ | async)" class="col-xs-12 col-sm-6 col-md-4">
+        <app-instructor
+          [instructor]="instructor"
+        ></app-instructor>
+      </section>
     </div>
-  </aside>
-</div>
-<br />
-<br />
-<hr />
-<br />
-<div class="container">
-  <div class="row">
-    <h3>Instructors:</h3>
   </div>
-  <br />
-  <div class="row">
-    <section *ngFor="let instructor of (instructors$ | async)" class="col-xs-12 col-sm-6 col-md-4">
-      <app-instructor
-        [instructor]="instructor"
-      ></app-instructor>
-    </section>
-  </div>
-</div>
-<div class="container car-container">
-  <div class="row">
-    <h3>Cars:</h3>
-  </div>
-  <br />
-  <div class="row">
-    <section *ngFor="let car of (cars$ | async)" class="col-xs-12 col-sm-6 col-md-3">
-      <app-car
-        [car]="car"
-      ></app-car>
-      <button *ngIf="car" class="btn btn-dark btn-motorcycle-description"
-            type="button" data-bs-toggle="offcanvas"
-            data-bs-target="#offcanvasRight" aria-controls="offcanvasRight"
-            (click)="getCarDetail(car)"
-      >
-        {{car.type}}
-      </button>
-    </section>
+  <div class="container car-container">
+    <div class="row">
+      <h3>Cars:</h3>
+    </div>
+    <br />
+    <div class="row">
+      <section *ngFor="let car of (cars$ | async)" class="col-xs-12 col-sm-6 col-md-3">
+        <app-car
+          [car]="car"
+        ></app-car>
+        <button *ngIf="car" class="btn btn-dark btn-motorcycle-description"
+              type="button" data-bs-toggle="offcanvas"
+              data-bs-target="#offcanvasRight" aria-controls="offcanvasRight"
+              (click)="getCarDetail(car)"
+        >
+          {{car.type}}
+        </button>
+      </section>
+    </div>
   </div>
 </div>
 

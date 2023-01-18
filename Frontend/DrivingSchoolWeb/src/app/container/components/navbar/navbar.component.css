@@ -2,10 +2,14 @@
   background: linear-gradient(159deg, rgba(0,0,0,1) 0%, rgba(29,72,80,1) 64%, rgba(123,226,246,1) 81%, rgba(4,89,107,1) 100%);
   color: rgba(123,226,246,1);
 }
+.navbar-toggler{
+  outline: none;
+  border: none;
+}
 .navbar-toggler-icon{
-  box-shadow: 0 0 12px 5px rgba(123,226,246,1);
-  border-radius:10px;
-  background-color: rgb(247, 248, 245);
+  border-radius:4px;
+  background-color: rgb(55, 81, 4);
+  border: none;
 }
 .nav-link{
   text-shadow: 2px -2px 1px rgb(171, 255, 3);
