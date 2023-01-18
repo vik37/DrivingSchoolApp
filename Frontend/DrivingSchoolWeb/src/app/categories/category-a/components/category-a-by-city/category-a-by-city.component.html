@@ -1,10 +1,8 @@
-<div class="row">
+<div *ngIf="categoryA$ | async as categoryA" class="row">
   <section class="col-sm-12 col-md-8 category-a-city-header-section">
-    <div *ngIf="categoryA$ | async as categoryA">
-      <app-category-per-city
-        [category]="categoryA"
-      ></app-category-per-city>
-    </div>
+    <app-category-per-city
+      [category]="categoryA"
+    ></app-category-per-city>
   </section>
   <aside class="col-sm-12 col-md-4">
     <div class="row lesson">

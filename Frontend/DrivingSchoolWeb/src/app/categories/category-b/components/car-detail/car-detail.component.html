@@ -1,6 +1,6 @@
 <div *ngIf="car">
   <app-offcanvas>
-    <img [src]="photoUrl" class="card-img-top offcanvas-image vehicle-detail-image car-image"
+    <img *ngIf="photoUrl" [src]="photoUrl" class="card-img-top offcanvas-image vehicle-detail-image car-image"
             [alt]="car.type">
     <h4 class="offcanvas-title vehicle-detail-title">{{car.type}}</h4>
     <h5 class="offcanvas-subtitle vehicle-detail-subtitle">{{car.model}}</h5>
