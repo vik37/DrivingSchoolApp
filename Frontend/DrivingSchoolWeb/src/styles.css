@@ -26,3 +26,8 @@ p{
   color:rgba(255, 255, 255,0.7)!important;
   background-color: rgb(237, 21, 21)!important;
 }
+.moto{
+  color: rgb(228, 251, 77);
+  font-weight: bolder;
+  text-shadow: 0 1px 1px rgb(245, 86, 54);
+}
