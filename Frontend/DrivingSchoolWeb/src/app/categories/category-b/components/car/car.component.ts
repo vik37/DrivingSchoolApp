@@ -1,4 +1,4 @@
-import { Component, Input,AfterViewInit, ChangeDetectionStrategy } from '@angular/core';
+import { Component, Input,AfterViewInit } from '@angular/core';
 import {Car} from 'src/app/categories/category-b/models/car';
 import {PhotoService} from 'src/app/shared/services/photo.service';
 import {faCar} from '@fortawesome/free-solid-svg-icons';
@@ -8,12 +8,10 @@ declare var jQuery: any;
   selector: 'app-car',
   templateUrl: './car.component.html',
   styleUrls: ['./car.component.css','../../../shared/style/vehicle.css'],
-  providers: [PhotoService],
-  changeDetection: ChangeDetectionStrategy.OnPush
+  providers: [PhotoService]
 })
 export class CarComponent implements AfterViewInit {
   private _car!: Car;
-
   photoUrl:string = '';
   faCar = faCar;
 
