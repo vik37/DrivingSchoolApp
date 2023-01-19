@@ -1,1 +1,28 @@
-<p>instructor works!</p>
+<div *ngIf="instructor">
+  <app-card>
+    <img [src]="photoUrl" class="card-img-top instructor-card-image" [alt]="instructor.fullname">
+    <h5 class="card-title instructor-title">{{instructor.fullname}}</h5>
+    <p class="card-text instructor-text">Age: {{instructor.age}}</p>
+    <ul [ngStyle]="{'background-color':instructor.isBooked?'red':''}"
+          class="list-group list-group-flush instructor-card-list">
+      <li class="list-group-item">Drive Experience: {{instructor.totalDriveExperience}} years</li>
+      <li class="list-group-item">Total Work Experience: {{instructor.totalWorkExperience}} years</li>
+      <li class="list-group-item">Truck Drive Experience: {{instructor.truckDriveExperience}} years</li>
+      <li *ngIf="!instructor.isBooked" class="list-group-item">Started Working in the Company:
+        <br />
+        <span>{{instructor.startedDay | date}}</span>
+      </li>
+      <li *ngIf="instructor.isBooked" class="list-group-item instructor-booked">Booked</li>
+    </ul>
+    <button
+        [disabled]="instructor.isBooked"
+        type="button" class="btn btn-outline-info btn-book" data-bs-toggle="tooltip"
+        data-bs-placement="right">
+          <fa-icon class="instructor-check-icon" [icon]="faUserCheck"></fa-icon>
+    </button>
+    <a class="btn btn-outline-light btn-instructor-detail"
+        routerLink="/category-c/{{categoryCId}}/instructor/{{instructor.id}}">
+      {{instructor.fullname | lowercase | emptySpaceSplit:0 }} detail
+    </a>
+  </app-card>
+</div>

@@ -1,1 +1,71 @@
-<p>category-c-by-city works!</p>
+<div *ngIf="categoryC$ | async as categoryC">
+  <div class="row">
+    <section class="col-sm-12 col-md-8 category-c-city-header-section">
+      <div >
+        <app-category-per-city
+          [category]="categoryC"
+        ></app-category-per-city>
+      </div>
+    </section>
+    <aside class="col-sm-12 col-md-4">
+      <div class="row lesson">
+        <h5>{{currentLessonType | enumConverter: lessonType}}</h5>
+        <div *ngIf="lesson$ | async as lesson">
+          <app-lesson
+            [lesson] = "lesson"
+          ></app-lesson>
+        </div>
+      </div>
+      <br />
+      <hr />
+      <div class="row justify-content-center">
+        <div *ngFor="let type of lessonType | convertEnumToArray; let i = index"
+                class="col-xs-3 col-sm-2 col-md-1 lesson-type-selector-block">
+          <button appChangeRotationButtons class="lesson-type-selector"
+            (click)="selectLessonByType(type.value,i)"
+            [ngClass]="[i===currentLessonIndex?activeClass:'']"
+            [disabled]="i===currentLessonIndex"
+          >
+      </button>
+        </div>
+      </div>
+    </aside>
+  </div>
+  <br />
+  <br />
+  <hr />
+  <br />
+  <div class="container">
+    <div class="row">
+      <h3>Instructors:</h3>
+    </div>
+    <br />
+    <div class="row">
+      <section *ngFor="let instructor of (instructors$ | async)" class="col-xs-12 col-sm-6 col-md-4">
+        <app-instructor
+          [instructor]="instructor"
+        ></app-instructor>
+      </section>
+    </div>
+  </div>
+  <div class="container truck-container">
+    <div class="row">
+      <h3>Cars:</h3>
+    </div>
+    <br />
+    <div class="row">
+      <section *ngFor="let truck of (trucks$ | async)" class="col-xs-12 col-sm-6 col-md-3">
+        <app-truck
+          [car]="truck"
+        ></app-truck>
+        <button *ngIf="truck" class="btn btn-dark btn-motorcycle-description"
+              type="button" data-bs-toggle="offcanvas"
+              data-bs-target="#offcanvasRight" aria-controls="offcanvasRight"
+              (click)="getTruckDetail(truck)"
+        >
+          {{truck.type}}
+        </button>
+      </section>
+    </div>
+  </div>
+</div>
