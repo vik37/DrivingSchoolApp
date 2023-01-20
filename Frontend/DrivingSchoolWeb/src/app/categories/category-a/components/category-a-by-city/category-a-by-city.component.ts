@@ -13,7 +13,8 @@ import {LessonType} from 'src/app/categories/category-a/models/enums/lesson-type
 @Component({
   selector: 'app-category-a-bycity',
   templateUrl: './category-a-by-city.component.html',
-  styleUrls: ['./category-a-by-city.component.css']
+  styleUrls: ['../../../shared/style/category-city-style.css',
+              './category-a-by-city.component.css']
 })
 export class CategoryAByCityComponent implements OnInit {
 

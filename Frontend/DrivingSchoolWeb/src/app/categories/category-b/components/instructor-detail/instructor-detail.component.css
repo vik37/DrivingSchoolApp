@@ -29,11 +29,37 @@ h6{
 .work-experience-title{
   margin-bottom: 20px;
 }
-
+.licences{
+  padding-top: 20px;
+}
+.licences > h5{
+  font-size: 14px;
+  text-align: center;
+}
+.certificate{
+  margin: 20px 0 20px 100px;
+}
+.certificate-id{
+  color: rgb(8, 8, 8);
+  font-size: 10px;
+  font-weight: bolder;
+}
+@media screen and (max-width: 1110px){
+  .category-licence-block,.certificate{
+    margin-left: auto;
+  }
+}
 @media screen and (max-width: 768px){
   .work-experience{
     margin-bottom: 70px;
     margin-top: 40px;
     border-left: 2px solid rgba(0, 0, 0, 0);
+  }
+  .licences > h5{
+    text-align: start;
+    margin-top: 20px;
+  }
+  .category-licence{
+    width: 20px;
   }
 }

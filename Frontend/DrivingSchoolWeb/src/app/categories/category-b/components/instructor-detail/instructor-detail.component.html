@@ -1,6 +1,6 @@
-<main class="container">
+<main class="container-fluid">
   <div *ngIf="instructor$ | async as instructor" class="row">
-    <section class="col-md-7">
+    <section class="col-md-5">
       <app-widget-title-detail
         [description]="description"
       >
@@ -10,7 +10,15 @@
           <h6>Hello There!!!</h6>
       </app-widget-title-detail>
     </section>
-    <section *ngIf="workExperience$ | async as workExperience" class="col-md-5 work-experience">
+    <section class="col-sm-12 col-md-3 licences">
+      <h5>Cetrificate:</h5>
+      <div class="certificate">
+        <app-certificate>
+          <span class="certificate-id">{{instructor.licenceId}}</span>
+        </app-certificate>
+      </div>
+    </section>
+    <section *ngIf="workExperience$ | async as workExperience" class="col-md-4 work-experience">
       <div class="row">
         <h5 class="work-experience-title">Work Experience Before: </h5>
         <div *ngFor="let experience of workExperience" class="col-md-12">

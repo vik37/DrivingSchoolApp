@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
-import { tap,map, switchMap,filter } from 'rxjs/operators';
+import { tap,map, switchMap } from 'rxjs/operators';
 import { ActivatedRoute,ParamMap } from '@angular/router';
 import {Instructor} from 'src/app/categories/category-b/models/instructor';
 import {WorkExperience} from 'src/app/categories/category-b/models/work-experience';

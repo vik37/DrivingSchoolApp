@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import {map,tap, shareReplay} from 'rxjs/operators';
+import { map,tap } from 'rxjs/operators';
 import {Instructor} from 'src/app/categories/category-b/models/instructor';
 import {ResponseError} from 'src/app/shared/models/response-error';
 

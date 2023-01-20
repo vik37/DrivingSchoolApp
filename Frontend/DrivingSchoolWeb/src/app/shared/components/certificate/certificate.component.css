@@ -1,0 +1,14 @@
+.certificate{
+  width: 150px;
+  height: 100px;
+  background-color: rgba(248, 248, 248,0.8);
+  border: 5px double rgb(9, 11, 12);
+  border-radius: 3px;
+  outline: 1px solid rgb(123, 122, 122);
+  outline-offset: 5px;
+  box-shadow: 0 0 10px 4px rgb(123, 122, 122)inset;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding-left: 10px;
+}

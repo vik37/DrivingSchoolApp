@@ -7,7 +7,8 @@ import {WidgetTitleDetailComponent} from 'src/app/shared/components/widget-title
 import {EnumConverterPipe} from 'src/app/shared/pipes/enum-converter.pipe';
 import {ConvertEnumToArrayPipe} from 'src/app/shared/pipes/convert-enum-to-array.pipe';
 import {EmptySpaceSplitPipe} from 'src/app/shared/pipes/empty-space-split.pipe';
-import {ChangeRotationButtonsDirective} from './directives/changeRotationButtons';
+import {ChangeRotationButtonsDirective} from 'src/app/shared/directives/changeRotationButtons';
+import {CertificateComponent} from 'src/app/shared/components/certificate/certificate.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import {ChangeRotationButtonsDirective} from './directives/changeRotationButtons
     ConvertEnumToArrayPipe,
     ChangeRotationButtonsDirective,
     EmptySpaceSplitPipe,
-    WidgetTitleDetailComponent
+    WidgetTitleDetailComponent,
+    CertificateComponent
   ],
   imports: [
     CommonModule
@@ -31,7 +33,8 @@ import {ChangeRotationButtonsDirective} from './directives/changeRotationButtons
     ConvertEnumToArrayPipe,
     EmptySpaceSplitPipe,
     ChangeRotationButtonsDirective,
-    WidgetTitleDetailComponent
+    WidgetTitleDetailComponent,
+    CertificateComponent
   ]
 })
 export class SharedModule { }

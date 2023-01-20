@@ -1,1 +1,19 @@
-<p>truck-detail works!</p>
+<div *ngIf="truck">
+  <app-offcanvas>
+    <img *ngIf="photoUrl" [src]="photoUrl"
+            class="card-img-top offcanvas-image vehicle-detail-image truck-image"
+            [alt]="truck.type">
+    <h4 class="offcanvas-title vehicle-detail-title">{{truck.type}}</h4>
+    <h5 class="offcanvas-subtitle vehicle-detail-subtitle">{{truck.model}}</h5>
+    <h6 class="offcanvas-subtitle vehicle-detail-subtitle">with serial number: {{truck.truckNumber}}</h6>
+      <ul class="offcanvas-list-description vehicle-detail-list-description">
+        <h5>Descriptions:</h5>
+        <li><b>Year of Production: </b><i>{{truck.year}}</i></li>
+        <li><b>Fuel: </b><i>{{truck.fuel}} l</i></li>
+        <li><b>Power: </b> <i>{{truck.power}} bhp</i></li>
+        <li><b>Transmission: </b> <i>{{truck.transmission}}</i></li>
+        <li><b>Cylinder Capacity: </b> <i>{{truck.cylinderCapacity}} m</i></li>
+        <li><b>Available Trucks: </b> <i>{{truck.availableTruck}}</i></li>
+      </ul>
+  </app-offcanvas>
+</div>

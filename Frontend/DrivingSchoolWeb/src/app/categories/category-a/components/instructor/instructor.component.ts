@@ -8,7 +8,8 @@ declare var jQuery: any;
 @Component({
   selector: 'app-instructor',
   templateUrl: './instructor.component.html',
-  styleUrls: ['./instructor.component.css'],
+  styleUrls: ['../../../shared/style/instructor-style.css',
+              './instructor.component.css'],
   providers: [PhotoService]
 })
 export class InstructorComponent implements OnChanges, AfterViewInit {
