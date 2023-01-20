@@ -12,7 +12,8 @@ import {LessonType} from 'src/app/categories/category-b/models/enums/lesson-type
 @Component({
   selector: 'app-category-b-by-city',
   templateUrl: './category-b-by-city.component.html',
-  styleUrls: ['./category-b-by-city.component.css']
+  styleUrls: ['../../../shared/style/category-city-style.css',
+              './category-b-by-city.component.css']
 })
 export class CategoryBByCityComponent implements OnInit {
 
@@ -28,6 +29,7 @@ export class CategoryBByCityComponent implements OnInit {
   public currentLessonType:LessonType = LessonType.Theory;
   public lessonType = LessonType;
   public carDetail: Car | undefined;
+  carLoaded:boolean = false;
   public currentLessonIndex: number = 0;
   public activeClass:string = "lesson-type-selector-active";
 
@@ -65,6 +67,7 @@ export class CategoryBByCityComponent implements OnInit {
   getCarDetail(car: Car): void{
     if(car){
       this.carDetail = car;
+      this.carLoaded = !this.carLoaded;
     }
   }
 }

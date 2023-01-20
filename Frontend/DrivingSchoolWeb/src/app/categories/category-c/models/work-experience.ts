@@ -4,5 +4,5 @@ import {TypeOfWorkExperience} from 'src/app/categories/category-c/models/enums/w
 export interface WorkExperience extends Base{
   experience:number,
   company:string,
-  categoryType:TypeOfWorkExperience
+  typeOfWorkExperience:TypeOfWorkExperience
 }

@@ -1,9 +1,6 @@
 .work-experience-list{
   padding: 0 20px;
 }
-.card-text{
-  background-color: red;
-}
 .work-experience-list > li{
   font-size: 11px;
   letter-spacing: 2px;

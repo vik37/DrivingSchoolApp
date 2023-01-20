@@ -13,7 +13,8 @@ import { PhotoService } from 'src/app/shared/services/photo.service';
 @Component({
   selector: 'app-category-c-by-city',
   templateUrl: './category-c-by-city.component.html',
-  styleUrls: ['./category-c-by-city.component.css'],
+  styleUrls: ['../../../shared/style/category-city-style.css',
+              './category-c-by-city.component.css'],
   providers: [PhotoService]
 })
 export class CategoryCByCityComponent implements OnInit {

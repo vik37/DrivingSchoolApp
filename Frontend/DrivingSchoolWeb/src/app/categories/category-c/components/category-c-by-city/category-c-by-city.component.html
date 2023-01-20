@@ -1,6 +1,6 @@
 <div *ngIf="categoryC$ | async as categoryC">
   <div class="row">
-    <section class="col-sm-12 col-md-8 category-c-city-header-section">
+    <section class="col-sm-12 col-md-8 category-city category-city-header-section">
       <div >
         <app-category-per-city
           [category]="categoryC"
@@ -41,20 +41,20 @@
     </div>
     <br />
     <div class="row">
-      <section *ngFor="let instructor of (instructors$ | async)" class="col-xs-12 col-sm-6 col-md-4">
+      <section *ngFor="let instructor of (instructors$ | async)" class="col-xs-12 col-sm-6 col-md-4 category-city">
         <app-instructor
           [instructor]="instructor"
         ></app-instructor>
       </section>
     </div>
   </div>
-  <div class="container truck-container">
+  <div class="container vehicle-container">
     <div class="row">
       <h3>Cars:</h3>
     </div>
     <br />
     <div class="row">
-      <section *ngFor="let truck of (trucks$ | async)" class="col-xs-12 col-sm-6 col-md-3">
+      <section *ngFor="let truck of (trucks$ | async)" class="col-xs-12 col-sm-6 col-md-3 category-city">
         <app-truck
           [car]="truck"
         ></app-truck>
@@ -69,3 +69,9 @@
     </div>
   </div>
 </div>
+
+<app-truck-detail
+  *ngIf="truckDetail"
+  [truck]="truckDetail"
+>
+</app-truck-detail>

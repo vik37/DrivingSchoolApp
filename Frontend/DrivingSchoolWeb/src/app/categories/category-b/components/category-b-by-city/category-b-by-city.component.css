@@ -1,40 +1,6 @@
 .lesson{
   height: 300px;
 }
-.lesson > h5{
-  text-align: center;
-  letter-spacing: 2.7px;
-  background-color: rgba(3, 93, 111, 0.2);
-  border-top: 0.2px dotted rgb(96, 217, 250);
-  border-bottom: 0.2px double rgb(96, 217, 250);
-  padding: 4px 0;
-  color: rgba(68, 250, 150, 0.8);
-  text-shadow: 1px 1px 1px rgba(121, 184, 246,0.9);
-}
-section{
-  margin-bottom: 70px;
-}
-.lesson-type-selector-block{
-  width: 20px;
-}
-.lesson-type-selector{
-  width: 10px;
-  height: 10px;
-  border-radius: 3px;
-  background-color: rgba(111, 111, 3, 0.4);
-  border: 2px solid rgb(96, 217, 250);
-  outline:0.6px solid rgb(247, 243, 243);
-  outline-offset: 2px;
-  cursor: pointer;
-  transform: rotateY(210deg);
-  transform: rotateZ(70deg);
-}
-.lesson-type-selector-active{
-  border: 2px solid rgb(250, 96, 96);
-  background-color: rgba(248, 17, 17,0.7);
-  cursor:default;
-  
-}
 @media screen and (max-width: 1300px){
   .lesson{
     height: 400px;
@@ -42,43 +8,16 @@ section{
 }
 @media screen and (max-width: 1050px){
   .lesson{
-    height: 80vh;
-  }
-  .lesson > h5{
-    background-color: rgba(3, 93, 111, 0);
-    border-top: 0.2px dotted rgba(96, 217, 250,0);
-    border-bottom: 0.2px double rgba(96, 217, 250,0);
-  }
-}
-@media screen and (max-width: 900px){
-  aside{
-    padding: 0;
-  }
-  .car-container{
-    margin: 1px 0;
+    height: 54vh;
   }
 }
 @media screen and (max-width: 768px){
-  .category-b-city-header-section{
-    margin-bottom: 20px;
-  }
   .lesson{
-    height: 50vh;
+    height: 40vh;
   }
 }
 @media screen and (max-width: 576px){
   .lesson{
     height: 70vh;
-  }
-  .btn-select-lesson{
-    width: 90%;
-  }
-  .car-container{
-    margin-bottom: 90px;
-  }
-
-  .lesson-type-selector{
-    transform: rotateY(0);
-    transform: rotateZ(0);
   }
 }
