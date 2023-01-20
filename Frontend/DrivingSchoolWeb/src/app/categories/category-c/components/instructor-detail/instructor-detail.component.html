@@ -28,6 +28,7 @@
       </div>
     </section>
     <section *ngIf="workExperience$ | async as workExperience"
+              [ngStyle]="{'margin-bottom':workExperienceLength>=4?'50px':'0'}"
               class="col-sm-12 col-md-4 work-experience">
       <div class="row">
         <h5 class="work-experience-title">Work Experience Before: </h5>

@@ -4,7 +4,8 @@ import {WorkExperience} from 'src/app/categories/category-b/models/work-experien
 @Component({
   selector: 'app-work-experience',
   templateUrl: './work-experience.component.html',
-  styleUrls: ['./work-experience.component.css']
+  styleUrls: ['../../../shared/style/work-experience-style.css',
+                './work-experience.component.css']
 })
 export class WorkExperienceComponent {
   private _workExperience!: WorkExperience;

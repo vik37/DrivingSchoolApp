@@ -3,6 +3,7 @@ using DrivingSchoolApp.Services.CategoryServices.ACategoryAPI.DataAccess;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -10,9 +11,10 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace DrivingSchoolApp.Services.CategoryServices.ACategoryAPI.Migrations
 {
     [DbContext(typeof(CategoryADbContext))]
-    partial class CategoryADbContextModelSnapshot : ModelSnapshot
+    [Migration("20230120215652_DrivingSchoolCategoryA_AddToDb_Second")]
+    partial class DrivingSchoolCategoryA_AddToDb_Second
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
