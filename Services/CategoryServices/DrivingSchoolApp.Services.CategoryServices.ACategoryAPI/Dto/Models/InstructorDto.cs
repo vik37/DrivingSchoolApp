@@ -5,7 +5,6 @@ namespace DrivingSchoolApp.Services.CategoryServices.ACategoryAPI.Dto.Models
 	{
 		public string Fullname { get; set; }
 		public int Age { get; set; }
-		public string LicenceId { get; set; }
 		public string Photo { get; set; }
 		public string StartedDay { get; set; }
 		public int Experience { get; set; }

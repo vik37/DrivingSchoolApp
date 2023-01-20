@@ -27,12 +27,16 @@ export class HtmlElementService {
     this.htmlBuilderTagsService.htmlElements.push(text);
     return this;
   }
-  AddChild(tag:ChildTagText,text:string,className:string): HtmlElementService{
+  addChild(tag:ChildTagText,text:string,className:string): HtmlElementService{
     if(className !== ''){
       this.htmlBuilderTagsService.htmlElements.push(`<${tag} class="${className}">${text}</${tag}>`);
       return this;
     }
     this.htmlBuilderTagsService.htmlElements.push(`<${tag}>${text}</${tag}>`)
+    return this;
+  }
+  addNewLine(showLine:boolean): HtmlElementService{
+    showLine?this.htmlBuilderTagsService.htmlElements.push("<hr />"):this.htmlBuilderTagsService.htmlElements.push("<br />");
     return this;
   }
   getElements(): string{
