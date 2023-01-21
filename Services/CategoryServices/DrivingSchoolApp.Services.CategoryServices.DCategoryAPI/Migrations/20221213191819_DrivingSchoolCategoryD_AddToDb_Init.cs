@@ -199,9 +199,9 @@ namespace DrivingSchoolApp.Services.CategoryServices.DCategoryAPI.Migrations
                 columns: new[] { "Id", "Age", "BusDriveExperience", "CategoryDId", "Firstname", "InstructorAcademy", "Lastname", "LicenceId", "Photo", "StartedDay", "DriveExperience", "TotalWorkExperience", "isBooked" },
                 values: new object[,]
                 {
-                    { 1, (short)51, (short)21, 1, "Nikola", "AMSM", "Savov", "ad618ebc-b5f2-46c2-bec6-1d130e6428ab", null, "19/11/2017", (short)28, (short)19, true },
+                    { 1, (short)51, (short)21, 1, "Nikola", "AMSM", "Savov", "ad618ebc-b5f2-46c2-bec6-1d130e6428ab", null, "11/19/2017", (short)28, (short)19, true },
                     { 2, (short)47, (short)18, 1, "Ramazan", "AMSM", "Serbezovski", "e364ea17-318e-42ce-b02d-bc396c2f1c78", null, "09/10/2019", (short)28, (short)17, false },
-                    { 3, (short)54, (short)29, 2, "Risto", "AMSM", "Shihkov", "14eafc97-8a48-4bd0-988b-2478ea3db2a4", null, "25/04/2014", (short)35, (short)29, false },
+                    { 3, (short)54, (short)29, 2, "Risto", "AMSM", "Shihkov", "14eafc97-8a48-4bd0-988b-2478ea3db2a4", null, "04/25/2014", (short)35, (short)29, false },
                     { 4, (short)39, (short)9, 2, "Aleksandar", "Asvalt Bitola", "Temelkov", "7cf56071-de16-4323-82f9-f50602b02578", null, "05/02/2021", (short)21, (short)8, false }
                 });
 
