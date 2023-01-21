@@ -1,1 +1,13 @@
-<p>work-experience works!</p>
+<div class="work-experience">
+  <ul class="work-experience-list">
+    <li>
+      <h6>Company:</h6>
+    {{workExperience.company}}
+    <br />
+    <br />
+    <h6>Years of Experience:</h6>
+    {{workExperience.experience}} years
+    <p>Worked as {{workExperience.typeOfWorkExperience | enumConverter:typeOfWorkExperience}}</p>
+    </li>
+  </ul>
+</div>

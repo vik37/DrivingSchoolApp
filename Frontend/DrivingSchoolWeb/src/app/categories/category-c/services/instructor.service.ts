@@ -10,6 +10,7 @@ import {ResponseError} from 'src/app/shared/models/response-error.interface';
 })
 export class InstructorService {
   private uri:string = "https://localhost:7275/api/categoryc";
+
   constructor(private http: HttpClient) { }
 
   getInstructorById(id:string,instructorId:string): Observable<Instructor>{
@@ -18,4 +19,5 @@ export class InstructorService {
       map(res => res as Instructor)
     )
   }
+
 }

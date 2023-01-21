@@ -11,6 +11,7 @@ import {CategoryType} from 'src/app/categories/shared/models/enums/category-type
               ,'./category-d.component.css']
 })
 export class CategoryDComponent {
+  
   public categoryTypeHeading: CategoryType = CategoryType.D;
   categoryDRoute: string = 'category-d';
   categoryD$: Observable<CategoryD[]> = this.categoryDService.getAll();
