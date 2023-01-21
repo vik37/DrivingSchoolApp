@@ -17,9 +17,21 @@
       <div class="row lesson">
         <h5>{{currentLessonType | enumConverter: lessonType}}</h5>
         <div *ngIf="lesson$ | async as lesson">
-          <app-lesson
+          <div>
+            <app-lesson
             [lesson] = "lesson"
           ></app-lesson>
+          </div>
+          <div *ngIf="lesson.discount">
+            <div class="lesson-discount" [ngSwitch]="lesson.type">
+              <span *ngSwitchCase="1">Theory, Polyghon:
+                {{lesson.discount}}% discount
+              </span>
+              <span *ngSwitchCase="2">Theory, Polyghon, City:
+                {{lesson.discount}}% discount
+              </span>
+            </div>
+          </div>
         </div>
       </div>
       <br />
