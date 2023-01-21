@@ -21,21 +21,20 @@ import {CategoryType}from 'src/app/categories/shared/models/enums/category-type.
 export class InstructorDetailComponent implements OnInit {
 
   public categoryType = CategoryType;
+  public instructor$: Observable<Instructor> = this.route.paramMap.pipe(
+      switchMap((params:ParamMap)=>{
+        const categoryDId = params.get('id' as string);
+        const instructorId = params.get('instructorId' as string);
+        return this.instructorService.getInstructorById(categoryDId??'',instructorId??'')
+      }));
+  public workExperience$: Observable<WorkExperience[]> = this.instructor$.pipe(
+            map(data => data.workExperiencePerCompany as WorkExperience[])
+          );
+  public photoUrl$!:Observable<string>;
+  public description:string = '';
+  public workExperienceLength:number = 0;
 
-public instructor$: Observable<Instructor> = this.route.paramMap.pipe(
-    switchMap((params:ParamMap)=>{
-      const categoryBId = params.get('id' as string);
-      const instructorId = params.get('instructorId' as string);
-      return this.instructorService.getInstructorById(categoryBId??'',instructorId??'')
-    }));
-public workExperience$: Observable<WorkExperience[]> = this.instructor$.pipe(
-          map(data => data.workExperiencePerCompany as WorkExperience[])
-        );
-public photoUrl$!:Observable<string>;
-public description:string = '';
-public workExperienceLength:number = 0;
-
-constructor(private route: ActivatedRoute, private instructorService: InstructorService,
+  constructor(private route: ActivatedRoute, private instructorService: InstructorService,
             private photoService:PhotoService,private htmlElements: HtmlElementService) { }
 
   ngOnInit(): void {
@@ -71,4 +70,5 @@ constructor(private route: ActivatedRoute, private instructorService: Instructor
                                   .addNewLine(true)
                                   .getElements();
     }
+
 }

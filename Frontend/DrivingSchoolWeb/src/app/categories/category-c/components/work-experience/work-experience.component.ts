@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component,Input } from '@angular/core';
 import {WorkExperience} from 'src/app/categories/category-c/models/work-experience.interface';
 import {TypeOfWorkExperience} from 'src/app/categories/category-c/models/enums/work-experience-type.enum';
 
@@ -9,9 +9,12 @@ import {TypeOfWorkExperience} from 'src/app/categories/category-c/models/enums/w
                 './work-experience.component.css']
 })
 export class WorkExperienceComponent {
+
   public typeOfWorkExperience = TypeOfWorkExperience;
   private _workExperience!: WorkExperience;
+
   constructor() { }
+
   @Input()
   set workExperience(value:WorkExperience){
     if(value){
@@ -22,4 +25,5 @@ export class WorkExperienceComponent {
   get workExperience(): WorkExperience{
     return this._workExperience;
   }
+
 }
