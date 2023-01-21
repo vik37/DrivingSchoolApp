@@ -1,4 +1,4 @@
-import {Base} from 'src/app/categories/shared/models/base';
+import {Base} from 'src/app/categories/shared/models/base.interface';
 
 export interface Lesson extends Base{
   price: number,

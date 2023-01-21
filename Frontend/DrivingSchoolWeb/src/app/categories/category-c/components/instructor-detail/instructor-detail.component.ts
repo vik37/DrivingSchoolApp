@@ -2,14 +2,14 @@ import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
 import { tap,map, switchMap } from 'rxjs/operators';
 import { ActivatedRoute,ParamMap } from '@angular/router';
-import {Instructor} from 'src/app/categories/category-c/models/instructor';
-import {WorkExperience} from 'src/app/categories/category-c/models/work-experience';
+import {Instructor} from 'src/app/categories/category-c/models/instructor.interface';
+import {WorkExperience} from 'src/app/categories/category-c/models/work-experience.interface';
 import {InstructorService} from 'src/app/categories/category-c/services/instructor.service';
 import {PhotoService} from 'src/app/shared/services/photo.service';
 import {HtmlElementService} from 'src/app/shared/services/helper/html-elements-builder/html-element.service';
 import {ParentTagText} from 'src/app/shared/services/helper/html-elements-builder/enums/parent-text-tag.enum';
 import {ChildTagText} from 'src/app/shared/services/helper/html-elements-builder/enums/child-text-tag.enum';
-import {CategoryType}from 'src/app/categories/category-c/models/enums/category-type';
+import {CategoryType}from 'src/app/categories/shared/models/enums/category-type.enum';
 
 @Component({
   selector: 'app-instructor-detail',
@@ -29,7 +29,7 @@ public instructor$: Observable<Instructor> = this.route.paramMap.pipe(
       return this.instructorService.getInstructorById(categoryBId??'',instructorId??'')
     }));
 public workExperience$: Observable<WorkExperience[]> = this.instructor$.pipe(
-        map(data => data.workExperiencePerCompany as WorkExperience[])
+          map(data => data.workExperiencePerCompany as WorkExperience[])
         );
 public photoUrl$!:Observable<string>;
 public description:string = '';

@@ -1,6 +1,6 @@
-import {Base} from 'src/app/categories/shared/models/base';
-import {WorkExperience} from 'src/app/categories/category-d/models/work-experience';
-import {InstructorCategoryLicence} from 'src/app/categories/category-d/models/instructor-category-licence';
+import {Base} from 'src/app/categories/shared/models/base.interface';
+import {WorkExperience} from 'src/app/categories/category-c/models/work-experience.interface';
+import {InstructorCategoryLicence} from 'src/app/categories/category-c/models/instructor-category-licence.interface';
 
 export interface Instructor extends Base{
   fullname: string,
@@ -10,7 +10,7 @@ export interface Instructor extends Base{
   startedDay:string,
   totalWorkExperience:number,
   totalDriveExperience:number,
-  busDriveExperience:number,
+  truckDriveExperience:number,
   instructorAcademy:string,
   isBooked:boolean,
   categoryId:number,

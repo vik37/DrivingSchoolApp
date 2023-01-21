@@ -1,6 +1,6 @@
 import { Component,OnChanges,SimpleChanges,Input,AfterViewInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import {Instructor} from 'src/app/categories/category-b/models/instructor';
+import {Instructor} from 'src/app/categories/category-b/models/instructor.interface';
 import {PhotoService} from 'src/app/shared/services/photo.service';
 import {faUserCheck} from '@fortawesome/free-solid-svg-icons';
 declare var jQuery: any;
