@@ -1,6 +1,9 @@
 .lesson{
   height: 300px;
 }
+.lesson-discount{
+  padding: 10px 0;
+}
 @media screen and (max-width: 1300px){
   .lesson{
     height: 400px;

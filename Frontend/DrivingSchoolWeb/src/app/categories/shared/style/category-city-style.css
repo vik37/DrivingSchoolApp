@@ -10,6 +10,16 @@
   color: rgba(68, 250, 150, 0.8);
   text-shadow: 1px 1px 1px rgba(121, 184, 246,0.9);
 }
+.lesson-discount{
+  text-align: center;
+}
+.lesson-discount > span{
+  color: rgba(223, 245, 23,0.7);
+  font-size: 11px;
+  font-weight: bolder;
+  letter-spacing: 0.8px;
+  text-shadow: 0 0 2px rgba(245, 23, 23, 0.8);
+}
 .category-city{
   margin-bottom: 70px;
 }
