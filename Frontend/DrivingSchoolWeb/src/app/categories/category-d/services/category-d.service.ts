@@ -18,4 +18,9 @@ export class CategoryDService {
       map(res => (res as CategoryD[]))
     )
   }
+  getById(id:string): Observable<CategoryD>{
+    return this.http.get<CategoryD>(this.uri+'/'+id).pipe(
+      map(res => res as CategoryD)
+    )
+  }
 }

@@ -7,10 +7,11 @@ import {CategoryType} from 'src/app/categories/shared/models/enums/category-type
 @Component({
   selector: 'app-category-d',
   templateUrl: './category-d.component.html',
-  styleUrls: ['../../../shared/style/category-style.css','./category-d.component.css']
+  styleUrls: ['../../../shared/style/category-style.css'
+              ,'./category-d.component.css']
 })
 export class CategoryDComponent {
-  public categoryTypeHeading: CategoryType = CategoryType.C;
+  public categoryTypeHeading: CategoryType = CategoryType.D;
   categoryDRoute: string = 'category-d';
   categoryD$: Observable<CategoryD[]> = this.categoryDService.getAll();
 

@@ -1,1 +1,55 @@
-<p>category-d-by-city works!</p>
+<div *ngIf="categoryD$ | async as categoryD">
+  <div class="row">
+    <section class="col-sm-12 col-md-8 category-city category-city-header-section">
+      <div >
+        <app-category-per-city
+          [category]="categoryD"
+        ></app-category-per-city>
+        <div class="offset-xs-3 offset-md-4">
+          <h6>Category:</h6>
+          <app-category-type-heading
+            [categoryTypeHeading]="categoryTypeHeading"
+          ></app-category-type-heading>
+        </div>
+      </div>
+    </section>
+    <aside class="col-sm-12 col-md-4">
+      <div class="row lesson">
+        <h5>{{currentLessonType | enumConverter: lessonType}}</h5>
+        <div *ngIf="lesson$ | async as lesson">
+          <app-lesson
+            [lesson] = "lesson"
+          ></app-lesson>
+        </div>
+      </div>
+      <br />
+      <hr />
+      <div class="row justify-content-center">
+        <div *ngFor="let type of lessonType | convertEnumToArray; let i = index"
+                class="col-xs-3 col-sm-2 col-md-1 lesson-type-selector-block">
+          <button appChangeRotationButtons class="lesson-type-selector"
+            (click)="selectLessonByType(type.value,i)"
+            [ngClass]="[i===currentLessonIndex?activeClass:'']"
+            [disabled]="i===currentLessonIndex"
+          >
+      </button>
+        </div>
+      </div>
+    </aside>
+  </div>
+  <hr />
+  <br />
+  <div class="container">
+    <div class="row">
+      <h3>Instructors:</h3>
+    </div>
+    <br />
+    <div class="row">
+      <section *ngFor="let instructor of (instructors$ | async)" class="col-xs-12 col-sm-6 col-md-4 category-city">
+        <app-instructor
+          [instructor]="instructor"
+        ></app-instructor>
+      </section>
+    </div>
+  </div>
+</div>

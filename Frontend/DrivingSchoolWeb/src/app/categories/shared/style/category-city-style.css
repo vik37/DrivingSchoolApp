@@ -1,5 +1,6 @@
 
 .lesson > h5{
+  height: 30px;
   text-align: center;
   letter-spacing: 2.7px;
   background-color: rgba(3, 93, 111, 0.2);

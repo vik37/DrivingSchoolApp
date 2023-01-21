@@ -1,0 +1,18 @@
+.lesson{
+  height: 400px;
+}
+@media screen and (max-width: 1050px){
+  .lesson > h5{
+    margin-bottom: 1px;
+  }
+}
+@media screen and (max-width: 768px){
+  .lesson{
+    height: 50vh;
+  }
+}
+@media screen and (max-width: 350px){
+  .lesson{
+    height: 65vh;
+  }
+}

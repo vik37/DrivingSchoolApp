@@ -1,14 +1,14 @@
-import { Component, OnInit } from '@angular/core';
+import { Component,OnInit } from '@angular/core';
 import { ActivatedRoute,ParamMap } from '@angular/router';
 import { Observable } from 'rxjs';
-import {switchMap, tap,map} from 'rxjs/operators';
+import { switchMap,tap,map } from 'rxjs/operators';
 import {CategoryCService} from 'src/app/categories/category-c/services/category-c.service';
 import {CategoryC} from 'src/app/categories/category-c/models/categoryC.interface';
 import {CategoryCLesson} from 'src/app/categories/category-c/models/lesson-categoryC.interface';
 import {Instructor} from 'src/app/categories/category-c/models/instructor.interface';
 import {Truck} from 'src/app/categories/category-c/models/truck.interface';
 import {LessonType} from 'src/app/categories/category-c/models/enums/lesson-type.enum';
-import { PhotoService } from 'src/app/shared/services/photo.service';
+import {PhotoService} from 'src/app/shared/services/photo.service';
 import {CategoryType} from 'src/app/categories/shared/models/enums/category-type.enum';
 
 @Component({
@@ -26,15 +26,15 @@ export class CategoryCByCityComponent implements OnInit {
       return this.categoryCService.getById(params.get('id') as string)
       })
     );
-public lesson$: Observable<CategoryCLesson | undefined>
-= new Observable<CategoryCLesson | undefined>();
-public instructors$: Observable<Instructor[]> = new Observable<Instructor[]>();
-public trucks$: Observable<Truck[]> = new Observable<Truck[]>();
-public currentLessonType:LessonType = LessonType.Theory;
-public lessonType = LessonType;
-public truckDetail: Truck | undefined;
-public currentLessonIndex: number = 0;
-public activeClass:string = "lesson-type-selector-active";
+  public lesson$: Observable<CategoryCLesson | undefined>
+  = new Observable<CategoryCLesson | undefined>();
+  public instructors$: Observable<Instructor[]> = new Observable<Instructor[]>();
+  public trucks$: Observable<Truck[]> = new Observable<Truck[]>();
+  public currentLessonType:LessonType = LessonType.Theory;
+  public lessonType = LessonType;
+  public truckDetail: Truck | undefined;
+  public currentLessonIndex: number = 0;
+  public activeClass:string = "lesson-type-selector-active";
 
   constructor(private route: ActivatedRoute, private categoryCService:CategoryCService) { }
 
