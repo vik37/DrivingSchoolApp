@@ -1,5 +1,5 @@
 import { Component,OnChanges,SimpleChanges,Input,AfterViewInit } from '@angular/core';
-import {Instructor} from 'src/app/categories/category-a/models/instructor';
+import {Instructor} from 'src/app/categories/category-a/models/instructor.interface';
 import {PhotoService} from 'src/app/shared/services/photo.service';
 import {faUserCheck} from '@fortawesome/free-solid-svg-icons';
 

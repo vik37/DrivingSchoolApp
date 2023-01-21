@@ -3,11 +3,12 @@ import { ActivatedRoute,ParamMap } from '@angular/router';
 import { Observable } from 'rxjs';
 import {switchMap, tap,map} from 'rxjs/operators';
 import {CategoryBService} from 'src/app/categories/category-b/services/category-b.service';
-import {CategoryB} from 'src/app/categories/category-b/models/categoryB';
-import {CategoryBLesson} from 'src/app/categories/category-b/models/lesson-categoryB';
-import {Instructor} from 'src/app/categories/category-b/models/instructor';
-import {Car} from 'src/app/categories/category-b/models/car';
-import {LessonType} from 'src/app/categories/category-b/models/enums/lesson-type';
+import {CategoryB} from 'src/app/categories/category-b/models/categoryB.interface';
+import {CategoryBLesson} from 'src/app/categories/category-b/models/lesson-categoryB.interface';
+import {Instructor} from 'src/app/categories/category-b/models/instructor.interface';
+import {Car} from 'src/app/categories/category-b/models/car.interface';
+import {LessonType} from 'src/app/categories/category-b/models/enums/lesson-type.enum';
+import {CategoryType} from 'src/app/categories/shared/models/enums/category-type.enum';
 
 @Component({
   selector: 'app-category-b-by-city',
@@ -17,6 +18,7 @@ import {LessonType} from 'src/app/categories/category-b/models/enums/lesson-type
 })
 export class CategoryBByCityComponent implements OnInit {
 
+  public categoryTypeHeading: CategoryType = CategoryType.B;
   public categoryB$: Observable<CategoryB> = this.route.paramMap.pipe(
                         switchMap((params:ParamMap) =>{
                           return this.categoryBService.getById(params.get('id') as string)

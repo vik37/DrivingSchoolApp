@@ -3,12 +3,12 @@ import { ActivatedRoute,ParamMap } from '@angular/router';
 import { Observable } from 'rxjs';
 import {switchMap, tap,map} from 'rxjs/operators';
 import {CategoryAService} from 'src/app/categories/category-a/services/category-a.service';
-import {CategoryA} from 'src/app/categories/category-a/models/categoryA';
-import {CategoryALesson} from 'src/app/categories/category-a/models/lesson-categoryA';
-import {Instructor} from 'src/app/categories/category-a/models/instructor';
-import {Motorcycle} from 'src/app/categories/category-a/models/motorcycle';
-import {LessonType} from 'src/app/categories/category-a/models/enums/lesson-type';
-
+import {CategoryA} from 'src/app/categories/category-a/models/categoryA.interface';
+import {CategoryALesson} from 'src/app/categories/category-a/models/lesson-categoryA.interface';
+import {Instructor} from 'src/app/categories/category-a/models/instructor.interface';
+import {Motorcycle} from 'src/app/categories/category-a/models/motorcycle.interface';
+import {LessonType} from 'src/app/categories/category-a/models/enums/lesson-type.enum';
+import {CategoryType} from 'src/app/categories/shared/models/enums/category-type.enum';
 
 @Component({
   selector: 'app-category-a-bycity',
@@ -18,6 +18,7 @@ import {LessonType} from 'src/app/categories/category-a/models/enums/lesson-type
 })
 export class CategoryAByCityComponent implements OnInit {
 
+  public categoryTypeHeading: CategoryType = CategoryType.A;
   public categoryA$: Observable<CategoryA> =  new Observable<CategoryA>();
   public lesson$: Observable<CategoryALesson | undefined>
                     = new Observable<CategoryALesson | undefined>();

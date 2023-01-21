@@ -1,5 +1,5 @@
 import { Component,Input, OnChanges, SimpleChanges } from '@angular/core';
-import {Lesson} from 'src/app/categories/shared/models/lesson';
+import {Lesson} from 'src/app/categories/shared/models/lesson.interface';
 
 @Component({
   selector: 'app-lesson',

@@ -1,5 +1,5 @@
-import {Base} from 'src/app/categories/shared/models/base';
-import {WorkExperience} from 'src/app/categories/category-b/models/work-experience';
+import {Base} from 'src/app/categories/shared/models/base.interface';
+import {WorkExperience} from 'src/app/categories/category-b/models/work-experience.interface';
 
 export interface Instructor extends Base{
   fullname: string,

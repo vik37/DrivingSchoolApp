@@ -1,5 +1,5 @@
 import { Component, Input,AfterViewInit, ChangeDetectionStrategy } from '@angular/core';
-import {Motorcycle} from 'src/app/categories/category-a/models/motorcycle';
+import {Motorcycle} from 'src/app/categories/category-a/models/motorcycle.interface';
 import {PhotoService} from 'src/app/shared/services/photo.service';
 import {faMotorcycle} from '@fortawesome/free-solid-svg-icons';
 declare var jQuery: any;
@@ -7,7 +7,7 @@ declare var jQuery: any;
 @Component({
   selector: 'app-motorcycle',
   templateUrl: './motorcycle.component.html',
-  styleUrls: ['./motorcycle.component.css','../../../shared/style/vehicle.css'],
+  styleUrls: ['./motorcycle.component.css','../../../shared/style/vehicle-style.css'],
   providers: [PhotoService],
   changeDetection: ChangeDetectionStrategy.OnPush
 })

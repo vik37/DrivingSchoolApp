@@ -1,11 +1,12 @@
 import { Component,Input } from '@angular/core';
-import {Car} from 'src/app/categories/category-b/models/car';
+import {Car} from 'src/app/categories/category-b/models/car.interface';
 import {PhotoService} from 'src/app/shared/services/photo.service';
 
 @Component({
   selector: 'app-car-detail',
   templateUrl: './car-detail.component.html',
-  styleUrls: ['./car-detail.component.css','../../../shared/style/vehicle-detail.css'],
+  styleUrls: ['./car-detail.component.css',
+              '../../../shared/style/vehicle-detail-style.css'],
   providers: [PhotoService]
 })
 export class CarDetailComponent {

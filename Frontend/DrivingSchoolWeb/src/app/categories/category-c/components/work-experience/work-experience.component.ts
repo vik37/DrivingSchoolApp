@@ -1,6 +1,6 @@
 import { Component, Input } from '@angular/core';
-import {WorkExperience} from 'src/app/categories/category-c/models/work-experience';
-import {TypeOfWorkExperience} from 'src/app/categories/category-c/models/enums/work-experience-type';
+import {WorkExperience} from 'src/app/categories/category-c/models/work-experience.interface';
+import {TypeOfWorkExperience} from 'src/app/categories/category-c/models/enums/work-experience-type.enum';
 
 @Component({
   selector: 'app-work-experience',

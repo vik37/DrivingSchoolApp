@@ -1,6 +1,6 @@
 import { Component,OnChanges,SimpleChanges,Input } from '@angular/core';
 import { faPhone } from '@fortawesome/free-solid-svg-icons';
-import {Category} from 'src/app/categories/shared/models/category';
+import {Category} from 'src/app/categories/shared/models/category.interface';
 import {PhotoService} from 'src/app/shared/services/photo.service';
 import { Router } from '@angular/router';
 

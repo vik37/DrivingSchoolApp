@@ -1,5 +1,5 @@
 import { Component, Input,AfterViewInit } from '@angular/core';
-import {Car} from 'src/app/categories/category-b/models/car';
+import {Car} from 'src/app/categories/category-b/models/car.interface';
 import {PhotoService} from 'src/app/shared/services/photo.service';
 import {faCar} from '@fortawesome/free-solid-svg-icons';
 declare var jQuery: any;
@@ -7,7 +7,8 @@ declare var jQuery: any;
 @Component({
   selector: 'app-car',
   templateUrl: './car.component.html',
-  styleUrls: ['./car.component.css','../../../shared/style/vehicle.css'],
+  styleUrls: ['./car.component.css',
+              '../../../shared/style/vehicle-style.css'],
   providers: [PhotoService]
 })
 export class CarComponent implements AfterViewInit {

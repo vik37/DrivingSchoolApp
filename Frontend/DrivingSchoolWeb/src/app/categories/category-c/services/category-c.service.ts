@@ -2,8 +2,8 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import {map,tap} from 'rxjs/operators';
-import {CategoryC} from 'src/app/categories/category-c/models/categoryC';
-import {ResponseError} from 'src/app/shared/models/response-error';
+import {CategoryC} from 'src/app/categories/category-c/models/categoryC.interface';
+import {ResponseError} from 'src/app/shared/models/response-error.interface';
 
 @Injectable({
   providedIn: 'root'

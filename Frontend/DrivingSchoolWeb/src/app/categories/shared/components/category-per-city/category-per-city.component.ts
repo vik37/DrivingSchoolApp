@@ -1,5 +1,5 @@
 import { Component, Input } from '@angular/core';
-import {Category} from 'src/app/categories/shared/models/category';
+import {Category} from 'src/app/categories/shared/models/category.interface';
 import { faPhone } from '@fortawesome/free-solid-svg-icons';
 import {PhotoService} from 'src/app/shared/services/photo.service';
 
