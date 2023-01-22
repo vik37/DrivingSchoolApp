@@ -1,18 +1,26 @@
 .lesson{
   height: 400px;
 }
-@media screen and (max-width: 1050px){
+@media screen and (max-width: 1300px){
+  .lesson{
+    height: 420px;
+  }
+}
+@media screen and (max-width: 1190px){
+  .lesson{
+    height: 500px;
+  }
   .lesson > h5{
     margin-bottom: 1px;
   }
 }
-@media screen and (max-width: 768px){
+@media screen and (max-width: 900px) {
   .lesson{
-    height: 50vh;
+    height: auto;
   }
 }
-@media screen and (max-width: 350px){
+@media screen and (max-width: 900px) {
   .lesson{
-    height: 65vh;
+    height: auto;
   }
 }

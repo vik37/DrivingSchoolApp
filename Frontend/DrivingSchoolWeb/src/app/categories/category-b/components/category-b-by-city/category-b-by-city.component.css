@@ -1,26 +1,26 @@
 .lesson{
-  height: 300px;
+  height: 450px;
 }
 .lesson-discount{
-  padding: 10px 0;
+  padding: 1px 0;
 }
 @media screen and (max-width: 1300px){
   .lesson{
-    height: 400px;
+    height: 420px;
+  }
+}
+@media screen and (max-width: 1155px){
+  .lesson{
+    height: 450px;
   }
 }
 @media screen and (max-width: 1050px){
   .lesson{
-    height: 54vh;
+    height: 67vh;
   }
 }
-@media screen and (max-width: 768px){
+@media screen and (max-width: 900px) {
   .lesson{
-    height: 40vh;
-  }
-}
-@media screen and (max-width: 576px){
-  .lesson{
-    height: 70vh;
+    height: auto;
   }
 }

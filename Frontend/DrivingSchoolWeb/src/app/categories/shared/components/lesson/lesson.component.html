@@ -8,10 +8,14 @@
   <div class="col-sm-12 col-md-12">
     <p class="lesson-description">{{lesson.description}}</p>
   </div>
+  <div *ngIf="lesson.licenceDescription" class="col-sm-12 col-md-12">
+    <h6><i>Licence Description:</i></h6>
+    <p class="licence-description">{{lesson.licenceDescription}}</p>
+  </div>
   <div class="col-sm-12 col-md-6">
-    <p><i>Duration of Classes:</i> {{lesson.duration}}</p>
+    <p class="lesson-duration">{{lesson.duration}} Classes</p>
   </div>
   <div *ngIf="lesson.virtualPracticePrice" class="col-sm-12 col-md-6">
-    <p><i>Virtual Learn:</i> {{lesson.virtualPracticePrice | currency}}</p>
+    <p class="lesson-virtual"><i>Virtual Learn:</i> {{lesson.virtualPracticePrice | currency}}</p>
   </div>
 </div>

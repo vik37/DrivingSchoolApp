@@ -1,4 +1,3 @@
-
 .lesson > h5{
   height: 30px;
   text-align: center;
@@ -44,15 +43,12 @@
   cursor:default;
 
 }
-@media screen and (max-width: 1300px){
-  .lesson{
-    height: 400px;
+@media screen and (max-width: 1300px) {
+  .hr-category-lesson{
+    display: none;
   }
 }
 @media screen and (max-width: 1050px){
-  .lesson{
-    height: 80vh;
-  }
   .lesson > h5{
     background-color: rgba(3, 93, 111, 0);
     border-top: 0.2px dotted rgba(96, 217, 250,0);
@@ -73,9 +69,6 @@
   }
 }
 @media screen and (max-width: 576px){
-  .lesson{
-    height: 70vh;
-  }
   .btn-select-lesson{
     width: 90%;
   }
@@ -88,3 +81,4 @@
     transform: rotateZ(0);
   }
 }
+
