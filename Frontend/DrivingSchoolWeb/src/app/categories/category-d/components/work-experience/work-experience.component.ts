@@ -19,7 +19,6 @@ export class WorkExperienceComponent{
   set workExperience(value:WorkExperience){
     if(value){
       this._workExperience = value;
-      console.log(value)
     }
   }
   get workExperience(): WorkExperience{

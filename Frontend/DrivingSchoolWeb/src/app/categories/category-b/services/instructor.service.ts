@@ -14,7 +14,6 @@ export class InstructorService {
 
   getInstructorById(id:string,instructorId:string): Observable<Instructor>{
     return this.http.get<Instructor>(this.uri+`/${id}/instructor/${instructorId}`).pipe(
-      tap(res => console.log(res)),
       map(res => res as Instructor)
     )
   }

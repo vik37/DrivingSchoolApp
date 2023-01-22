@@ -16,7 +16,6 @@ export class CategoryTypeHeadingComponent{
   @Input()
   set categoryTypeHeading(value: CategoryType){
       this._categoryTypeHeading = value;
-      console.log('category type: ',value)
   };
   get categoryTypeHeading(): CategoryType{
     return this._categoryTypeHeading;

@@ -14,7 +14,6 @@ export class CategoryCService {
 
   getAll(): Observable<CategoryC[]>{
     return this.http.get<CategoryC[]>(this.uri).pipe(
-      tap(res => console.log('from category c service',res)),
       map(res => (res as CategoryC[]))
     )
   }
