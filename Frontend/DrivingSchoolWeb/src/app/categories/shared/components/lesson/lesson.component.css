@@ -1,5 +1,8 @@
 .lesson-block{
-  padding: 30px 0;
+  padding: 1px 0;
+}
+.lesson-description,.licence-description{
+  font-size: 12px;
 }
 .br-lesson-price{
   display: none;
@@ -8,7 +11,8 @@
   .br-lesson-price{
     display: block;
   }
-  .lesson-description{
+  .lesson-description,.licence-description,.lesson-duration,
+  .lesson-virtual{
     font-size: 10px;
   }
 }
@@ -18,5 +22,7 @@
   }
 }
 @media screen and (max-width: 400px) {
-
+  .lesson-description,.licence-description{
+    font-size: 9px;
+  }
 }

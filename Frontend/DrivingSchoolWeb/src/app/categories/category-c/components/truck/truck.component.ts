@@ -7,7 +7,8 @@ declare var jQuery: any;
 @Component({
   selector: 'app-truck',
   templateUrl: './truck.component.html',
-  styleUrls: ['./truck.component.css','../../../shared/style/vehicle-style.css']
+  styleUrls: ['./truck.component.css','../../../shared/style/vehicle-style.css'],
+  providers:[PhotoService]
 })
 export class TruckComponent implements AfterViewInit {
   private _truck!: Truck;

@@ -8,15 +8,13 @@ import {CategoryCLesson} from 'src/app/categories/category-c/models/lesson-categ
 import {Instructor} from 'src/app/categories/category-c/models/instructor.interface';
 import {Truck} from 'src/app/categories/category-c/models/truck.interface';
 import {LessonType} from 'src/app/categories/category-c/models/enums/lesson-type.enum';
-import {PhotoService} from 'src/app/shared/services/photo.service';
 import {CategoryType} from 'src/app/categories/shared/models/enums/category-type.enum';
 
 @Component({
   selector: 'app-category-c-by-city',
   templateUrl: './category-c-by-city.component.html',
   styleUrls: ['../../../shared/style/category-city-style.css',
-              './category-c-by-city.component.css'],
-  providers: [PhotoService]
+              './category-c-by-city.component.css']
 })
 export class CategoryCByCityComponent implements OnInit {
 
