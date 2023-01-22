@@ -65,8 +65,9 @@ export class InstructorDetailComponent implements OnInit {
                                   .addChild(ChildTagText.i,`${new Date(instructor.startedDay).getFullYear()}`,'')
                                   .addText('. Come for fellowship and learning. You must remember, your job will be a big responsibility: ')
                                   .addNewLine(false)
-                                  .addChild(ChildTagText.ins,'TRANSPORT PASSENGERS SAFELY .','moto')
-                                  .addChild(ChildTagText.ins,'DO NOT DRINK AND DRIVE AND DONT SMOKE AND FLY .','moto')
+                                  .addChild(ChildTagText.ins,'TRANSPORT PASSENGERS SAFELY.','moto')
+                                  .addNewLine(false)
+                                  .addChild(ChildTagText.ins,'DONT DRINK AND DRIVE | DONT SMOKE AND FLY','moto')
                                   .closeParentTag()
                                   .addNewLine(true)
                                   .getElements();

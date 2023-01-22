@@ -32,8 +32,10 @@ export class CategoryDByCityComponent implements OnInit {
   public currentLessonIndex: number = 0;
   public activeClass:string = "lesson-type-selector-active";
   public lessonType = LessonType;
+  public photoUrl:string = this.photoService.uri;
 
-  constructor(private route: ActivatedRoute, private categoryDService:CategoryDService) { }
+  constructor(private route: ActivatedRoute, private categoryDService:CategoryDService,
+              private photoService: PhotoService) { }
 
   ngOnInit(): void {
     this.loadLesson();
