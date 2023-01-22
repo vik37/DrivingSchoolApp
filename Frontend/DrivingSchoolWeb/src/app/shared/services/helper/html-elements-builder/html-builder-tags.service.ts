@@ -5,9 +5,10 @@ export class HtmlBuilderTagsService {
   public fullHtmlText:string = '';
 
   constructor() { }
+  
   CreateHtmlElements(tag:ParentTagText): void{
     for(let i = 0;i < this.htmlElements.length;i++){
-      if(this.htmlElements[i].includes('</p>') || this.htmlElements[i].includes('</span>')){
+      if(this.htmlElements[i].includes(`</${tag}>`)){
         this.fullHtmlText += this.htmlElements[i];
         this.fullHtmlText += '\n';
       }

@@ -72,5 +72,4 @@ export class InstructorDetailComponent implements OnInit {
                                   .addNewLine(true)
                                   .getElements();
     }
-
 }

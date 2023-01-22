@@ -44,7 +44,7 @@ export class InstructorDetailComponent implements OnInit {
     this.photoUrl$ = this.instructor$.pipe(
     tap(data => this.createDescription(data)),
     tap(data => this.workExperienceLength = data.workExperiencePerCompany.length),
-      map(data => {
+    map(data => {
         return data.photo===null?`${this.photoService.uri}empty/empty-person`
                 :`${this.photoService.uri}instructor/${data.photo}`;
         })
