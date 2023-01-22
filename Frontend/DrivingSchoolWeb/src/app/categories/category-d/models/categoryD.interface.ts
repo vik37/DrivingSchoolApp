@@ -3,6 +3,7 @@ import {Instructor} from 'src/app/categories/category-d/models/instructor.interf
 import {CategoryDLesson} from 'src/app/categories/category-d/models/lesson-categoryD.interface';
 
 export interface CategoryD extends Category{
+  busPhoto:string,
   lessons:CategoryDLesson[],
   instructors:Instructor[]
 }

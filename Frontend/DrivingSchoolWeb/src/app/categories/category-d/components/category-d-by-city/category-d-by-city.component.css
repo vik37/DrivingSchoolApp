@@ -1,6 +1,11 @@
 .lesson{
   height: 400px;
 }
+.bus-image{
+  width: 100%;
+  height: 400px;
+  border-radius: 9px;
+}
 @media screen and (max-width: 1300px){
   .lesson{
     height: 420px;
@@ -19,8 +24,8 @@
     height: auto;
   }
 }
-@media screen and (max-width: 900px) {
-  .lesson{
-    height: auto;
+@media screen and (max-width: 500px) {
+  .bus-image{
+    height: 200px;
   }
 }
