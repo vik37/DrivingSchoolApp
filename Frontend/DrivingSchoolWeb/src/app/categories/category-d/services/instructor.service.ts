@@ -11,7 +11,6 @@ import {ResponseError} from 'src/app/shared/models/response-error.interface';
 })
 export class InstructorService {
 
-  //private uri:string = "https://localhost:7206/api/categoryd";
   private url: string = environment.gatewayUrl+'categoryd';
 
   constructor(private http: HttpClient) { }
