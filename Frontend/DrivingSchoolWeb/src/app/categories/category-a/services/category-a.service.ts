@@ -10,8 +10,9 @@ import {ResponseError} from 'src/app/shared/models/response-error.interface';
   providedIn: 'root'
 })
 export class CategoryAService {
-  //private uri:string = "https://localhost:7149/api/categorya";
+
   private url: string = environment.gatewayUrl+'categorya';
+  
   constructor(private http: HttpClient) { }
 
   getAll() : Observable<CategoryA[]>{

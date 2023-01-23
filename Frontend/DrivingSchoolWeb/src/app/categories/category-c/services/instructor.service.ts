@@ -10,8 +10,9 @@ import {ResponseError} from 'src/app/shared/models/response-error.interface';
   providedIn: 'root'
 })
 export class InstructorService {
-  //private uri:string = "https://localhost:7275/api/categoryc";
+
   private url: string = environment.gatewayUrl+'categoryc';
+  
   constructor(private http: HttpClient) { }
 
   getInstructorById(id:string,instructorId:string): Observable<Instructor>{

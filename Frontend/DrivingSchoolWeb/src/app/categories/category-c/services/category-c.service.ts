@@ -10,7 +10,6 @@ import {ResponseError} from 'src/app/shared/models/response-error.interface';
   providedIn: 'root'
 })
 export class CategoryCService {
-  //private uri:string = "https://localhost:8080/api/categoryc";
   private url: string = environment.gatewayUrl+'categoryc';
   constructor(private http: HttpClient) { }
 
