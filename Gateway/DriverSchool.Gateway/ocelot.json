@@ -8,7 +8,7 @@
       "DownstreamHostAndPorts": [
         {
           "Host": "localhost",
-          "Port": "7149"
+          "Port": 7149
         }
       ],
       "DownstreamPathTemplate": "/api/categorya"
@@ -21,7 +21,7 @@
       "DownstreamHostAndPorts": [
         {
           "Host": "localhost",
-          "Port": "7149"
+          "Port": 7149
         }
       ],
       "DownstreamPathTemplate": "/api/categorya/{id}"
@@ -33,7 +33,7 @@
       "DownstreamHostAndPorts": [
         {
           "Host": "localhost",
-          "Port": "7192"
+          "Port": 7192
         }
       ],
       "DownstreamPathTemplate": "/api/categoryb"
@@ -45,7 +45,7 @@
       "DownstreamHostAndPorts": [
         {
           "Host": "localhost",
-          "Port": "7192"
+          "Port": 7192
         }
       ],
       "DownstreamPathTemplate": "/api/categoryb/{id}"
@@ -57,7 +57,7 @@
       "DownstreamHostAndPorts": [
         {
           "Host": "localhost",
-          "Port": "7192"
+          "Port": 7192
         }
       ],
       "DownstreamPathTemplate": "/api/categoryb/{id}/instructor/{instructorId}"
@@ -69,7 +69,7 @@
       "DownstreamHostAndPorts": [
         {
           "Host": "localhost",
-          "Port": "7275"
+          "Port": 7275
         }
       ],
       "DownstreamPathTemplate": "/api/categoryc"
@@ -81,7 +81,7 @@
       "DownstreamHostAndPorts": [
         {
           "Host": "localhost",
-          "Port": "7275"
+          "Port": 7275
         }
       ],
       "DownstreamPathTemplate": "/api/categoryc/{id}"
@@ -93,7 +93,7 @@
       "DownstreamHostAndPorts": [
         {
           "Host": "localhost",
-          "Port": "7275"
+          "Port": 7275
         }
       ],
       "DownstreamPathTemplate": "/api/categoryc/{id}/instructor/{instructorId}"
@@ -105,7 +105,7 @@
       "DownstreamHostAndPorts": [
         {
           "Host": "localhost",
-          "Port": "7206"
+          "Port": 7206
         }
       ],
       "DownstreamPathTemplate": "/api/categoryd"
@@ -117,7 +117,7 @@
       "DownstreamHostAndPorts": [
         {
           "Host": "localhost",
-          "Port": "7206"
+          "Port": 7206
         }
       ],
       "DownstreamPathTemplate": "/api/categoryd/{id}"
@@ -129,7 +129,7 @@
       "DownstreamHostAndPorts": [
         {
           "Host": "localhost",
-          "Port": "7206"
+          "Port": 7206
         }
       ],
       "DownstreamPathTemplate": "/api/categoryd/{id}/instructor/{instructorId}"
