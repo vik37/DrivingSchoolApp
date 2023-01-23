@@ -5,8 +5,6 @@ VisualStudioVersion = 17.0.31903.59
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Gateway", "Gateway", "{276C4314-9980-423E-97FA-E1AE5C72FE37}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DrivingSchool.Gateway", "Gateway\DrivingSchool.Gateway\DrivingSchool.Gateway.csproj", "{5DCE606C-47AF-4827-A1CD-236EF1F905F7}"
-EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Services", "Services", "{048F654E-5AA0-49BD-B934-121F5642858A}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "CategoryServices", "CategoryServices", "{9CE274A7-AA85-4E5D-9A52-96EA7F14BF94}"
@@ -19,7 +17,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DrivingSchoolApp.Services.C
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DrivingSchoolApp.Services.CategoryServices.DCategoryAPI", "Services\CategoryServices\DrivingSchoolApp.Services.CategoryServices.DCategoryAPI\DrivingSchoolApp.Services.CategoryServices.DCategoryAPI.csproj", "{F2806DF8-770B-4C4E-A1E7-5153BEFF2C58}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DrivingSchool.FileServiceAPI", "Services\DrivingSchool.FileServiceAPI\DrivingSchool.FileServiceAPI.csproj", "{C70558AD-CFCA-4FCC-8E65-7DCF60434D34}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DrivingSchool.FileServiceAPI", "Services\DrivingSchool.FileServiceAPI\DrivingSchool.FileServiceAPI.csproj", "{C70558AD-CFCA-4FCC-8E65-7DCF60434D34}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DriverSchool.Gateway", "Gateway\DriverSchool.Gateway\DriverSchool.Gateway.csproj", "{A6827124-B851-4D57-8DEC-F383C3AF2600}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -27,10 +27,6 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{5DCE606C-47AF-4827-A1CD-236EF1F905F7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{5DCE606C-47AF-4827-A1CD-236EF1F905F7}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{5DCE606C-47AF-4827-A1CD-236EF1F905F7}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{5DCE606C-47AF-4827-A1CD-236EF1F905F7}.Release|Any CPU.Build.0 = Release|Any CPU
 		{C337F6B7-24C2-4DDE-81AB-FD3CAF997CBD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{C337F6B7-24C2-4DDE-81AB-FD3CAF997CBD}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C337F6B7-24C2-4DDE-81AB-FD3CAF997CBD}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -51,18 +47,22 @@ Global
 		{C70558AD-CFCA-4FCC-8E65-7DCF60434D34}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C70558AD-CFCA-4FCC-8E65-7DCF60434D34}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C70558AD-CFCA-4FCC-8E65-7DCF60434D34}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A6827124-B851-4D57-8DEC-F383C3AF2600}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A6827124-B851-4D57-8DEC-F383C3AF2600}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A6827124-B851-4D57-8DEC-F383C3AF2600}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A6827124-B851-4D57-8DEC-F383C3AF2600}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
-		{5DCE606C-47AF-4827-A1CD-236EF1F905F7} = {276C4314-9980-423E-97FA-E1AE5C72FE37}
 		{9CE274A7-AA85-4E5D-9A52-96EA7F14BF94} = {048F654E-5AA0-49BD-B934-121F5642858A}
 		{C337F6B7-24C2-4DDE-81AB-FD3CAF997CBD} = {9CE274A7-AA85-4E5D-9A52-96EA7F14BF94}
 		{2D4B59E4-3C63-442C-A69C-88CE81E1BFE7} = {9CE274A7-AA85-4E5D-9A52-96EA7F14BF94}
 		{744EC375-BAB3-443F-ABC0-457C6DD7122F} = {9CE274A7-AA85-4E5D-9A52-96EA7F14BF94}
 		{F2806DF8-770B-4C4E-A1E7-5153BEFF2C58} = {9CE274A7-AA85-4E5D-9A52-96EA7F14BF94}
 		{C70558AD-CFCA-4FCC-8E65-7DCF60434D34} = {048F654E-5AA0-49BD-B934-121F5642858A}
+		{A6827124-B851-4D57-8DEC-F383C3AF2600} = {276C4314-9980-423E-97FA-E1AE5C72FE37}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {9000563B-2587-451B-B224-E82413E9AEF0}
