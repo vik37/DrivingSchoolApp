@@ -1,0 +1,141 @@
+{
+  "Routes": [
+    {
+      "UpstreamPathTemplate": "/gateway/categorya",
+      "UpstreamHttpMethod": [ "GET" ],
+
+      "DownstreamScheme": "https",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": "7149"
+        }
+      ],
+      "DownstreamPathTemplate": "/api/categorya"
+    },
+    {
+      "UpstreamPathTemplate": "/gateway/categorya/{id}",
+      "UpstreamHttpMethod": [ "GET" ],
+
+      "DownstreamScheme": "https",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": "7149"
+        }
+      ],
+      "DownstreamPathTemplate": "/api/categorya/{id}"
+    },
+    {
+      "UpstreamPathTemplate": "/gateway/categoryb",
+      "UpstreamHttpMethod": [ "GET" ],
+      "DownstreamScheme": "https",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": "7192"
+        }
+      ],
+      "DownstreamPathTemplate": "/api/categoryb"
+    },
+    {
+      "UpstreamPathTemplate": "/gateway/categoryb/{id}",
+      "UpstreamHttpMethod": [ "GET" ],
+      "DownstreamScheme": "https",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": "7192"
+        }
+      ],
+      "DownstreamPathTemplate": "/api/categoryb/{id}"
+    },
+    {
+      "UpstreamPathTemplate": "/gateway/categoryb/{id}/instructor/{instructorId}",
+      "UpstreamHttpMethod": [ "GET" ],
+      "DownstreamScheme": "https",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": "7192"
+        }
+      ],
+      "DownstreamPathTemplate": "/api/categoryb/{id}/instructor/{instructorId}"
+    },
+    {
+      "UpstreamPathTemplate": "/gateway/categoryc",
+      "UpstreamHttpMethod": [ "GET" ],
+      "DownstreamScheme": "https",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": "7275"
+        }
+      ],
+      "DownstreamPathTemplate": "/api/categoryc"
+    },
+    {
+      "UpstreamPathTemplate": "/gateway/categoryc/{id}",
+      "UpstreamHttpMethod": [ "GET" ],
+      "DownstreamScheme": "https",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": "7275"
+        }
+      ],
+      "DownstreamPathTemplate": "/api/categoryc/{id}"
+    },
+    {
+      "UpstreamPathTemplate": "/gateway/categoryc/{id}/instructor/{instructorId}",
+      "UpstreamHttpMethod": [ "GET" ],
+      "DownstreamScheme": "https",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": "7275"
+        }
+      ],
+      "DownstreamPathTemplate": "/api/categoryc/{id}/instructor/{instructorId}"
+    },
+    {
+      "UpstreamPathTemplate": "/gateway/categoryd",
+      "UpstreamHttpMethod": [ "GET" ],
+      "DownstreamScheme": "https",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": "7206"
+        }
+      ],
+      "DownstreamPathTemplate": "/api/categoryd"
+    },
+    {
+      "UpstreamPathTemplate": "/gateway/categoryd/{id}",
+      "UpstreamHttpMethod": [ "GET" ],
+      "DownstreamScheme": "https",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": "7206"
+        }
+      ],
+      "DownstreamPathTemplate": "/api/categoryd/{id}"
+    },
+    {
+      "UpstreamPathTemplate": "/gateway/categoryd/{id}/instructor/{instructorId}",
+      "UpstreamHttpMethod": [ "GET" ],
+      "DownstreamScheme": "https",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": "7206"
+        }
+      ],
+      "DownstreamPathTemplate": "/api/categoryd/{id}/instructor/{instructorId}"
+    }
+  ],
+  "GlobalConfiguration": {
+    "BaseUrl": "https://localhost:7213"
+  }
+}
