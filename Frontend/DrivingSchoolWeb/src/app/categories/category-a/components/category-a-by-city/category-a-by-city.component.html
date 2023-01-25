@@ -12,15 +12,14 @@
   </section>
   <aside class="col-sm-12 col-md-4">
     <div class="row lesson">
-      <div *ngIf="lesson$ | async as lesson">
         <app-lesson
           [lesson] = "lesson"
         ></app-lesson>
-      </div>
     </div>
     <div class="row">
       <div class="col-xs-12 col-sm-3 col-md-8">
         <button
+        type="button"
           class="btn btn-outline-info btn-select-lesson"
           [disabled]="disable"
           (click)="selectLessonByType(lessonType.Theory)">
@@ -29,6 +28,7 @@
       </div>
       <div class="col-xs-12 col-sm-3 col-md-3">
         <button
+        type="button"
           class="btn btn-outline-secondary btn-select-lesson"
           [disabled]="!disable"
           (click)="selectLessonByType(lessonType.Practice)">

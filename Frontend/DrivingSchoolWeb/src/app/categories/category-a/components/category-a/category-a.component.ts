@@ -3,6 +3,7 @@ import { Observable } from 'rxjs';
 import {CategoryAService} from 'src/app/categories/category-a/services/category-a.service';
 import {CategoryA} from 'src/app/categories/category-a/models/categoryA.interface';
 import {CategoryType} from 'src/app/categories/shared/models/enums/category-type.enum';
+import {LoadingService} from 'src/app/shared/services/loading.service';
 
 @Component({
   selector: 'app-category-a',
@@ -12,8 +13,10 @@ import {CategoryType} from 'src/app/categories/shared/models/enums/category-type
 export class CategoryAComponent {
   public categoryTypeHeading: CategoryType = CategoryType.A;
   public categoryARoute:string = 'category-a';
-  public categoryA$: Observable<CategoryA[]> = this.categoryAService.getAll();
+  private categoryA$: Observable<CategoryA[]> = this.categoryAService.getAll();
+  public categoryALoader$: Observable<CategoryA[]> =
+                  this.loadingService.showLoaderUntilCompleted(this.categoryA$);
 
-  constructor(private categoryAService: CategoryAService) { }
+  constructor(private categoryAService: CategoryAService, private loadingService: LoadingService) { }
 
 }

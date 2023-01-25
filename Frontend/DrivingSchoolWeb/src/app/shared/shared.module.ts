@@ -9,6 +9,7 @@ import {ConvertEnumToArrayPipe} from 'src/app/shared/pipes/convert-enum-to-array
 import {EmptySpaceSplitPipe} from 'src/app/shared/pipes/empty-space-split.pipe';
 import {ChangeRotationButtonsDirective} from 'src/app/shared/directives/changeRotationButtons';
 import {CertificateComponent} from 'src/app/shared/components/certificate/certificate.component';
+import { LoadingComponent } from './components/loading/loading.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import {CertificateComponent} from 'src/app/shared/components/certificate/certif
     ChangeRotationButtonsDirective,
     EmptySpaceSplitPipe,
     WidgetTitleDetailComponent,
-    CertificateComponent
+    CertificateComponent,
+    LoadingComponent
   ],
   imports: [
     CommonModule
@@ -34,7 +36,8 @@ import {CertificateComponent} from 'src/app/shared/components/certificate/certif
     EmptySpaceSplitPipe,
     ChangeRotationButtonsDirective,
     WidgetTitleDetailComponent,
-    CertificateComponent
+    CertificateComponent,
+    LoadingComponent
   ]
 })
 export class SharedModule { }

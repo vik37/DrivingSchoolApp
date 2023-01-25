@@ -16,12 +16,10 @@
     <aside class="col-sm-12 col-md-4">
       <div class="row lesson">
         <h5>{{currentLessonType | enumConverter: lessonType}}</h5>
-        <div *ngIf="lesson$ | async as lesson">
-          <div>
+        <div *ngIf="lesson">
             <app-lesson
             [lesson] = "lesson"
           ></app-lesson>
-          </div>
           <div *ngIf="lesson.discount">
             <div class="lesson-discount" [ngSwitch]="lesson.type">
               <span *ngSwitchCase="1">Theory, Polyghon:

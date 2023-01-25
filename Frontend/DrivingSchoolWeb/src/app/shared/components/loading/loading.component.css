@@ -1,0 +1,36 @@
+.spinner-circle{
+  padding-top: 10%;
+  padding-left: 50%;
+}
+.spinner-border{
+  width: 5rem;
+  height: 5rem;
+  background: radial-gradient(circle, rgba(42,161,243,1) 6%,
+                    rgba(0,0,0,1) 49%, rgba(29,72,80,1) 80%, rgb(19, 107, 4) 100%);
+  border-style:dashed;
+  box-shadow: 0 10px 4px 2px rgba(42,161,243,0.4)inset;
+  outline: 2px dashed rgba(207, 244, 119,0.2);
+  outline-offset: 6px;
+}
+.loading-text{
+  padding: 5px 10px;
+  background-color: rgba(0,0,0,0.4);
+  letter-spacing: 2px;
+  font-weight: bolder;
+  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+  color: rgba(97, 184, 241,0.7);
+  text-shadow: 2px 0 6px rgb(239, 48, 48);
+  border-radius: 14px;
+  margin-top: 7px;
+  font-size: 16px;
+}
+@media screen and (max-width: 1000px) {
+  .spinner-circle{
+    padding-top: 20%;
+  }
+}
+@media screen and (max-width: 450px) {
+  .spinner-circle{
+    padding-left: 30%;
+  }
+}

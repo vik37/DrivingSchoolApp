@@ -11,7 +11,5 @@ export class LessonComponent implements OnChanges {
   @Input()lesson: Lesson | undefined;
   constructor() { }
 
-  ngOnChanges(changes: SimpleChanges): void{
-
-  }
+  ngOnChanges(changes: SimpleChanges): void{}
 }

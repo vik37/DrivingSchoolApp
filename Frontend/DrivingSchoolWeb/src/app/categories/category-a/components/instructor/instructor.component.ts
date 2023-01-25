@@ -1,8 +1,7 @@
 import { Component,OnChanges,SimpleChanges,Input,AfterViewInit } from '@angular/core';
+import {faUserCheck} from '@fortawesome/free-solid-svg-icons';
 import {Instructor} from 'src/app/categories/category-a/models/instructor.interface';
 import {PhotoService} from 'src/app/shared/services/photo.service';
-import {faUserCheck} from '@fortawesome/free-solid-svg-icons';
-
 declare var jQuery: any;
 
 @Component({
@@ -13,10 +12,13 @@ declare var jQuery: any;
   providers: [PhotoService]
 })
 export class InstructorComponent implements OnChanges, AfterViewInit {
+
   photoUrl: string = '';
   faUserCheck = faUserCheck;
   @Input() instructor: Instructor | undefined;
+
   constructor(private photoService: PhotoService) { }
+
   ngOnChanges(changes: SimpleChanges): void{
     let firstInstructorChanges = changes['instructor'];
     if(firstInstructorChanges.firstChange){

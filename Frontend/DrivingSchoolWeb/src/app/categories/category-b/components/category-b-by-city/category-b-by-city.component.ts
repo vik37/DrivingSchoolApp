@@ -1,7 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { ActivatedRoute,ParamMap } from '@angular/router';
-import { Observable } from 'rxjs';
-import {switchMap, tap,map} from 'rxjs/operators';
+import { Observable, Subscription } from 'rxjs';
+import {switchMap, tap,map,take} from 'rxjs/operators';
 import {CategoryBService} from 'src/app/categories/category-b/services/category-b.service';
 import {CategoryB} from 'src/app/categories/category-b/models/categoryB.interface';
 import {CategoryBLesson} from 'src/app/categories/category-b/models/lesson-categoryB.interface';
@@ -9,6 +9,7 @@ import {Instructor} from 'src/app/categories/category-b/models/instructor.interf
 import {Car} from 'src/app/categories/category-b/models/car.interface';
 import {LessonType} from 'src/app/categories/category-b/models/enums/lesson-type.enum';
 import {CategoryType} from 'src/app/categories/shared/models/enums/category-type.enum';
+import {LoadingService} from 'src/app/shared/services/loading.service';
 
 @Component({
   selector: 'app-category-b-by-city',
@@ -16,49 +17,57 @@ import {CategoryType} from 'src/app/categories/shared/models/enums/category-type
   styleUrls: ['../../../shared/style/category-city-style.css',
               './category-b-by-city.component.css']
 })
-export class CategoryBByCityComponent implements OnInit {
+export class CategoryBByCityComponent implements OnInit, OnDestroy {
 
   public categoryTypeHeading: CategoryType = CategoryType.B;
-  public categoryB$: Observable<CategoryB> = this.route.paramMap.pipe(
-                        switchMap((params:ParamMap) =>{
-                          return this.categoryBService.getById(params.get('id') as string)
-                          })
-                        );
-  public lesson$: Observable<CategoryBLesson | undefined>
-                    = new Observable<CategoryBLesson | undefined>();
+  public categoryB$: Observable<CategoryB> = new Observable<CategoryB>();
+  public currentLessonType:LessonType = LessonType.Theory;
+  public currentLessonIndex: number = 0;
+  public lessonType = LessonType;
+  public activeClass:string = "lesson-type-selector-active";
+  public lesson: CategoryBLesson | undefined;
+  private lessonSubscription = new Subscription();
+  private lessons: CategoryBLesson[] = [];
   public instructors$: Observable<Instructor[]> = new Observable<Instructor[]>();
   public cars$: Observable<Car[]> = new Observable<Car[]>();
-  public currentLessonType:LessonType = LessonType.Theory;
-  public lessonType = LessonType;
   public carDetail: Car | undefined;
-  carLoaded:boolean = false;
-  public currentLessonIndex: number = 0;
-  public activeClass:string = "lesson-type-selector-active";
 
-  constructor(private route: ActivatedRoute, private categoryBService: CategoryBService)
+  constructor(private route: ActivatedRoute, private categoryBService: CategoryBService,
+              private loadingService: LoadingService)
         { }
 
   ngOnInit(): void {
+    this.loadCategory();
+  }
+  loadCategory(): void{
+    let category = this.route.paramMap.pipe(
+                              take(1),
+                              switchMap((params:ParamMap) =>{
+                                return this.categoryBService.getById(params.get('id') as string)
+                                })
+                              );
+    this.categoryB$ = this.loadingService.showLoaderUntilCompleted(category);
     this.loadLesson();
     this.loadInstructors();
     this.loadCars();
   }
-
   loadLesson():  void{
-    this.lesson$ = this.categoryB$.pipe(
-                  map(data => data.lessons),
-                  map(x => x.find(s => s.type === this.currentLessonType))
-                );
+    this.lessonSubscription = this.categoryB$.pipe(
+                  map(data => data.lessons)
+                ).subscribe(data =>{
+                  this.lessons = data
+                  this.lesson = data[0]
+                });
+  }
+  selectLessonByType(type:number,index:number): void{
+    this.lesson = this.lessons[index];
+    this.currentLessonType = type as LessonType;
+    this.currentLessonIndex = index;
   }
   loadInstructors(): void{
     this.instructors$ = this.categoryB$.pipe(
       map(data => data.instructors)
     );
-  }
-  selectLessonByType(type:number,index:number): void{
-    this.currentLessonType = type as LessonType;
-    this.currentLessonIndex = index;
-    this.loadLesson();
   }
   loadCars(): void{
     this.cars$ = this.categoryB$.pipe(
@@ -69,7 +78,9 @@ export class CategoryBByCityComponent implements OnInit {
   getCarDetail(car: Car): void{
     if(car){
       this.carDetail = car;
-      this.carLoaded = !this.carLoaded;
     }
+  }
+  ngOnDestroy(): void {
+    this.lessonSubscription.unsubscribe();
   }
 }

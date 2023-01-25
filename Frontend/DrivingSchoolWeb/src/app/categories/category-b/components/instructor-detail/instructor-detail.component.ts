@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
-import { tap,map, switchMap } from 'rxjs/operators';
+import { tap,map, switchMap,take } from 'rxjs/operators';
 import { ActivatedRoute,ParamMap } from '@angular/router';
 import {Instructor} from 'src/app/categories/category-b/models/instructor.interface';
 import {WorkExperience} from 'src/app/categories/category-b/models/work-experience.interface';
@@ -9,6 +9,7 @@ import {PhotoService} from 'src/app/shared/services/photo.service';
 import {HtmlElementService} from 'src/app/shared/services/helper/html-elements-builder/html-element.service';
 import {ParentTagText} from 'src/app/shared/services/helper/html-elements-builder/enums/parent-text-tag.enum';
 import {ChildTagText} from 'src/app/shared/services/helper/html-elements-builder/enums/child-text-tag.enum';
+import {LoadingService} from 'src/app/shared/services/loading.service';
 
 @Component({
   selector: 'app-instructor-detail',
@@ -18,24 +19,30 @@ import {ChildTagText} from 'src/app/shared/services/helper/html-elements-builder
   providers: [PhotoService, HtmlElementService]
 })
 export class InstructorDetailComponent implements OnInit {
-  public instructor$: Observable<Instructor> = this.route.paramMap.pipe(
-                      switchMap((params:ParamMap)=>{
-                        const categoryBId = params.get('id' as string);
-                        const instructorId = params.get('instructorId' as string);
-                        return this.instructorService.getInstructorById(categoryBId??'',instructorId??'')
-                      }));
-  public workExperience$: Observable<WorkExperience[]> = this.instructor$.pipe(
-    map(data => data.workExperiencePerCompany as WorkExperience[])
-  );
-  public photoUrl$!:Observable<string>;
+  public instructor$: Observable<Instructor> = new Observable<Instructor>();
+  public workExperience$: Observable<WorkExperience[]> = new Observable<WorkExperience[]>();
+  public photoUrl$:Observable<string> = new Observable<string>();
   public description:string = '';
   public workExperienceLength:number = 0;
 
   constructor(private route: ActivatedRoute, private instructorService: InstructorService,
-                private photoService:PhotoService,private htmlElements: HtmlElementService) { }
+                private photoService:PhotoService,private htmlElements: HtmlElementService,
+                private loaderService: LoadingService) { }
 
   ngOnInit(): void {
+    this.loadInstructor();
     this.loadPhoto();
+    this.loadWorkExperience();
+  }
+  loadInstructor(): void{
+    let instructor = this.route.paramMap.pipe(
+                    take(1),
+                    switchMap((params:ParamMap)=>{
+                      const categoryBId = params.get('id' as string);
+                      const instructorId = params.get('instructorId' as string);
+                      return this.instructorService.getInstructorById(categoryBId??'',instructorId??'')
+                    }));
+    this.instructor$ = this.loaderService.showLoaderUntilCompleted(instructor);
   }
   loadPhoto(): void{
     this.photoUrl$ = this.instructor$.pipe(
@@ -45,6 +52,11 @@ export class InstructorDetailComponent implements OnInit {
         return data.photo===null?`${this.photoService.uri}empty/empty-person`
                           :`${this.photoService.uri}instructor/${data.photo}`;
       })
+    );
+  }
+  loadWorkExperience(): void{
+    this.workExperience$ =  this.instructor$.pipe(
+      map(data => data.workExperiencePerCompany as WorkExperience[])
     );
   }
   createDescription(instructor:Instructor): void{

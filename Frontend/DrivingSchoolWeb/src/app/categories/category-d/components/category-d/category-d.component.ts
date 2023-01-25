@@ -3,6 +3,7 @@ import { Observable } from 'rxjs';
 import {CategoryD} from 'src/app/categories/category-d/models/categoryD.interface';
 import {CategoryDService} from 'src/app/categories/category-d/services/category-d.service';
 import {CategoryType} from 'src/app/categories/shared/models/enums/category-type.enum';
+import {LoadingService} from 'src/app/shared/services/loading.service';
 
 @Component({
   selector: 'app-category-d',
@@ -11,11 +12,14 @@ import {CategoryType} from 'src/app/categories/shared/models/enums/category-type
               ,'./category-d.component.css']
 })
 export class CategoryDComponent {
-  
-  public categoryTypeHeading: CategoryType = CategoryType.D;
-  categoryDRoute: string = 'category-d';
-  categoryD$: Observable<CategoryD[]> = this.categoryDService.getAll();
 
-  constructor(private categoryDService: CategoryDService) { }
+  public categoryTypeHeading: CategoryType = CategoryType.D;
+  public categoryDRoute: string = 'category-d';
+  private categoryD$: Observable<CategoryD[]> = this.categoryDService.getAll();
+  public categoryDLoaded$: Observable<CategoryD[]> =
+                          this.loadingService.showLoaderUntilCompleted(this.categoryD$);
+
+  constructor(private categoryDService: CategoryDService,
+    private loadingService: LoadingService) { }
 
 }

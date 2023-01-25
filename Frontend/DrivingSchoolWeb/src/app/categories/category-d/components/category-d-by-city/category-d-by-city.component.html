@@ -16,12 +16,10 @@
     <aside class="col-sm-12 col-md-4">
       <div class="row lesson">
         <h5>{{currentLessonType | enumConverter: lessonType}}</h5>
-        <div *ngIf="lesson$ | async as lesson">
-          <div>
+        <div *ngIf="lesson">
             <app-lesson
             [lesson] = "lesson"
           ></app-lesson>
-          </div>
           <div *ngIf="lesson.discount">
             <div class="lesson-discount" [ngSwitch]="lesson.type">
               <span *ngSwitchCase="2">Theory, Polyghon:
@@ -64,7 +62,8 @@
     </div>
     <br />
     <div class="row">
-      <section *ngFor="let instructor of (instructors$ | async)" class="col-xs-12 col-sm-6 col-md-4 category-city">
+      <section *ngFor="let instructor of (instructors$ | async)"
+                  class="col-xs-12 col-sm-6 col-md-4 category-city">
         <app-instructor
           [instructor]="instructor"
         ></app-instructor>
