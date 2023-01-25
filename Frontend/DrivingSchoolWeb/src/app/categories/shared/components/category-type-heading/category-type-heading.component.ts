@@ -20,4 +20,5 @@ export class CategoryTypeHeadingComponent{
   get categoryTypeHeading(): CategoryType{
     return this._categoryTypeHeading;
   }
+
 }

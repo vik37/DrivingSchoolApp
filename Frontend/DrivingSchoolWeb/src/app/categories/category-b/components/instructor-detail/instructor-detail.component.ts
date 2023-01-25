@@ -1,12 +1,12 @@
-import { Component, OnInit } from '@angular/core';
+import { Component,OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
-import { tap,map, switchMap,take } from 'rxjs/operators';
+import { tap,map,switchMap,take } from 'rxjs/operators';
 import { ActivatedRoute,ParamMap } from '@angular/router';
 import {Instructor} from 'src/app/categories/category-b/models/instructor.interface';
 import {WorkExperience} from 'src/app/categories/category-b/models/work-experience.interface';
 import {InstructorService} from 'src/app/categories/category-b/services/instructor.service';
 import {PhotoService} from 'src/app/shared/services/photo.service';
-import {HtmlElementService} from 'src/app/shared/services/helper/html-elements-builder/html-element.service';
+import {HtmlTextElementService} from 'src/app/shared/services/helper/html-elements-builder/html-element.service';
 import {ParentTagText} from 'src/app/shared/services/helper/html-elements-builder/enums/parent-text-tag.enum';
 import {ChildTagText} from 'src/app/shared/services/helper/html-elements-builder/enums/child-text-tag.enum';
 import {LoadingService} from 'src/app/shared/services/loading.service';
@@ -16,7 +16,7 @@ import {LoadingService} from 'src/app/shared/services/loading.service';
   templateUrl: './instructor-detail.component.html',
   styleUrls: ['../../../shared/style/instructor-detail-shared-style.css',
               './instructor-detail.component.css'],
-  providers: [PhotoService, HtmlElementService]
+  providers: [PhotoService, HtmlTextElementService]
 })
 export class InstructorDetailComponent implements OnInit {
   public instructor$: Observable<Instructor> = new Observable<Instructor>();
@@ -26,7 +26,8 @@ export class InstructorDetailComponent implements OnInit {
   public workExperienceLength:number = 0;
 
   constructor(private route: ActivatedRoute, private instructorService: InstructorService,
-                private photoService:PhotoService,private htmlElements: HtmlElementService,
+                private photoService:PhotoService,
+                private htmlTextElementService: HtmlTextElementService,
                 private loaderService: LoadingService) { }
 
   ngOnInit(): void {
@@ -60,7 +61,7 @@ export class InstructorDetailComponent implements OnInit {
     );
   }
   createDescription(instructor:Instructor): void{
-    this.description = this.htmlElements.openParentTag(ParentTagText.span,'')
+    this.description = this.htmlTextElementService.openParentTag(ParentTagText.span,'')
                                         .addText("I'm a")
                                         .addChild(ChildTagText.i," Driving Instructor ",'')
                                         .addChild(ChildTagText.b,`${instructor.fullname} `,'')

@@ -8,8 +8,11 @@ import {WorkExperience} from 'src/app/categories/category-b/models/work-experien
                 './work-experience.component.css']
 })
 export class WorkExperienceComponent {
+
   private _workExperience!: WorkExperience;
+
   constructor() { }
+
   @Input()
   set workExperience(value:WorkExperience){
     if(value){
@@ -19,4 +22,5 @@ export class WorkExperienceComponent {
   get workExperience(): WorkExperience{
     return this._workExperience;
   }
+
 }

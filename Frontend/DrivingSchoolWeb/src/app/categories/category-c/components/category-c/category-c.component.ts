@@ -14,9 +14,9 @@ export class CategoryCComponent {
 
   public categoryTypeHeading: CategoryType = CategoryType.C;
   public categoryCRoute:string = 'category-c';
-  private categoryC$: Observable<CategoryC[]> = this.categoryCService.getAll();
+  private _categoryC$: Observable<CategoryC[]> = this.categoryCService.getAll();
   public categoryCLoaded$: Observable<CategoryC[]> =
-                          this.loadingService.showLoaderUntilCompleted(this.categoryC$);
+                          this.loadingService.showLoaderUntilCompleted(this._categoryC$);
 
   constructor(private categoryCService: CategoryCService,
     private loadingService: LoadingService) { }

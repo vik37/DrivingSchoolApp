@@ -1,7 +1,7 @@
 .category-container{
   margin-top: 30px;
 }
-
-.category-a-heading-block, .category-b-heading-block, .category-c-heading-block, .category-d-heading-block{
+.category-a-heading-block, .category-b-heading-block,
+.category-c-heading-block, .category-d-heading-block{
   text-align: center;
 }

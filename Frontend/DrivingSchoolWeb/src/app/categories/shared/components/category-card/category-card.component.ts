@@ -14,10 +14,10 @@ export class CategoryCardComponent implements OnChanges {
 
   @Input()category:Category | null = null;
   @Input()categoryRoute: string = '';
-
-  faPhone = faPhone;
-  constructor(private photoService:PhotoService,private router: Router) { }
+  public faPhone = faPhone;
   image:string = "";
+
+  constructor(private photoService:PhotoService,private router: Router) { }
 
   ngOnChanges(changes: SimpleChanges): void{
     let categoryChanges = changes['category'];
@@ -25,9 +25,9 @@ export class CategoryCardComponent implements OnChanges {
       this.image = `${this.photoService.uri}city/${this.category?.city.toLowerCase()}`;
     }
   }
-
-  sendId(id:number): void{
+  categoryDetailNavigation(id:number): void{
     if(this.categoryRoute !== '')
     this.router.navigate([`${this.categoryRoute}/${id}`]);
   }
+
 }

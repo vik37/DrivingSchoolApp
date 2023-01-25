@@ -1,7 +1,7 @@
-import { Component, OnInit, OnDestroy } from '@angular/core';
+import { Component,OnInit,OnDestroy } from '@angular/core';
 import { ActivatedRoute,ParamMap } from '@angular/router';
-import { Observable, Subscription, Subject } from 'rxjs';
-import {switchMap, tap,map,take, filter} from 'rxjs/operators';
+import { Observable,Subscription } from 'rxjs';
+import { switchMap,tap,map,take } from 'rxjs/operators';
 import {CategoryAService} from 'src/app/categories/category-a/services/category-a.service';
 import {CategoryA} from 'src/app/categories/category-a/models/categoryA.interface';
 import {CategoryALesson} from 'src/app/categories/category-a/models/lesson-categoryA.interface';
@@ -26,8 +26,8 @@ export class CategoryAByCityComponent implements OnInit,OnDestroy {
   public lessonType = LessonType;
   public disable: boolean = true;
   public motorcycleDetail: Motorcycle | undefined;
-  private lessonSubscription = new Subscription();
-  private lessons: CategoryALesson[] = [];
+  private _lessonSubscription = new Subscription();
+  private _lessons: CategoryALesson[] = [];
   public lesson: CategoryALesson | undefined;
 
   constructor(private route: ActivatedRoute, private categoryAService: CategoryAService,
@@ -50,15 +50,15 @@ export class CategoryAByCityComponent implements OnInit,OnDestroy {
     this.loadMotorcycles();
   }
   loadLesson():  void{
-    this.lessonSubscription = this.categoryA$.pipe(
+    this._lessonSubscription = this.categoryA$.pipe(
       map(data => data.lessons)).subscribe(data =>{
-            this.lessons = data
+            this._lessons = data
             this.lesson = data[0];
       }
     )
   }
   selectLessonByType(type:LessonType): void{
-    this.lesson = this.lessons.find(x => x.type === type)??undefined;
+    this.lesson = this._lessons.find(x => x.type === type)??undefined;
     this.disable = !this.disable;
   }
   loadInstructors(): void{
@@ -75,8 +75,8 @@ export class CategoryAByCityComponent implements OnInit,OnDestroy {
   getMotorDetail(motor: Motorcycle): void{
     this.motorcycleDetail = motor;
   }
-
   ngOnDestroy(): void {
-    this.lessonSubscription.unsubscribe();
+    this._lessonSubscription.unsubscribe();
   }
+
 }

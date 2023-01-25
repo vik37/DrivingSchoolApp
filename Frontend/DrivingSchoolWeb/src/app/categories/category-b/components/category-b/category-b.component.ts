@@ -11,11 +11,12 @@ import {LoadingService} from 'src/app/shared/services/loading.service';
   styleUrls: ['../../../shared/style/category-style.css','./category-b.component.css']
 })
 export class CategoryBComponent {
+
   public categoryTypeHeading: CategoryType = CategoryType.B;
   public categoryBRoute:string = 'category-b';
-  private categoryB$: Observable<CategoryB[]> = this.categoryBService.getAll();
+  private _categoryB$: Observable<CategoryB[]> = this.categoryBService.getAll();
   public categoryBLoaded$: Observable<CategoryB[]> =
-                          this.loadingService.showLoaderUntilCompleted(this.categoryB$);
+                          this.loadingService.showLoaderUntilCompleted(this._categoryB$);
 
   constructor(private categoryBService: CategoryBService,
                 private loadingService: LoadingService) { }

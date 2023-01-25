@@ -27,8 +27,8 @@ export class CategoryDByCityComponent implements OnInit,OnDestroy {
   public activeClass:string = "lesson-type-selector-active";
   public lessonType = LessonType;
   public lesson: CategoryDLesson | undefined;
-  private lessonSubscription = new Subscription();
-  private lessons: CategoryDLesson[] = [];
+  private _lessonSubscription = new Subscription();
+  private _lessons: CategoryDLesson[] = [];
   public instructors$: Observable<Instructor[]> = new Observable<Instructor[]>();
   public photoUrl:string = this.photoService.uri;
 
@@ -50,15 +50,15 @@ export class CategoryDByCityComponent implements OnInit,OnDestroy {
     this.loadInstructors();
   }
   loadLesson():  void{
-    this.lessonSubscription = this.categoryD$.pipe(
+    this._lessonSubscription = this.categoryD$.pipe(
                   map(data => data.lessons)
                 ).subscribe(data =>{
-                  this.lessons = data
+                  this._lessons = data
                   this.lesson = data[0]
                 });
   }
   selectLessonByType(type:number,index:number): void{
-    this.lesson = this.lessons[index];
+    this.lesson = this._lessons[index];
     this.currentLessonType = type as LessonType;
     this.currentLessonIndex = index;
   }
@@ -68,6 +68,6 @@ export class CategoryDByCityComponent implements OnInit,OnDestroy {
     )
   }
   ngOnDestroy(): void {
-    this.lessonSubscription.unsubscribe();
+    this._lessonSubscription.unsubscribe();
   }
 }

@@ -10,16 +10,18 @@ import {ResponseError} from 'src/app/shared/models/response-error.interface';
   providedIn: 'root'
 })
 export class CategoryCService {
-  private url: string = environment.gatewayUrl+'categoryc';
+
+  private _url: string = environment.gatewayUrl+'categoryc';
+
   constructor(private http: HttpClient) { }
 
   getAll(): Observable<CategoryC[]>{
-    return this.http.get<CategoryC[]>(this.url).pipe(
+    return this.http.get<CategoryC[]>(this._url).pipe(
       map(res => (res as CategoryC[]))
     )
   }
   getById(id:string): Observable<CategoryC>{
-    return this.http.get<CategoryC>(this.url+'/'+id).pipe(
+    return this.http.get<CategoryC>(this._url+'/'+id).pipe(
       map(res => res as CategoryC)
     )
   }

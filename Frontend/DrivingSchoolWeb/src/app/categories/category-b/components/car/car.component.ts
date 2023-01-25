@@ -1,4 +1,4 @@
-import { Component, Input,AfterViewInit } from '@angular/core';
+import { Component,Input,AfterViewInit } from '@angular/core';
 import {Car} from 'src/app/categories/category-b/models/car.interface';
 import {PhotoService} from 'src/app/shared/services/photo.service';
 import {faCar} from '@fortawesome/free-solid-svg-icons';
@@ -12,9 +12,10 @@ declare var jQuery: any;
   providers: [PhotoService]
 })
 export class CarComponent implements AfterViewInit {
+
   private _car!: Car;
-  photoUrl:string = '';
-  faCar = faCar;
+  public photoUrl:string = '';
+  public faCar = faCar;
 
   constructor(private photoService: PhotoService) { }
 
@@ -28,9 +29,11 @@ export class CarComponent implements AfterViewInit {
   get car(): Car{
     return this._car;
   }
+
   ngAfterViewInit(): void {
     jQuery('[data-bs-toggle="tooltip"]').tooltip({
       title: `book an ${this.car?.type}`
     });
   }
+
 }
