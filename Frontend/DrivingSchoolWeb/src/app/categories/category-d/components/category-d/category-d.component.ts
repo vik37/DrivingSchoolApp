@@ -15,9 +15,9 @@ export class CategoryDComponent {
 
   public categoryTypeHeading: CategoryType = CategoryType.D;
   public categoryDRoute: string = 'category-d';
-  private categoryD$: Observable<CategoryD[]> = this.categoryDService.getAll();
+  private _categoryD$: Observable<CategoryD[]> = this.categoryDService.getAll();
   public categoryDLoaded$: Observable<CategoryD[]> =
-                          this.loadingService.showLoaderUntilCompleted(this.categoryD$);
+                          this.loadingService.showLoaderUntilCompleted(this._categoryD$);
 
   constructor(private categoryDService: CategoryDService,
     private loadingService: LoadingService) { }

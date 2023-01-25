@@ -3,7 +3,6 @@
     {
       "UpstreamPathTemplate": "/gateway/categorya",
       "UpstreamHttpMethod": [ "GET" ],
-
       "DownstreamScheme": "https",
       "DownstreamHostAndPorts": [
         {
@@ -16,7 +15,6 @@
     {
       "UpstreamPathTemplate": "/gateway/categorya/{id}",
       "UpstreamHttpMethod": [ "GET" ],
-
       "DownstreamScheme": "https",
       "DownstreamHostAndPorts": [
         {

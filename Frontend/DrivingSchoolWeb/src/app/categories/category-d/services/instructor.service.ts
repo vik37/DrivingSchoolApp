@@ -11,12 +11,12 @@ import {ResponseError} from 'src/app/shared/models/response-error.interface';
 })
 export class InstructorService {
 
-  private url: string = environment.gatewayUrl+'categoryd';
+  private _url: string = environment.gatewayUrl+'categoryd';
 
   constructor(private http: HttpClient) { }
 
   getInstructorById(id:string,instructorId:string): Observable<Instructor>{
-    return this.http.get<Instructor>(this.url+`/${id}/instructor/${instructorId}`).pipe(
+    return this.http.get<Instructor>(this._url+`/${id}/instructor/${instructorId}`).pipe(
       map(res => res as Instructor)
     )
   }

@@ -1,6 +1,5 @@
 .lesson > h5{
   height: 30px;
-  text-align: center;
   letter-spacing: 2.7px;
   background-color: rgba(3, 93, 111, 0.2);
   border-top: 0.2px dotted rgb(96, 217, 250);
@@ -9,7 +8,7 @@
   color: rgba(68, 250, 150, 0.8);
   text-shadow: 1px 1px 1px rgba(121, 184, 246,0.9);
 }
-.lesson-discount{
+.lesson > h5,.lesson-discount{
   text-align: center;
 }
 .lesson-discount > span{
@@ -41,7 +40,6 @@
   border: 2px solid rgb(250, 96, 96);
   background-color: rgba(248, 17, 17,0.7);
   cursor:default;
-
 }
 @media screen and (max-width: 1300px) {
   .hr-category-lesson{

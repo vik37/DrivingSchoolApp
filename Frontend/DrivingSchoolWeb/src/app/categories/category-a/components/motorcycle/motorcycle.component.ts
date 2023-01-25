@@ -1,21 +1,20 @@
-import { Component, Input,AfterViewInit, ChangeDetectionStrategy } from '@angular/core';
+import { Component,Input,AfterViewInit } from '@angular/core';
+import { faMotorcycle } from '@fortawesome/free-solid-svg-icons';
 import {Motorcycle} from 'src/app/categories/category-a/models/motorcycle.interface';
 import {PhotoService} from 'src/app/shared/services/photo.service';
-import {faMotorcycle} from '@fortawesome/free-solid-svg-icons';
 declare var jQuery: any;
 
 @Component({
   selector: 'app-motorcycle',
   templateUrl: './motorcycle.component.html',
   styleUrls: ['./motorcycle.component.css','../../../shared/style/vehicle-style.css'],
-  providers: [PhotoService],
-  changeDetection: ChangeDetectionStrategy.OnPush
+  providers: [PhotoService]
 })
 export class MotorcycleComponent implements AfterViewInit {
-  private _motorcycle!: Motorcycle;
 
-  photoUrl:string = '';
-  faMotorcycle = faMotorcycle;
+  private _motorcycle!: Motorcycle;
+  public photoUrl: string = '';
+  public faMotorcycle = faMotorcycle;
 
   constructor(private photoService: PhotoService) { }
 
@@ -35,4 +34,5 @@ export class MotorcycleComponent implements AfterViewInit {
       title: `book an ${this.motorcycle?.type}`
     });
   }
+
 }

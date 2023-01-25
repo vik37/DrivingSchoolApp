@@ -2,7 +2,6 @@ import { Component, Input } from '@angular/core';
 import {Motorcycle} from 'src/app/categories/category-a/models/motorcycle.interface';
 import {PhotoService} from 'src/app/shared/services/photo.service';
 
-
 @Component({
   selector: 'app-motorcycle-detail',
   templateUrl: './motorcycle-detail.component.html',
@@ -13,7 +12,7 @@ import {PhotoService} from 'src/app/shared/services/photo.service';
 export class MotorcycleDetailComponent {
 
   private _motorcycle!: Motorcycle;
-  photoUrl:string = '';
+  public photoUrl:string = '';
 
   constructor(private photoService: PhotoService) { }
 
@@ -27,4 +26,5 @@ export class MotorcycleDetailComponent {
   get motorcycle(): Motorcycle{
     return this._motorcycle;
   }
+
 }

@@ -1,4 +1,4 @@
-import { Component,OnInit, OnDestroy } from '@angular/core';
+import { Component,OnInit,OnDestroy } from '@angular/core';
 import { ActivatedRoute,ParamMap } from '@angular/router';
 import { Observable, Subscription } from 'rxjs';
 import { switchMap,tap,map,take } from 'rxjs/operators';
@@ -26,8 +26,8 @@ export class CategoryCByCityComponent implements OnInit,OnDestroy {
   public currentLessonIndex: number = 0;
   public activeClass:string = "lesson-type-selector-active";
   public lesson: CategoryCLesson | undefined;
-  private lessonSubscription = new Subscription();
-  private lessons: CategoryCLesson[] = [];
+  private _lessonSubscription = new Subscription();
+  private _lessons: CategoryCLesson[] = [];
   public instructors$: Observable<Instructor[]> = new Observable<Instructor[]>();
   public trucks$: Observable<Truck[]> = new Observable<Truck[]>();
   public truckDetail: Truck | undefined;
@@ -51,15 +51,15 @@ export class CategoryCByCityComponent implements OnInit,OnDestroy {
     this.loadTrucks();
   }
   loadLesson():  void{
-    this.lessonSubscription = this.categoryC$.pipe(
+    this._lessonSubscription = this.categoryC$.pipe(
                   map(data => data.lessons)
                 ).subscribe(data =>{
-                  this.lessons = data
+                  this._lessons = data
                   this.lesson = data[0]
                 });
   }
   selectLessonByType(type:number,index:number): void{
-    this.lesson = this.lessons[index];
+    this.lesson = this._lessons[index];
     this.currentLessonType = type as LessonType;
     this.currentLessonIndex = index;
   }
@@ -80,6 +80,7 @@ export class CategoryCByCityComponent implements OnInit,OnDestroy {
     }
   }
   ngOnDestroy(): void {
-    this.lessonSubscription.unsubscribe();
+    this._lessonSubscription.unsubscribe();
   }
+
 }

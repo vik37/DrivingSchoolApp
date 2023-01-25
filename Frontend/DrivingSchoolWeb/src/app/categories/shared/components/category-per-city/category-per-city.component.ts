@@ -1,6 +1,6 @@
 import { Component, Input } from '@angular/core';
-import {Category} from 'src/app/categories/shared/models/category.interface';
 import { faPhone } from '@fortawesome/free-solid-svg-icons';
+import {Category} from 'src/app/categories/shared/models/category.interface';
 import {PhotoService} from 'src/app/shared/services/photo.service';
 
 @Component({
@@ -10,10 +10,13 @@ import {PhotoService} from 'src/app/shared/services/photo.service';
   providers:[PhotoService]
 })
 export class CategoryPerCityComponent {
+
   private _category!: Category | null;
   public photoUrl: string = '';
   faPhone = faPhone;
+
   constructor(private photoService: PhotoService) { }
+
   @Input() set category(value:Category | null){
     if(value){
       this._category = value;
@@ -23,4 +26,5 @@ export class CategoryPerCityComponent {
   get category(): Category | null{
     return this._category;
   }
+
 }

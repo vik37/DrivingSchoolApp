@@ -7,7 +7,7 @@ export class ChangeRotationButtonsDirective{
 
   constructor(private element: ElementRef, private renderer: Renderer2) { }
 
-  @HostListener('click') divClick(){
+  @HostListener('click') onClick(){
     this.changeOnClick("rgb(96, 217, 250)",0);
   }
 

@@ -1,5 +1,5 @@
 import { Component,OnChanges,SimpleChanges,Input,AfterViewInit } from '@angular/core';
-import {faUserCheck} from '@fortawesome/free-solid-svg-icons';
+import { faUserCheck } from '@fortawesome/free-solid-svg-icons';
 import {Instructor} from 'src/app/categories/category-a/models/instructor.interface';
 import {PhotoService} from 'src/app/shared/services/photo.service';
 declare var jQuery: any;
@@ -13,8 +13,8 @@ declare var jQuery: any;
 })
 export class InstructorComponent implements OnChanges, AfterViewInit {
 
-  photoUrl: string = '';
-  faUserCheck = faUserCheck;
+  public photoUrl: string = '';
+  public faUserCheck = faUserCheck;
   @Input() instructor: Instructor | undefined;
 
   constructor(private photoService: PhotoService) { }
@@ -35,4 +35,5 @@ export class InstructorComponent implements OnChanges, AfterViewInit {
       title: `book an ${this.instructor?.fullname}`
     });
   }
+
 }

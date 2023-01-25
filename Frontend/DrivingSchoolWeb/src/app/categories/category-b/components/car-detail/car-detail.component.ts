@@ -15,6 +15,7 @@ export class CarDetailComponent {
   photoUrl:string = '';
 
   constructor(private photoService: PhotoService) { }
+
   @Input()
   set car(value:Car){
     if(value){
@@ -25,4 +26,5 @@ export class CarDetailComponent {
   get car(): Car{
     return this._car;
   }
+
 }

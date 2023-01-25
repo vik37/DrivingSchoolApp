@@ -1,7 +1,7 @@
-import { Component, OnInit, OnDestroy } from '@angular/core';
+import { Component,OnInit, OnDestroy } from '@angular/core';
 import { ActivatedRoute,ParamMap } from '@angular/router';
-import { Observable, Subscription } from 'rxjs';
-import {switchMap, tap,map,take} from 'rxjs/operators';
+import { Observable,Subscription } from 'rxjs';
+import { switchMap, tap,map,take } from 'rxjs/operators';
 import {CategoryBService} from 'src/app/categories/category-b/services/category-b.service';
 import {CategoryB} from 'src/app/categories/category-b/models/categoryB.interface';
 import {CategoryBLesson} from 'src/app/categories/category-b/models/lesson-categoryB.interface';
@@ -26,15 +26,14 @@ export class CategoryBByCityComponent implements OnInit, OnDestroy {
   public lessonType = LessonType;
   public activeClass:string = "lesson-type-selector-active";
   public lesson: CategoryBLesson | undefined;
-  private lessonSubscription = new Subscription();
-  private lessons: CategoryBLesson[] = [];
+  private _lessonSubscription = new Subscription();
+  private _lessons: CategoryBLesson[] = [];
   public instructors$: Observable<Instructor[]> = new Observable<Instructor[]>();
   public cars$: Observable<Car[]> = new Observable<Car[]>();
   public carDetail: Car | undefined;
 
   constructor(private route: ActivatedRoute, private categoryBService: CategoryBService,
-              private loadingService: LoadingService)
-        { }
+              private loadingService: LoadingService){ }
 
   ngOnInit(): void {
     this.loadCategory();
@@ -52,15 +51,15 @@ export class CategoryBByCityComponent implements OnInit, OnDestroy {
     this.loadCars();
   }
   loadLesson():  void{
-    this.lessonSubscription = this.categoryB$.pipe(
+    this._lessonSubscription = this.categoryB$.pipe(
                   map(data => data.lessons)
                 ).subscribe(data =>{
-                  this.lessons = data
+                  this._lessons = data
                   this.lesson = data[0]
                 });
   }
   selectLessonByType(type:number,index:number): void{
-    this.lesson = this.lessons[index];
+    this.lesson = this._lessons[index];
     this.currentLessonType = type as LessonType;
     this.currentLessonIndex = index;
   }
@@ -81,6 +80,7 @@ export class CategoryBByCityComponent implements OnInit, OnDestroy {
     }
   }
   ngOnDestroy(): void {
-    this.lessonSubscription.unsubscribe();
+    this._lessonSubscription.unsubscribe();
   }
+
 }
