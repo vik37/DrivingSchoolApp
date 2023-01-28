@@ -1,0 +1,49 @@
+.error-block > *{
+  padding-top: 50px;
+}
+.error-heading-block{
+  margin-bottom: 50px;
+}
+.error-heading-block > h5{
+  font-size: 21px;
+  font-weight: bolder;
+  color: rgba(250, 24, 24, 0.8);
+  text-shadow: 0  -1px rgb(244, 248, 248);
+}
+.exclamation{
+  font-size: 54px;
+  border: 1px solid rgba(244, 248, 248,0.2);
+  padding: 2px 15px;
+  border-radius: 50px;
+  box-shadow: 0 0 12px 3px rgba(244, 248, 248,0.2)inset;
+}
+fa-icon.exclamation ::ng-deep svg path{
+  fill: red;
+  stroke: rgba(244, 248, 248,0.6);
+  stroke-width: 15;
+}
+.btn-go-home{
+  padding: 4px 5px;
+}
+.btn-go-home > span{
+  letter-spacing: 1.5px;
+  font-weight: bolder;
+  text-shadow: 0 0 4px rgb(246, 254, 254);
+  color: rgb(0, 0, 0);
+}
+.btn-go-home, .btn-go-home >span:active{
+  color: rgb(244, 248, 248);
+}
+fa-icon.hose-media ::ng-deep svg path{
+  fill: rgb(72, 83, 3);
+  stroke: rgba(244, 248, 248,1);
+  stroke-width: 10;
+}
+.hose-media{
+  font-size: 20px;
+}
+@media screen and (max-width: 500px) {
+  .error-heading-block > h5{
+    font-size: 16px;
+  }
+}

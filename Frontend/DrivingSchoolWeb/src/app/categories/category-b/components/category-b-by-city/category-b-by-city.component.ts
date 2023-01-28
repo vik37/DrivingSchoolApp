@@ -1,7 +1,7 @@
 import { Component,OnInit, OnDestroy } from '@angular/core';
 import { ActivatedRoute,ParamMap } from '@angular/router';
-import { Observable,Subscription } from 'rxjs';
-import { switchMap, tap,map,take } from 'rxjs/operators';
+import { Observable,Subscription,EMPTY } from 'rxjs';
+import { switchMap,tap,map,take,catchError } from 'rxjs/operators';
 import {CategoryBService} from 'src/app/categories/category-b/services/category-b.service';
 import {CategoryB} from 'src/app/categories/category-b/models/categoryB.interface';
 import {CategoryBLesson} from 'src/app/categories/category-b/models/lesson-categoryB.interface';
@@ -10,6 +10,7 @@ import {Car} from 'src/app/categories/category-b/models/car.interface';
 import {LessonType} from 'src/app/categories/category-b/models/enums/lesson-type.enum';
 import {CategoryType} from 'src/app/categories/shared/models/enums/category-type.enum';
 import {LoadingService} from 'src/app/shared/services/loading.service';
+import {ResponseError} from 'src/app/shared/models/response-error.interface';
 
 @Component({
   selector: 'app-category-b-by-city',
@@ -31,6 +32,7 @@ export class CategoryBByCityComponent implements OnInit, OnDestroy {
   public instructors$: Observable<Instructor[]> = new Observable<Instructor[]>();
   public cars$: Observable<Car[]> = new Observable<Car[]>();
   public carDetail: Car | undefined;
+  public responseError: ResponseError | undefined;
 
   constructor(private route: ActivatedRoute, private categoryBService: CategoryBService,
               private loadingService: LoadingService){ }
@@ -43,6 +45,10 @@ export class CategoryBByCityComponent implements OnInit, OnDestroy {
                               take(1),
                               switchMap((params:ParamMap) =>{
                                 return this.categoryBService.getById(params.get('id') as string)
+                                }),
+                                catchError((err: ResponseError)=>{
+                                  this.responseError = err;
+                                  return EMPTY
                                 })
                               );
     this.categoryB$ = this.loadingService.showLoaderUntilCompleted(category);

@@ -6,7 +6,6 @@ import { AboutComponent } from 'src/app/container/components/about/about.compone
 import { ContactComponent } from 'src/app/container/components/contact/contact.component';
 import { HomeComponent } from 'src/app/container/components/home/home.component';
 import { NotAllowedComponent } from 'src/app/container/components/not-allowed/not-allowed.component';
-import { NotFoundComponent } from 'src/app/container/components/not-found/not-found.component';
 
 export const mainComponents = [
   MainComponent,
@@ -16,6 +15,5 @@ export const mainComponents = [
   AboutComponent,
   ContactComponent,
   HomeComponent,
-  NotAllowedComponent,
-  NotFoundComponent
+  NotAllowedComponent
 ]

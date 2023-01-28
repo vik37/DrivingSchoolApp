@@ -1,15 +1,18 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 
 @Component({
   selector: 'app-not-allowed',
-  templateUrl: './not-allowed.component.html',
+  template: `
+      <app-not-found
+        [errorMessage]="errorMessage"
+      ></app-not-found>
+  `,
   styleUrls: ['./not-allowed.component.css']
 })
-export class NotAllowedComponent implements OnInit {
+export class NotAllowedComponent {
+
+  public errorMessage: string = 'This page is not allowed';
 
   constructor() { }
-
-  ngOnInit(): void {
-  }
 
 }

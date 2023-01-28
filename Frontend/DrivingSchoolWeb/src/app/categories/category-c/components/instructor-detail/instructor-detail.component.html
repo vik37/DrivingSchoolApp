@@ -1,44 +1,51 @@
-<main class="container-fluid">
-  <div *ngIf="instructor$ | async as instructor" class="row">
-    <section class="col-sm-12 col-md-5">
-      <app-widget-title-detail
-        [description]="description"
-      >
-          <img class="widget-title-image" [src]="photoUrl$ | async" [alt]="instructor.fullname" />
-          <h3 class="widget-title-title">Instructor</h3>
-          <h5 class="widget-title-subtitle">{{instructor.fullname}}</h5>
-          <h6>Hello There!!!</h6>
-      </app-widget-title-detail>
-    </section>
-    <section class="col-sm-12 col-md-3 licences">
-      <h5>Cetrificate:</h5>
-      <div class="certificate">
-        <app-certificate>
-          <span class="certificate-id">{{instructor.licenceId}}</span>
-        </app-certificate>
-      </div>
-      <h5>Category Licences: </h5>
-      <div class="category-licence-block">
-        <div class="row">
-          <div class="col-xs-1 col-sm-1 col-md-1 category-licence"
-                  *ngFor="let licence of instructor.categoryLicences">
-            <h5 >{{licence.categoryType | enumConverter:categoryType}}</h5>
+<div *ngIf="!responseError">
+  <main class="container-fluid">
+    <div *ngIf="instructor$ | async as instructor" class="row">
+      <section class="col-sm-12 col-md-5">
+        <app-widget-title-detail
+          [description]="description">
+            <img class="widget-title-image" [src]="photoUrl$ | async" [alt]="instructor.fullname" />
+            <h3 class="widget-title-title">Instructor</h3>
+            <h5 class="widget-title-subtitle">{{instructor.fullname}}</h5>
+            <h6>Hello There!!!</h6>
+        </app-widget-title-detail>
+      </section>
+      <section class="col-sm-12 col-md-3 licences">
+        <h5>Cetrificate:</h5>
+        <div class="certificate">
+          <app-certificate>
+            <span class="certificate-id">{{instructor.licenceId}}</span>
+          </app-certificate>
+        </div>
+        <h5>Category Licences: </h5>
+        <div class="category-licence-block">
+          <div class="row">
+            <div class="col-xs-1 col-sm-1 col-md-1 category-licence"
+                    *ngFor="let licence of instructor.categoryLicences">
+              <h5 >{{licence.categoryType | enumConverter:categoryType}}</h5>
+            </div>
           </div>
         </div>
-      </div>
-    </section>
-    <section *ngIf="workExperience$ | async as workExperience"
-              [ngStyle]="{'margin-bottom':workExperienceLength>=4?'50px':'0'}"
-              class="col-sm-12 col-md-4 work-experience">
-      <div class="row">
-        <h5 class="work-experience-title">Work Experience Before: </h5>
-        <div *ngFor="let experience of workExperience" class="col-sm-12 col-md-12">
-          <app-work-experience
-            [workExperience]="experience"
-          ></app-work-experience>
-          <hr />
+      </section>
+      <section *ngIf="workExperience$ | async as workExperience"
+                [ngStyle]="{'margin-bottom':workExperienceLength>=4?'50px':'0'}"
+                class="col-sm-12 col-md-4 work-experience">
+        <div class="row">
+          <h5 class="work-experience-title">Work Experience Before: </h5>
+          <div *ngFor="let experience of workExperience" class="col-sm-12 col-md-12">
+            <app-work-experience
+              [workExperience]="experience">
+            </app-work-experience>
+            <hr />
+          </div>
         </div>
-      </div>
-    </section>
-  </div>
-</main>
+      </section>
+    </div>
+  </main>
+</div>
+
+<div *ngIf="responseError && !responseError.success">
+  <app-not-found
+    [errorMessage]="responseError.message">
+  </app-not-found>
+</div>
