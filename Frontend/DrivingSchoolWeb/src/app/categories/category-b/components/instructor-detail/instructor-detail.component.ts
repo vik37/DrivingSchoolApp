@@ -1,6 +1,6 @@
 import { Component,OnInit } from '@angular/core';
-import { Observable } from 'rxjs';
-import { tap,map,switchMap,take } from 'rxjs/operators';
+import { Observable,EMPTY } from 'rxjs';
+import { tap,map,switchMap,take,catchError } from 'rxjs/operators';
 import { ActivatedRoute,ParamMap } from '@angular/router';
 import {Instructor} from 'src/app/categories/category-b/models/instructor.interface';
 import {WorkExperience} from 'src/app/categories/category-b/models/work-experience.interface';
@@ -10,6 +10,7 @@ import {HtmlTextElementService} from 'src/app/shared/services/helper/html-elemen
 import {ParentTagText} from 'src/app/shared/services/helper/html-elements-builder/enums/parent-text-tag.enum';
 import {ChildTagText} from 'src/app/shared/services/helper/html-elements-builder/enums/child-text-tag.enum';
 import {LoadingService} from 'src/app/shared/services/loading.service';
+import {ResponseError} from 'src/app/shared/models/response-error.interface';
 
 @Component({
   selector: 'app-instructor-detail',
@@ -24,6 +25,7 @@ export class InstructorDetailComponent implements OnInit {
   public photoUrl$:Observable<string> = new Observable<string>();
   public description:string = '';
   public workExperienceLength:number = 0;
+  public responseError: ResponseError | undefined;
 
   constructor(private route: ActivatedRoute, private instructorService: InstructorService,
                 private photoService:PhotoService,
@@ -42,6 +44,10 @@ export class InstructorDetailComponent implements OnInit {
                       const categoryBId = params.get('id' as string);
                       const instructorId = params.get('instructorId' as string);
                       return this.instructorService.getInstructorById(categoryBId??'',instructorId??'')
+                    }),
+                    catchError((err: ResponseError)=>{
+                      this.responseError = err;
+                      return EMPTY
                     }));
     this.instructor$ = this.loaderService.showLoaderUntilCompleted(instructor);
   }

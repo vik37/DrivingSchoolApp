@@ -1,84 +1,92 @@
-<div *ngIf="categoryA$ | async as categoryA" class="row">
-  <section class="col-sm-12 col-md-8 category-city category-city-header-section">
-    <app-category-per-city
-      [category]="categoryA"
-    ></app-category-per-city>
-    <div class="offset-xs-3 offset-md-4">
-      <h6>Category:</h6>
-      <app-category-type-heading
-        [categoryTypeHeading]="categoryTypeHeading"
-      ></app-category-type-heading>
-    </div>
-  </section>
-  <aside class="col-sm-12 col-md-4">
-    <div class="row lesson">
-      <app-lesson
-        [lesson] = "lesson">
-      </app-lesson>
-    </div>
+<div *ngIf="!responseError">
+  <div *ngIf="categoryA$ | async as categoryA" class="row">
+    <section class="col-sm-12 col-md-8 category-city category-city-header-section">
+      <app-category-per-city
+        [category]="categoryA"
+      ></app-category-per-city>
+      <div class="offset-xs-3 offset-md-4">
+        <h6>Category:</h6>
+        <app-category-type-heading
+          [categoryTypeHeading]="categoryTypeHeading"
+        ></app-category-type-heading>
+      </div>
+    </section>
+    <aside class="col-sm-12 col-md-4">
+      <div class="row lesson">
+        <app-lesson
+          [lesson] = "lesson">
+        </app-lesson>
+      </div>
+      <div class="row">
+        <div class="col-xs-12 col-sm-3 col-md-8">
+          <button
+            type="button"
+            class="btn btn-outline-info btn-select-lesson"
+            [disabled]="disable"
+            (click)="selectLessonByType(lessonType.Theory)">
+              {{lessonType[lessonType.Theory]}}
+          </button>
+        </div>
+        <div class="col-xs-12 col-sm-3 col-md-3">
+          <button
+            type="button"
+            class="btn btn-outline-secondary btn-select-lesson"
+            [disabled]="!disable"
+            (click)="selectLessonByType(lessonType.Practice)">
+              {{lessonType[lessonType.Practice]}}
+          </button>
+        </div>
+      </div>
+    </aside>
+  </div>
+  <br />
+  <br />
+  <hr />
+  <br />
+  <div class="container">
     <div class="row">
-      <div class="col-xs-12 col-sm-3 col-md-8">
-        <button
-          type="button"
-          class="btn btn-outline-info btn-select-lesson"
-          [disabled]="disable"
-          (click)="selectLessonByType(lessonType.Theory)">
-            {{lessonType[lessonType.Theory]}}
-        </button>
-      </div>
-      <div class="col-xs-12 col-sm-3 col-md-3">
-        <button
-          type="button"
-          class="btn btn-outline-secondary btn-select-lesson"
-          [disabled]="!disable"
-          (click)="selectLessonByType(lessonType.Practice)">
-            {{lessonType[lessonType.Practice]}}
-        </button>
-      </div>
+      <h3>Instructors:</h3>
     </div>
-  </aside>
-</div>
-<br />
-<br />
-<hr />
-<br />
-<div class="container">
-  <div class="row">
-    <h3>Instructors:</h3>
+    <br />
+    <div class="row">
+      <section *ngFor="let instructor of (instructors$ | async)"
+                    class="col-xs-12 col-sm-6 col-md-4 category-city">
+        <app-instructor
+          [instructor]="instructor">
+        </app-instructor>
+      </section>
+    </div>
   </div>
-  <br />
-  <div class="row">
-    <section *ngFor="let instructor of (instructors$ | async)"
-                  class="col-xs-12 col-sm-6 col-md-4 category-city">
-      <app-instructor
-        [instructor]="instructor">
-      </app-instructor>
-    </section>
+  <div class="container vehicle-container">
+    <div class="row">
+      <h3>Motorcyces:</h3>
+    </div>
+    <br />
+    <div class="row">
+      <section *ngFor="let motorcycle of (motorcycles$ | async)"
+                    class="col-xs-12 col-sm-6 col-md-3 category-city">
+        <app-motorcycle
+          [motorcycle]="motorcycle">
+        </app-motorcycle>
+        <button class="btn btn-dark btn-motorcycle-description"
+              type="button" data-bs-toggle="offcanvas"
+              data-bs-target="#offcanvasRight" aria-controls="offcanvasRight"
+              (click)="getMotorDetail(motorcycle)"
+        >
+          {{motorcycle.type}}
+        </button>
+      </section>
+    </div>
   </div>
-</div>
-<div class="container vehicle-container">
-  <div class="row">
-    <h3>Motorcyces:</h3>
-  </div>
-  <br />
-  <div class="row">
-    <section *ngFor="let motorcycle of (motorcycles$ | async)"
-                  class="col-xs-12 col-sm-6 col-md-3 category-city">
-      <app-motorcycle
-        [motorcycle]="motorcycle">
-      </app-motorcycle>
-      <button class="btn btn-dark btn-motorcycle-description"
-            type="button" data-bs-toggle="offcanvas"
-            data-bs-target="#offcanvasRight" aria-controls="offcanvasRight"
-            (click)="getMotorDetail(motorcycle)"
-      >
-        {{motorcycle.type}}
-      </button>
-    </section>
-  </div>
+
+  <app-motorcycle-detail
+    *ngIf="motorcycleDetail"
+    [motorcycle]="motorcycleDetail" >
+  </app-motorcycle-detail>
 </div>
 
-<app-motorcycle-detail
-  *ngIf="motorcycleDetail"
-  [motorcycle]="motorcycleDetail" >
-</app-motorcycle-detail>
+<div *ngIf="responseError && !responseError.success">
+  <app-not-found
+    [errorMessage]="responseError.message"
+  ></app-not-found>
+</div>

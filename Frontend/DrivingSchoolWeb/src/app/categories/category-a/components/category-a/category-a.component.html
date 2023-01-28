@@ -13,11 +13,10 @@
     </div>
   <div class="row">
     <div class="col-xs-12 col-sm-12 col-md-6" *ngFor="let category of (categoryALoader$ | async)">
-        <app-category-card
+      <app-category-card
         [category]="category"
         [categoryRoute] = "categoryARoute"
       ></app-category-card>
     </div>
   </div>
 </section>
-

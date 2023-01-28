@@ -4,7 +4,6 @@ import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { environment } from 'src/environments/environment';
 import {CategoryD} from 'src/app/categories/category-d/models/categoryD.interface';
-import {ResponseError} from 'src/app/shared/models/response-error.interface';
 
 @Injectable({
   providedIn: 'root'
@@ -12,7 +11,7 @@ import {ResponseError} from 'src/app/shared/models/response-error.interface';
 export class CategoryDService {
 
   private url: string = environment.gatewayUrl+'categoryd';
-  
+
   constructor(private http: HttpClient) { }
 
   getAll(): Observable<CategoryD[]>{

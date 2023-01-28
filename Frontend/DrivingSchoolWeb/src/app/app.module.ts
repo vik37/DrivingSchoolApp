@@ -1,11 +1,12 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import {AppRoutingModule} from 'src/app/app-routing.module';
 import {AppComponent} from 'src/app/app.component';
 import {mainComponents} from 'src/app/main-components';
 import {modules} from 'src/app/shared-modules';
+import {ErrorInterceptor} from 'src/app/interceptors/http-error.interceptor';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,13 @@ import {modules} from 'src/app/shared-modules';
     HttpClientModule,
     modules
   ],
-  providers: [],
+  providers: [
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: ErrorInterceptor,
+      multi: true
+    }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

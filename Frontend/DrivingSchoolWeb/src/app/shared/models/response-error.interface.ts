@@ -1,4 +1,5 @@
 export interface ResponseError{
+  message: string,
   status: number,
-  message: string
+  success: boolean
 }

@@ -1,7 +1,7 @@
 import { Component,OnInit,OnDestroy } from '@angular/core';
 import { ActivatedRoute,ParamMap } from '@angular/router';
-import { Observable, Subscription } from 'rxjs';
-import { switchMap,tap,map,take } from 'rxjs/operators';
+import { Observable,Subscription,EMPTY } from 'rxjs';
+import { switchMap,tap,map,take,catchError } from 'rxjs/operators';
 import {CategoryCService} from 'src/app/categories/category-c/services/category-c.service';
 import {CategoryC} from 'src/app/categories/category-c/models/categoryC.interface';
 import {CategoryCLesson} from 'src/app/categories/category-c/models/lesson-categoryC.interface';
@@ -10,6 +10,7 @@ import {Truck} from 'src/app/categories/category-c/models/truck.interface';
 import {LessonType} from 'src/app/categories/category-c/models/enums/lesson-type.enum';
 import {CategoryType} from 'src/app/categories/shared/models/enums/category-type.enum';
 import {LoadingService} from 'src/app/shared/services/loading.service';
+import {ResponseError} from 'src/app/shared/models/response-error.interface';
 
 @Component({
   selector: 'app-category-c-by-city',
@@ -31,6 +32,7 @@ export class CategoryCByCityComponent implements OnInit,OnDestroy {
   public instructors$: Observable<Instructor[]> = new Observable<Instructor[]>();
   public trucks$: Observable<Truck[]> = new Observable<Truck[]>();
   public truckDetail: Truck | undefined;
+  public responseError: ResponseError | undefined;
 
   constructor(private route: ActivatedRoute, private categoryCService:CategoryCService,
               private loadingService: LoadingService) { }
@@ -43,6 +45,10 @@ export class CategoryCByCityComponent implements OnInit,OnDestroy {
                               take(1),
                               switchMap((params:ParamMap) =>{
                                 return this.categoryCService.getById(params.get('id') as string)
+                                }),
+                                catchError((err: ResponseError)=>{
+                                  this.responseError = err;
+                                  return EMPTY
                                 })
                               );
     this.categoryC$ = this.loadingService.showLoaderUntilCompleted(category);

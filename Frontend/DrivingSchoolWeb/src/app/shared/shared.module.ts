@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import {CardComponent} from './components/card/card.component';
 import {OffcanvasComponent} from 'src/app/shared/components/offcanvas/offcanvas.component';
 import {ColorBoxComponent} from 'src/app/shared/components/color-box/color-box.component';
@@ -10,6 +11,7 @@ import {EmptySpaceSplitPipe} from 'src/app/shared/pipes/empty-space-split.pipe';
 import {ChangeRotationButtonsDirective} from 'src/app/shared/directives/changeRotationButtons';
 import {CertificateComponent} from 'src/app/shared/components/certificate/certificate.component';
 import { LoadingComponent } from './components/loading/loading.component';
+import { NotFoundComponent } from './components/not-found/not-found.component';
 
 @NgModule({
   declarations: [
@@ -22,10 +24,12 @@ import { LoadingComponent } from './components/loading/loading.component';
     EmptySpaceSplitPipe,
     WidgetTitleDetailComponent,
     CertificateComponent,
-    LoadingComponent
+    LoadingComponent,
+    NotFoundComponent
   ],
   imports: [
-    CommonModule
+    CommonModule,
+    FontAwesomeModule
   ],
   exports:[
     CardComponent,
@@ -37,7 +41,8 @@ import { LoadingComponent } from './components/loading/loading.component';
     ChangeRotationButtonsDirective,
     WidgetTitleDetailComponent,
     CertificateComponent,
-    LoadingComponent
+    LoadingComponent,
+    NotFoundComponent
   ]
 })
 export class SharedModule { }

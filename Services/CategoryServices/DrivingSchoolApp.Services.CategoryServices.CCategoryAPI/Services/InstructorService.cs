@@ -23,7 +23,7 @@ public class InstructorService : BaseService, IInstructorService
 		{
 			var instructor = await _instructorRepository.GetById(id, instructorId);
 			if (instructor == null)
-				throw new CategoryCException("Instructor thoes not exist");
+				throw new CategoryCException("Instructor does not exist");
 			return _mapper.Map<InstructorDto>(instructor);
 		}
 		catch(CategoryCException ex)
