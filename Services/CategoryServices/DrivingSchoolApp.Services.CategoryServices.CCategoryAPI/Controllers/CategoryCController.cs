@@ -17,6 +17,14 @@ namespace DrivingSchoolApp.Services.CategoryServices.CCategoryAPI.Controllers
 			_categoryCService = categoryCService;
 			_response = new ResponseErrorDto();
 		}
+
+		/// <summary>
+		///    Get all the cities where they offer category-C service.
+		/// </summary>
+		/// <returns>
+		///    Status 200 with dto models if failed status 500 with ResponseError model,
+		///	   with requiered message.
+		/// </returns>
 		[HttpGet]
 		public async Task<IActionResult> Get()
 		{
@@ -30,6 +38,19 @@ namespace DrivingSchoolApp.Services.CategoryServices.CCategoryAPI.Controllers
 				return StatusCode(StatusCodes.Status500InternalServerError, _response);
 			}
 		}
+
+		/// <summary>
+		///	   Get the city by id where they offer category-C service,
+		///    include list of: Instructors, Lessons, Trucks.
+		/// </summary>
+		/// <param name="id">city id type of integer</param>
+		/// <returns>
+		///    Status 200 with dto models. 
+		///    If failed, 
+		///    status 404 if its not found,
+		///    status 500 with ResponseError model,
+		///    with requiered message.
+		/// </returns>
 		[HttpGet("{id}")]
 		public async Task<ActionResult> Get(int id)
 		{
