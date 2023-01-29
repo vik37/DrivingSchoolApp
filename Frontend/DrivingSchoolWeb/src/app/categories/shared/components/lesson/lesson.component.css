@@ -7,6 +7,14 @@
 .br-lesson-price{
   display: none;
 }
+.bookl-lesson{
+  font-weight: bolder;
+}
+fa-icon.book-lesson-shopping ::ng-deep svg path{
+  fill: rgb(34, 154, 218);
+  stroke: rgb(3, 19, 6);
+  stroke-width: 30;
+}
 @media screen and (max-width: 1300px) {
   .br-lesson-price{
     display: block;

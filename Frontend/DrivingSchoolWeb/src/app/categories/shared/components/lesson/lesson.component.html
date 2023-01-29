@@ -18,4 +18,8 @@
   <div *ngIf="lesson.virtualPracticePrice" class="col-sm-12 col-md-6">
     <p class="lesson-virtual"><i>Virtual Learn:</i> {{lesson.virtualPracticePrice | currency}}</p>
   </div>
+  <button class="btn btn-info bookl-lesson">
+    book online
+    <fa-icon class="instructor-check-icon book-lesson-shopping" [icon]="faCartShopping"></fa-icon>
+  </button>
 </div>

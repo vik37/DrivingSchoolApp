@@ -6,20 +6,15 @@
 }
 @media screen and (max-width: 1300px){
   .lesson{
-    height: 420px;
+    height: 450px;
   }
 }
 @media screen and (max-width: 1155px){
   .lesson{
-    height: 450px;
+    height: 470px;
   }
 }
 @media screen and (max-width: 1050px){
-  .lesson{
-    height: 67vh;
-  }
-}
-@media screen and (max-width: 900px) {
   .lesson{
     height: auto;
   }
