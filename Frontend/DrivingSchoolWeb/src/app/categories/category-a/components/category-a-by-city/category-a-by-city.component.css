@@ -2,8 +2,19 @@
   height: 500px;
   padding-top: 50px;
 }
-@media screen and (max-width: 900px) {
+.lesson-button-line{
+  display: none;
+}
+@media screen and (max-width: 1300px) {
+  .lesson{
+    height: 480px;
+  }
+}
+@media screen and (max-width: 1180px) {
   .lesson{
     height: auto;
+  }
+  .lesson-button-line{
+    display: block;
   }
 }

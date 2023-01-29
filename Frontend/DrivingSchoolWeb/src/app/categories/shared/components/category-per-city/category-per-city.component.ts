@@ -1,5 +1,4 @@
 import { Component, Input } from '@angular/core';
-import { faPhone } from '@fortawesome/free-solid-svg-icons';
 import {Category} from 'src/app/categories/shared/models/category.interface';
 import {PhotoService} from 'src/app/shared/services/photo.service';
 
@@ -13,7 +12,6 @@ export class CategoryPerCityComponent {
 
   private _category!: Category | null;
   public photoUrl: string = '';
-  faPhone = faPhone;
 
   constructor(private photoService: PhotoService) { }
 

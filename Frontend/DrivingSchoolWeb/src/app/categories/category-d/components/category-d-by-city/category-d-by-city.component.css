@@ -8,18 +8,18 @@
 }
 @media screen and (max-width: 1300px){
   .lesson{
-    height: 420px;
+    height: 440px;
   }
 }
-@media screen and (max-width: 1190px){
+@media screen and (max-width: 1200px){
   .lesson{
-    height: 500px;
+    height: 470px;
   }
   .lesson > h5{
     margin-bottom: 1px;
   }
 }
-@media screen and (max-width: 900px) {
+@media screen and (max-width: 1080px) {
   .lesson{
     height: auto;
   }
