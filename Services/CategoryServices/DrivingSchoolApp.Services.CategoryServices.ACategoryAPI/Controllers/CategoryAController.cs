@@ -9,13 +9,23 @@ namespace DrivingSchoolApp.Services.CategoryServices.ACategoryAPI.Controllers
 	[ApiController]
 	public class CategoryAController : ControllerBase
 	{
+
 		private readonly ICategoryAService _categoryAService;
 		private ResponseErrorDto _response;
+
 		public CategoryAController(ICategoryAService categoryAService)
 		{
 			_categoryAService = categoryAService;
 			_response= new ResponseErrorDto();
 		}
+
+		/// <summary>
+		///    Get all the cities where they offer category-A service.
+		/// </summary>
+		/// <returns>
+		///    Status 200 with dto models if failed status 500 with ResponseError model,
+		///	   with requiered message.
+		/// </returns>
 		[HttpGet]
 		public async Task<IActionResult> Get()
 		{
@@ -30,6 +40,19 @@ namespace DrivingSchoolApp.Services.CategoryServices.ACategoryAPI.Controllers
 				return StatusCode(StatusCodes.Status500InternalServerError, _response);
 			}
 		}
+
+		/// <summary>
+		///	   Get the city by id where they offer category-A service,
+		///    include list of: Instructors, Lessons, Motorcycles.
+		/// </summary>
+		/// <param name="id">city id type of integer</param>
+		/// <returns>
+		///    Status 200 with dto models. 
+		///    If failed, 
+		///    status 404 if its not found,
+		///    status 500 with ResponseError model,
+		///    with requiered message.
+		/// </returns>
 		[HttpGet("{id}")]
 		public async Task<IActionResult> Get(int id)
 		{
