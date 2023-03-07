@@ -15,6 +15,10 @@
     {
       "UpstreamPathTemplate": "/gateway/categorya/{id}",
       "UpstreamHttpMethod": [ "GET" ],
+      "AuthenticationOptions": {
+        "AuthenticationProviderKey": "Bearer",
+        "AllowedScopes": [ "grendma" ]
+      },
       "DownstreamScheme": "https",
       "DownstreamHostAndPorts": [
         {

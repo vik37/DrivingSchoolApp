@@ -1,6 +1,7 @@
 ﻿using DrivingSchoolApp.Services.CategoryServices.ACategoryAPI.Dto;
 using DrivingSchoolApp.Services.CategoryServices.ACategoryAPI.Helper.CustomExceptions;
 using DrivingSchoolApp.Services.CategoryServices.ACategoryAPI.Services.Interfaces;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace DrivingSchoolApp.Services.CategoryServices.ACategoryAPI.Controllers
@@ -26,7 +27,7 @@ namespace DrivingSchoolApp.Services.CategoryServices.ACategoryAPI.Controllers
 		///    Status 200 with dto models if failed status 500 with ResponseError model,
 		///	   with requiered message.
 		/// </returns>
-		[HttpGet]
+		[HttpGet]		
 		public async Task<IActionResult> Get()
 		{
 			try
@@ -54,7 +55,8 @@ namespace DrivingSchoolApp.Services.CategoryServices.ACategoryAPI.Controllers
 		///    with requiered message.
 		/// </returns>
 		[HttpGet("{id}")]
-		public async Task<IActionResult> Get(int id)
+        [Authorize]									// -> *Authorize* - For test purpose
+        public async Task<IActionResult> Get(int id)
 		{
 			try
 			{

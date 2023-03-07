@@ -7,6 +7,9 @@ import {AppComponent} from 'src/app/app.component';
 import {mainComponents} from 'src/app/main-components';
 import {modules} from 'src/app/shared-modules';
 import {ErrorInterceptor} from 'src/app/interceptors/http-error.interceptor';
+import { AuthConfigModule } from './auth/auth-config.module';
+import { AuthInterceptor } from 'angular-auth-oidc-client';
+import {interceptorProviders} from 'src/app/intrceptor.providers';
 
 @NgModule({
   declarations: [
@@ -18,14 +21,11 @@ import {ErrorInterceptor} from 'src/app/interceptors/http-error.interceptor';
     AppRoutingModule,
     FontAwesomeModule,
     HttpClientModule,
-    modules
+    modules,
+    AuthConfigModule
   ],
   providers: [
-    {
-      provide: HTTP_INTERCEPTORS,
-      useClass: ErrorInterceptor,
-      multi: true
-    }
+    interceptorProviders
   ],
   bootstrap: [AppComponent]
 })

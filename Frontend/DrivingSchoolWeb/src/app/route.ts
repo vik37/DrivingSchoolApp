@@ -4,7 +4,7 @@ import {AboutComponent} from 'src/app/container/components/about/about.component
 import {ContactComponent} from 'src/app/container/components/contact/contact.component';
 import {NotAllowedComponent} from 'src/app/container/components/not-allowed/not-allowed.component';
 
- export const routes: Routes = [
+export const routes: Routes = [
     {path: '', component:HomeComponent},
     {path: 'about', component:AboutComponent},
     {path: 'contact',component:ContactComponent},
@@ -14,4 +14,4 @@ import {NotAllowedComponent} from 'src/app/container/components/not-allowed/not-
     {path: 'category-d',loadChildren: ()=> import('src/app/categories/category-d/category-d.module').then(d => d.CategoryDModule)},
     {path: '', redirectTo:'/',pathMatch:'full'},
     {path: '**',component:NotAllowedComponent}
- ]
+]

@@ -7,6 +7,9 @@ using Newtonsoft.Json.Serialization;
 using AutoMapper.Execution;
 using DrivingSchoolApp.Services.CategoryServices.ACategoryAPI.Services.Interfaces;
 using DrivingSchoolApp.Services.CategoryServices.ACategoryAPI.Services;
+using Microsoft.IdentityModel.Tokens;
+using Microsoft.OpenApi.Models;
+using System.Security.Cryptography.Xml;
 
 namespace DrivingSchoolApp.Services.CategoryServices.ACategoryAPI
 {
@@ -23,6 +26,13 @@ namespace DrivingSchoolApp.Services.CategoryServices.ACategoryAPI
 
 			services.AddCors(opt =>
 			{
+				//opt.AddDefaultPolicy(
+				//		p =>
+				//		{
+				//			p.AllowAnyOrigin()
+				//			.AllowAnyHeader().AllowAnyMethod();
+				//		}
+				//	);
 				opt.AddPolicy(name: "OnlyAngular",
 					builder =>
 					{
@@ -38,9 +48,59 @@ namespace DrivingSchoolApp.Services.CategoryServices.ACategoryAPI
 					opt.SerializerSettings.ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore)
 				.AddNewtonsoftJson(opt =>
 					opt.SerializerSettings.ContractResolver = new CamelCasePropertyNamesContractResolver());
+            services.AddEndpointsApiExplorer();
+
+            services.AddAuthentication("Bearer")
+				.AddJwtBearer("Bearer", options =>
+				{
+					options.Authority = "https://localhost:44326";
+					options.TokenValidationParameters = new TokenValidationParameters
+					{
+						ValidateAudience = false
+					};
+				});
+			services.AddAuthorization(options =>
+			{
+				options.AddPolicy("ApiScope", policy =>
+				{
+					policy.RequireAuthenticatedUser();
+					policy.RequireClaim("scope", "grendma");
+				});
+			});
+
 			// Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 			services.AddEndpointsApiExplorer();
-			services.AddSwaggerGen();
+
+			services.AddSwaggerGen(c =>
+			{
+				c.AddSecurityDefinition("Bearer", new OpenApiSecurityScheme
+				{
+					Description = @"Enter 'Bearer' [space] and your token",
+					Name = "Authorization",
+					In = ParameterLocation.Header,
+					Type = SecuritySchemeType.ApiKey,
+					Scheme = "Bearer"
+				});
+				c.AddSecurityRequirement(new OpenApiSecurityRequirement
+				{
+					{
+						new OpenApiSecurityScheme
+						{
+							Reference = new OpenApiReference
+							{
+								Type = ReferenceType.SecurityScheme,
+								Id = "Bearer"
+							},
+							Scheme = "OAuth2",
+							Name = "Bearer",
+							In = ParameterLocation.Header
+						},
+						new List<string>()
+					}
+
+				});
+			});
+
 			services.AddDbContext<CategoryADbContext>(opt =>
 				opt.UseSqlServer(configuration.GetConnectionString("DefaultConnection")));
 
@@ -54,6 +114,7 @@ namespace DrivingSchoolApp.Services.CategoryServices.ACategoryAPI
 			// Configure the HTTP request pipeline.
 			if (app.Environment.IsDevelopment())
 			{
+				app.UseDeveloperExceptionPage();
 				app.UseSwagger();
 				app.UseSwaggerUI();
 			}
@@ -61,12 +122,15 @@ namespace DrivingSchoolApp.Services.CategoryServices.ACategoryAPI
 			app.UseHttpsRedirection();
 
 			app.UseCors("OnlyAngular");
+			//app.UseCors();
 
+			app.UseAuthentication();
 			app.UseAuthorization();
 
 			app.MapControllers();
 
 			app.Run();
 		}
+
 	}
 }
