@@ -21,7 +21,7 @@ export class ErrorInterceptor implements HttpInterceptor {
   }
   handleError(error:HttpErrorResponse){
     console.log('from interceptor', error);
-    if(error.status === 400){
+    if(error.status === 400 ||  error.status === 401){
       error.error.message = "This page is not allowed";
     }
     let responseError = {

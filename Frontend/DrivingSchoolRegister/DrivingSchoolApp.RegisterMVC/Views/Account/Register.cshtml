@@ -1,0 +1,130 @@
+﻿@model RegisterViewModel
+@using DrivingSchoolApp.RegisterMVC.Main_Module.Account
+
+<div class="register-page">
+    <div class="row">
+
+        <div class="col-xs-12 col-sm-12 col-md-7 card-block">
+            <div class="card">
+                <div class="card-header">
+                    <h2>Register to Grendma</h2>
+                </div>
+
+                <div class="card-body">
+                    <form asp-route="Login">
+                        <input type="hidden" asp-for="ReturnUrl" />
+
+                        <div class="row">
+                            <div class="col-xs-12 col-sm-12 col-md-6">
+                                <div class="form-group">
+                                    <label asp-for="@Model.Firstname"></label>
+                                    <input type="text" class="form-control" placeholder="Firstname..." asp-for="@Model.Firstname" autofocus>
+                                </div>
+                            </div>
+                            <div class="col-xs-12 col-sm-12 col-md-6">
+                                <div class="form-group">
+                                    <label asp-for="@Model.Lastname"></label>
+                                    <input type="text" class="form-control" placeholder="Lastname..." asp-for="@Model.Lastname" autofocus>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-xs-12 col-sm-12 col-md-8">
+                                <div class="form-group">
+                                    <label asp-for="@Model.Email"></label>
+                                    <input class="form-control" placeholder="E-mail..." asp-for="@Model.Email" autofocus>
+                                </div>
+                            </div>
+                            <div class="col-xs-12 col-sm-12 col-md-4">
+                                <div class="form-group">
+                                    <label asp-for="@Model.DateOfBirth"></label>
+                                    <input type="date" class="form-control" asp-for="@Model.DateOfBirth" value="yyyy-MM-dd" autofocus>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-xs-12 col-sm-12 col-md-4">
+                                <div class="form-group">
+                                    <label asp-for="@Model.City"></label>
+                                    <input type="text" class="form-control" asp-for="@Model.City" placeholder="City..." autofocus>
+                                </div>
+                            </div>
+                            <div class="col-xs-12 col-sm-12 col-md-3">
+                                <div class="form-group">
+                                    <label asp-for="@Model.PostCode"></label>
+                                    <input type="number" class="form-control" asp-for="@Model.PostCode" autofocus>
+                                </div>
+                            </div>
+                            <div class="col-xs-12 col-sm-12 col-md-5">
+                                <div class="form-group">
+                                    <label asp-for="@Model.Address"></label>
+                                    <input type="text" class="form-control" asp-for="@Model.Address" placeholder="Address..." autofocus>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-xs-12 col-sm-12 col-md-12">
+                                <div class="form-group">
+                                    <label asp-for="@Model.PhoneNumber"></label>
+                                    <input type="tel" placeholder="Phone..." class="form-control" asp-for="@Model.PhoneNumber" autofocus>
+                                </div>
+                            </div>
+                            <hr />
+                            <div class="col-xs-12 col-sm-12 col-md-12">
+                                <div class="form-group">
+                                    <label asp-for="@Model.Password"></label>
+                                    <input type="password" class="form-control" placeholder="Password..." asp-for="@Model.Password" autocomplete="off">
+                                    <span class="password-description">
+                                        <i>please make strong password for security reason (at least 1 uppercase, 1 lowercase, special charachter, number)</i>
+                                    </span>
+                                </div>
+                            </div>
+                            <div class="col-xs-12 col-sm-12 col-md-12">
+                                <div class="form-group">
+                                    <label asp-for="@Model.ConfirmPassword"></label>
+                                    <input type="password" class="form-control" placeholder="Confirm Password..." asp-for="@Model.ConfirmPassword" autocomplete="off">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="user-qa-protection">
+                            <div class="row">
+                                <div class="col-xs-12 col-sm-12 col-md-12">
+                                    <div class="form-group">
+                                        <label asp-for="@Model.QAUserProtection.Question"></label>
+                                        <select class="form-control" asp-for="@Model.QAUserProtection.Question" asp-items="Html.GetEnumSelectList<Question>()">
+                                            <option value="">Please select question</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col-xs-12 col-sm-12 col-md-12">
+                                    <div class="form-group">
+                                        <label asp-for="@Model.QAUserProtection.Answare"></label>
+                                        <input type="text" class="form-control" asp-for="@Model.QAUserProtection.Answare" autofocus>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col col-sm-12 col-md-9">
+                                <button class="btn btn-primary" name="button" value="Register">Register</button>
+                            </div>
+                            <div class="col-xs-12 col-md-3">
+                                <button class="btn btn-secondary" name="button" value="cancel">Cancel</button>
+                            </div>                    
+                        </div>                
+                    </form>
+                </div>
+                <div class="card-footer">
+                    <a href="@Url.Action("Login",new {Model.ReturnUrl })">Login</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-xs-12 col-sm-12 col-md-5 error-block">
+            <partial name="_ValidationSummary" />
+        </div>
+    </div>
+    <partial name="_LogRegisterFooter" />
+</div>
+
+
+<link href="~/css/register.css" rel="stylesheet" />

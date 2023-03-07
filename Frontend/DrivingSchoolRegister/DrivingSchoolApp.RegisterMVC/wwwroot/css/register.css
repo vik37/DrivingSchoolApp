@@ -1,0 +1,25 @@
+﻿.register-page{
+    padding-top: 25px;
+}
+.error-block {
+    padding: 50px 0 0 20px;
+}
+.row{
+    margin-bottom: 10px;
+}
+.user-qa-protection {
+    background-color: rgba(0, 0, 0,0.7);
+    border-top: 1px solid rgb(255, 255, 255);
+    border-bottom: 1px solid rgb(255, 255, 255);
+    border-radius: 20px;
+    padding: 10px 25px;
+    margin-bottom: 20px;
+}
+
+@media screen and (max-width: 500px){
+    .user-qa-protection {
+        padding: 0;
+        border: none;
+        background-color: rgba(0, 0, 0,0);
+    }
+}

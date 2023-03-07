@@ -1,2 +1,22 @@
+<header class="header-body">
+  <app-navbar></app-navbar>
+  <div class="row">
+    <div class="col-xs-12 col-sm-2 col-md-4">
+      <div class="header-logo">
+        <img src="../../../../assets/images/logos/car-icon.png" alt="logo"/>
+      </div>
+    </div>
+    <div class="col-xs-12 col-sm-5 col-md-7">
+      <h4>Driving School Grandma</h4>
+    </div>
+    <div *ngIf="!isAuthenticated; else logout" class="col-xs-12 col-sm-5 col-md-1">
+      <button type="button" (click)="logIn()" class="btn btn-dark log">Login</button>
+    </div>
+  </div>
+</header>
 
-
+<ng-template #logout>
+  <div class="col-xs-12 col-sm-5 col-md-1">
+    <button type="button" (click)="logOut()" class="btn btn-dark log">Logout</button>
+  </div>
+</ng-template>
