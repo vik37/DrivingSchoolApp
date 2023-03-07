@@ -48,21 +48,6 @@ namespace DrivingSchoolApp.RegisterMVC.Helper.DuendeIdentityServer
 						IdentityServerConstants.StandardScopes.Email,
                         "grendma"
                     },
-				},
-				new Client
-				{
-					ClientId = "grendma",
-					ClientSecrets = {new Secret("secret".Sha256())},
-					AllowedGrantTypes = GrantTypes.ClientCredentials,
-					RedirectUris = {"https://localhost:44326/signin-oidc",},
-					PostLogoutRedirectUris ={ "https://localhost:44326/signout-callback-oidc" },
-					AllowedScopes = new List<string>
-					{
-						IdentityServerConstants.StandardScopes.OpenId,
-						IdentityServerConstants.StandardScopes.Email,
-						IdentityServerConstants.StandardScopes.Profile,
-						"grendma"
-					}
 				}
 			};
 	}
