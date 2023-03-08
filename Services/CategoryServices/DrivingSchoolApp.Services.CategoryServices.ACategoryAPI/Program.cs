@@ -26,17 +26,10 @@ namespace DrivingSchoolApp.Services.CategoryServices.ACategoryAPI
 
 			services.AddCors(opt =>
 			{
-				//opt.AddDefaultPolicy(
-				//		p =>
-				//		{
-				//			p.AllowAnyOrigin()
-				//			.AllowAnyHeader().AllowAnyMethod();
-				//		}
-				//	);
 				opt.AddPolicy(name: "OnlyAngular",
 					builder =>
 					{
-						builder.WithOrigins("http://localhost:4200", "https://localhost:4200")
+						builder.WithOrigins(ConnectionUrls.ClientUrl(configuration)["http"], ConnectionUrls.ClientUrl(configuration)["https"])
 								.AllowAnyHeader()
 								.AllowAnyMethod()
 								.AllowCredentials();
@@ -53,7 +46,7 @@ namespace DrivingSchoolApp.Services.CategoryServices.ACategoryAPI
             services.AddAuthentication("Bearer")
 				.AddJwtBearer("Bearer", options =>
 				{
-					options.Authority = "https://localhost:44326";
+					options.Authority = ConnectionUrls.IdentityServer(configuration);
 					options.TokenValidationParameters = new TokenValidationParameters
 					{
 						ValidateAudience = false
@@ -122,7 +115,6 @@ namespace DrivingSchoolApp.Services.CategoryServices.ACategoryAPI
 			app.UseHttpsRedirection();
 
 			app.UseCors("OnlyAngular");
-			//app.UseCors();
 
 			app.UseAuthentication();
 			app.UseAuthorization();
