@@ -6,6 +6,9 @@ using DrivingSchoolApp.RegisterMVC.DataAccess.Repository;
 using DrivingSchoolApp.RegisterMVC.DataAccess.Repository.Interface;
 using DrivingSchoolApp.RegisterMVC.Helper;
 using DrivingSchoolApp.RegisterMVC.Helper.DuendeIdentityServer;
+using Duende.IdentityServer.AspNetIdentity;
+using DrivingSchoolApp.RegisterMVC.Services;
+using Duende.IdentityServer.Services;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 
@@ -29,7 +32,7 @@ services.AddIdentity<ApplicationUser, IdentityRole>(options =>
 .AddEntityFrameworkStores<DrivingSchoolRegisterDbContext>()
 .AddDefaultTokenProviders();
 
-services.AddIdentityServer(opt =>
+var identityBuilder = services.AddIdentityServer(opt =>
 		{
 			opt.Events.RaiseErrorEvents = true;
 			opt.Events.RaiseFailureEvents = true;
@@ -40,11 +43,12 @@ services.AddIdentityServer(opt =>
 			.AddInMemoryIdentityResources(IdentityServerConfig.Resources)
 			.AddInMemoryApiScopes(IdentityServerConfig.Scopes)
 			.AddInMemoryClients(IdentityServerConfig.Clients)
-			.AddAspNetIdentity<ApplicationUser>()
-			.AddDeveloperSigningCredential();
+			.AddAspNetIdentity<ApplicationUser>();
 
 services.AddTransient<IQuestionAndAnswareUserProtectionRepository, QuestionAndAnswareUserProtectionRepository>();
 services.AddScoped<IUserSeedInitializer, UserSeedInitializer>();
+services.AddScoped<IProfileService, ProfileServices>();
+identityBuilder.AddDeveloperSigningCredential();
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
