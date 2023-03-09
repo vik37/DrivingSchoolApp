@@ -1,6 +1,5 @@
 ﻿using DrivingSchoolApp.RegisterMVC.DataAccess.Entities;
 using DrivingSchoolApp.RegisterMVC.DataAccess.IdentityConfigurations;
-using DrivingSchoolApp.RegisterMVC.DataAccess.RegisterInitializer;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 

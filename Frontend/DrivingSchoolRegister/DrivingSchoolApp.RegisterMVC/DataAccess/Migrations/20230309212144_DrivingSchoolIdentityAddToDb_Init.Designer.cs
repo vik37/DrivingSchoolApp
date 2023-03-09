@@ -12,7 +12,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace DrivingSchoolApp.RegisterMVC.Migrations
 {
     [DbContext(typeof(DrivingSchoolRegisterDbContext))]
-    [Migration("20230302124613_DrivingSchoolIdentityAddToDb_Init")]
+    [Migration("20230309212144_DrivingSchoolIdentityAddToDb_Init")]
     partial class DrivingSchoolIdentityAddToDb_Init
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -27,9 +27,7 @@ namespace DrivingSchoolApp.RegisterMVC.Migrations
             modelBuilder.Entity("DrivingSchoolApp.RegisterMVC.DataAccess.Entities.ApplicationUser", b =>
                 {
                     b.Property<string>("Id")
-                        .HasMaxLength(350)
-                        .HasColumnType("nvarchar(350)")
-                        .HasColumnName("Id");
+                        .HasColumnType("nvarchar(450)");
 
                     b.Property<int>("AccessFailedCount")
                         .HasColumnType("int");
@@ -109,7 +107,10 @@ namespace DrivingSchoolApp.RegisterMVC.Migrations
                         .HasColumnName("QAId");
 
                     b.Property<string>("RegistrationDate")
-                        .HasColumnType("nvarchar(max)");
+                        .IsRequired()
+                        .HasMaxLength(250)
+                        .HasColumnType("nvarchar(250)")
+                        .HasColumnName("RegistrationDate");
 
                     b.Property<string>("SecurityStamp")
                         .HasColumnType("nvarchar(max)");
@@ -156,27 +157,7 @@ namespace DrivingSchoolApp.RegisterMVC.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("questionAnswareUserProtections");
-
-                    b.HasData(
-                        new
-                        {
-                            Id = "281b5a41-9daf-4a35-9d35-b2cb00272e53",
-                            Answare = "Omen",
-                            Question = 0
-                        },
-                        new
-                        {
-                            Id = "2eef48da-a884-4f44-bf88-c1984bf17db9",
-                            Answare = "SMF - I saw your mommy",
-                            Question = 2
-                        },
-                        new
-                        {
-                            Id = "49c41e47-2f64-4130-b4d1-ef2fd6a7d803",
-                            Answare = "chocolate with caramel",
-                            Question = 4
-                        });
+                    b.ToTable("QuestionAnswareUserProtections");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRole", b =>
@@ -247,7 +228,7 @@ namespace DrivingSchoolApp.RegisterMVC.Migrations
 
                     b.Property<string>("UserId")
                         .IsRequired()
-                        .HasColumnType("nvarchar(350)");
+                        .HasColumnType("nvarchar(450)");
 
                     b.HasKey("Id");
 
@@ -269,7 +250,7 @@ namespace DrivingSchoolApp.RegisterMVC.Migrations
 
                     b.Property<string>("UserId")
                         .IsRequired()
-                        .HasColumnType("nvarchar(350)");
+                        .HasColumnType("nvarchar(450)");
 
                     b.HasKey("LoginProvider", "ProviderKey");
 
@@ -281,7 +262,7 @@ namespace DrivingSchoolApp.RegisterMVC.Migrations
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserRole<string>", b =>
                 {
                     b.Property<string>("UserId")
-                        .HasColumnType("nvarchar(350)");
+                        .HasColumnType("nvarchar(450)");
 
                     b.Property<string>("RoleId")
                         .HasColumnType("nvarchar(450)");
@@ -296,7 +277,7 @@ namespace DrivingSchoolApp.RegisterMVC.Migrations
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserToken<string>", b =>
                 {
                     b.Property<string>("UserId")
-                        .HasColumnType("nvarchar(350)");
+                        .HasColumnType("nvarchar(450)");
 
                     b.Property<string>("LoginProvider")
                         .HasColumnType("nvarchar(450)");
