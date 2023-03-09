@@ -33,8 +33,9 @@ namespace DrivingSchoolApp.RegisterMVC.Services
             claims.Add(new Claim(JwtClaimTypes.FamilyName,user.Lastname));
             claims.Add(new Claim(JwtClaimTypes.Email,user.Email));
             claims.Add(new Claim(JwtClaimTypes.PhoneNumber,user.PhoneNumber));
+            new Claim(JwtClaimTypes.Address, user.Address);
             
-            if(_userManager.SupportsUserRole)
+            if (_userManager.SupportsUserRole)
             {
                 IList<string> roles = await _userManager.GetRolesAsync(user);
                 foreach (var role in roles)

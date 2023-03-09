@@ -1,4 +1,5 @@
 ﻿using DrivingSchoolApp.RegisterMVC.DataAccess.Entities;
+using DrivingSchoolApp.RegisterMVC.DataAccess.Entities.Enums;
 using DrivingSchoolApp.RegisterMVC.DataAccess.RegisterInitializer.Interfaces;
 using IdentityModel;
 using Microsoft.AspNetCore.Identity;
@@ -20,6 +21,11 @@ namespace DrivingSchoolApp.RegisterMVC.DataAccess.RegisterInitializer
 
 		public void InitializeUser()
 		{
+			Dictionary<string, string> questionAnswareUserProtectionIds = new Dictionary<string, string>
+			{
+				{"adminQAId",Guid.NewGuid().ToString()},{"instructorQAId",Guid.NewGuid().ToString()},{"strudentQAId",Guid.NewGuid().ToString()}
+			};
+
 			if (_roleManager.FindByNameAsync(Role.Admin).Result == null)
 			{
 				_roleManager.CreateAsync(new IdentityRole(Role.Admin)).GetAwaiter().GetResult();
@@ -27,7 +33,14 @@ namespace DrivingSchoolApp.RegisterMVC.DataAccess.RegisterInitializer
 				_roleManager.CreateAsync(new IdentityRole(Role.Student)).GetAwaiter().GetResult();
 			}
 			else { return; };
-			ApplicationUser adminUser = new ApplicationUser
+            _db.Add(new QuestionAnswareUserProtection
+            {
+                Id = questionAnswareUserProtectionIds["adminQAId"],
+                Question = Question.WhatIsYourMostFavoriteMovie,
+                Answare = "Omen"
+            });
+			_db.SaveChanges();
+            ApplicationUser adminUser = new ApplicationUser
 			{
 				Firstname = "Marko",
 				Lastname = "Petkovski",
@@ -36,12 +49,12 @@ namespace DrivingSchoolApp.RegisterMVC.DataAccess.RegisterInitializer
 				UserName = "marko_krale@gmail.com",
 				RegistrationDate = "19/04/2012",
 				DateOfBirth = "02/23/1985",
-				Address = "ul. prespanska No. 123",
+				Address = "ul. Prespanska No. 123",
 				City = "Skopje",
 				PostCode = 1000,
 				PhoneNumber = "+389/65-122-221",
 				SecurityStamp = string.Empty,
-				QAId = "281b5a41-9daf-4a35-9d35-b2cb00272e53"
+				QAId = questionAnswareUserProtectionIds["adminQAId"]
 			};
 			_userManager.CreateAsync(adminUser, "Admin123#").GetAwaiter().GetResult();
 			_userManager.AddToRoleAsync(adminUser, Role.Admin).GetAwaiter().GetResult();
@@ -52,10 +65,18 @@ namespace DrivingSchoolApp.RegisterMVC.DataAccess.RegisterInitializer
 				new Claim(type: JwtClaimTypes.FamilyName, value: adminUser.Lastname),
 				new Claim(type: JwtClaimTypes.Email, value: adminUser.Email),
 				new Claim(type: JwtClaimTypes.PhoneNumber, value: adminUser.PhoneNumber),
+				new Claim(type: JwtClaimTypes.Address, value: adminUser.Address),
 				new Claim(type: JwtClaimTypes.Role, value: Role.Admin)
 			}).Result;
 
-			ApplicationUser instructorUser = new ApplicationUser
+            _db.QuestionAnswareUserProtections.Add(new QuestionAnswareUserProtection
+            {
+                Id = questionAnswareUserProtectionIds["instructorQAId"],
+                Question = Question.WhatIsYourFavoriteSong,
+                Answare = "SMF - I saw your mommy"
+            });
+			_db.SaveChanges();
+            ApplicationUser instructorUser = new ApplicationUser
 			{
 				Firstname = "Davor",
 				Lastname = "Shurjak",
@@ -69,7 +90,7 @@ namespace DrivingSchoolApp.RegisterMVC.DataAccess.RegisterInitializer
 				PostCode = 1000,
 				PhoneNumber = "+389/034-222-332",
 				SecurityStamp = string.Empty,
-				QAId = "2eef48da-a884-4f44-bf88-c1984bf17db9"
+				QAId = questionAnswareUserProtectionIds["instructorQAId"]
 			};
 			_userManager.CreateAsync(instructorUser, "Daci229&A").GetAwaiter().GetResult();
 			_userManager.AddToRoleAsync(instructorUser, Role.Instructor).GetAwaiter().GetResult();
@@ -80,10 +101,18 @@ namespace DrivingSchoolApp.RegisterMVC.DataAccess.RegisterInitializer
 				new Claim(type: JwtClaimTypes.FamilyName, value: instructorUser.Lastname),
 				new Claim(type: JwtClaimTypes.Email, value: instructorUser.Email),
 				new Claim(type: JwtClaimTypes.PhoneNumber, value: instructorUser.PhoneNumber),
+				new Claim(type: JwtClaimTypes.Address, value: instructorUser.Address),
 				new Claim(type: JwtClaimTypes.Role, value: Role.Instructor)
 			}).Result;
 
-			ApplicationUser studentUser = new ApplicationUser
+            _db.QuestionAnswareUserProtections.Add(new QuestionAnswareUserProtection
+            {
+                Id = questionAnswareUserProtectionIds["strudentQAId"],
+                Question = Question.WhatDidYouEatToday,
+                Answare = "chocolate with caramel"
+            });
+			_db.SaveChanges();
+            ApplicationUser studentUser = new ApplicationUser
 			{
 				Firstname = "Kata",
 				Lastname = "Despotovska",
@@ -92,12 +121,12 @@ namespace DrivingSchoolApp.RegisterMVC.DataAccess.RegisterInitializer
 				UserName = "kata@yahoo.com",
 				RegistrationDate = "17/10/2022",
 				DateOfBirth = "19/12/1978",
-				Address = "ul. Maksim Gorki",
+				Address = "ul. Maksim Gorki 222",
 				City = "Negotino",
 				PostCode = 1440,
 				PhoneNumber = "+389/23-445-887",
 				SecurityStamp = string.Empty,
-				QAId = "49c41e47-2f64-4130-b4d1-ef2fd6a7d803"
+				QAId = questionAnswareUserProtectionIds["strudentQAId"]
 			};
 			_userManager.CreateAsync(studentUser, "Kata1#PrviDan2020").GetAwaiter().GetResult();
 			_userManager.AddToRoleAsync(studentUser, Role.Student).GetAwaiter().GetResult();
@@ -108,8 +137,10 @@ namespace DrivingSchoolApp.RegisterMVC.DataAccess.RegisterInitializer
 				new Claim(type: JwtClaimTypes.FamilyName, value: studentUser.Lastname),
 				new Claim(type: JwtClaimTypes.Email, value: studentUser.Email),
 				new Claim(type: JwtClaimTypes.PhoneNumber, value: studentUser.PhoneNumber),
+				new Claim(type: JwtClaimTypes.Address, value: studentUser.Address),
 				new Claim(type: JwtClaimTypes.Role, value: Role.Student)
 			}).Result;
+			
 		}
 	}
 }

@@ -33,7 +33,7 @@ namespace DrivingSchoolApp.RegisterMVC.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_questionAnswareUserProtections", x => x.Id);
+                    table.PrimaryKey("PK_QuestionAnswareUserProtections", x => x.Id);
                 });
 
             migrationBuilder.CreateTable(
@@ -61,14 +61,14 @@ namespace DrivingSchoolApp.RegisterMVC.Migrations
                 name: "AspNetUsers",
                 columns: table => new
                 {
-                    Id = table.Column<string>(type: "nvarchar(350)", maxLength: 350, nullable: false),
+                    Id = table.Column<string>(type: "nvarchar(450)", nullable: false),
                     Firstname = table.Column<string>(type: "nvarchar(150)", maxLength: 150, nullable: false),
                     Lastname = table.Column<string>(type: "nvarchar(200)", maxLength: 200, nullable: false),
                     DateOfBirth = table.Column<string>(type: "nvarchar(20)", maxLength: 20, nullable: false),
                     City = table.Column<string>(type: "nvarchar(250)", maxLength: 250, nullable: false),
                     PostCode = table.Column<short>(type: "smallint", nullable: false),
                     Address = table.Column<string>(type: "nvarchar(200)", maxLength: 200, nullable: false),
-                    RegistrationDate = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    RegistrationDate = table.Column<string>(type: "nvarchar(250)", maxLength: 250, nullable: false),
                     QAId = table.Column<string>(type: "nvarchar(550)", maxLength: 550, nullable: false),
                     UserName = table.Column<string>(type: "nvarchar(256)", maxLength: 256, nullable: true),
                     NormalizedUserName = table.Column<string>(type: "nvarchar(256)", maxLength: 256, nullable: true),
@@ -89,7 +89,7 @@ namespace DrivingSchoolApp.RegisterMVC.Migrations
                 {
                     table.PrimaryKey("PK_AspNetUsers", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_AspNetUsers_questionAnswareUserProtections_QAId",
+                        name: "FK_AspNetUsers_QuestionAnswareUserProtections_QAId",
                         column: x => x.QAId,
                         principalTable: "QuestionAnswareUserProtections",
                         principalColumn: "Id",
@@ -102,7 +102,7 @@ namespace DrivingSchoolApp.RegisterMVC.Migrations
                 {
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    UserId = table.Column<string>(type: "nvarchar(350)", nullable: false),
+                    UserId = table.Column<string>(type: "nvarchar(450)", nullable: false),
                     ClaimType = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     ClaimValue = table.Column<string>(type: "nvarchar(max)", nullable: true)
                 },
@@ -124,7 +124,7 @@ namespace DrivingSchoolApp.RegisterMVC.Migrations
                     LoginProvider = table.Column<string>(type: "nvarchar(450)", nullable: false),
                     ProviderKey = table.Column<string>(type: "nvarchar(450)", nullable: false),
                     ProviderDisplayName = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    UserId = table.Column<string>(type: "nvarchar(350)", nullable: false)
+                    UserId = table.Column<string>(type: "nvarchar(450)", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -141,7 +141,7 @@ namespace DrivingSchoolApp.RegisterMVC.Migrations
                 name: "AspNetUserRoles",
                 columns: table => new
                 {
-                    UserId = table.Column<string>(type: "nvarchar(350)", nullable: false),
+                    UserId = table.Column<string>(type: "nvarchar(450)", nullable: false),
                     RoleId = table.Column<string>(type: "nvarchar(450)", nullable: false)
                 },
                 constraints: table =>
@@ -165,7 +165,7 @@ namespace DrivingSchoolApp.RegisterMVC.Migrations
                 name: "AspNetUserTokens",
                 columns: table => new
                 {
-                    UserId = table.Column<string>(type: "nvarchar(350)", nullable: false),
+                    UserId = table.Column<string>(type: "nvarchar(450)", nullable: false),
                     LoginProvider = table.Column<string>(type: "nvarchar(450)", nullable: false),
                     Name = table.Column<string>(type: "nvarchar(450)", nullable: false),
                     Value = table.Column<string>(type: "nvarchar(max)", nullable: true)
@@ -180,21 +180,6 @@ namespace DrivingSchoolApp.RegisterMVC.Migrations
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                 });
-
-            migrationBuilder.InsertData(
-                table: "QuestionAnswareUserProtections",
-                columns: new[] { "Id", "Answare", "Question" },
-                values: new object[] { "281b5a41-9daf-4a35-9d35-b2cb00272e53", "Omen", 0 });
-
-            migrationBuilder.InsertData(
-                table: "QuestionAnswareUserProtections",
-                columns: new[] { "Id", "Answare", "Question" },
-                values: new object[] { "2eef48da-a884-4f44-bf88-c1984bf17db9", "SMF - I saw your mommy", 2 });
-
-            migrationBuilder.InsertData(
-                table: "QuestionAnswareUserProtections",
-                columns: new[] { "Id", "Answare", "Question" },
-                values: new object[] { "49c41e47-2f64-4130-b4d1-ef2fd6a7d803", "chocolate with caramel", 4 });
 
             migrationBuilder.CreateIndex(
                 name: "IX_AspNetRoleClaims_RoleId",

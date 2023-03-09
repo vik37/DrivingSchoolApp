@@ -27,7 +27,6 @@ services.AddDbContext<DrivingSchoolRegisterDbContext>(opt =>
 services.AddIdentity<ApplicationUser, IdentityRole>(options =>
 {
 	options.Password.RequiredLength = 8;
-	options.User.RequireUniqueEmail = true;
 })
 .AddEntityFrameworkStores<DrivingSchoolRegisterDbContext>()
 .AddDefaultTokenProviders();
