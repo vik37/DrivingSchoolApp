@@ -1,4 +1,4 @@
-﻿namespace DrivingSchoolApp.Services.CategoryServices.ACategoryAPI
+﻿namespace DriverSchool.Gateway
 {
     public static class ConnectionUrls
     {
