@@ -46,7 +46,7 @@ namespace DrivingSchoolApp.Services.CategoryServices.ACategoryAPI
             services.AddAuthentication("Bearer")
 				.AddJwtBearer("Bearer", options =>
 				{
-					options.Authority = ConnectionUrls.IdentityServer(configuration);
+					options.Authority = ConnectionUrls.IdentityServer(configuration)["iisUrl"];
 					options.TokenValidationParameters = new TokenValidationParameters
 					{
 						ValidateAudience = false

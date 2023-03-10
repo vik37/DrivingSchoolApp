@@ -26,7 +26,7 @@ configuration = builder.Configuration
 builder.Services.AddAuthentication("Bearer")
 	.AddJwtBearer("Bearer", opt =>
 	{
-		opt.Authority = ConnectionUrls.IdentityServer(configuration);
+		opt.Authority = ConnectionUrls.IdentityServer(configuration)["iisUrl"];
 		opt.TokenValidationParameters = new TokenValidationParameters
 		{
 			ValidateAudience = false
