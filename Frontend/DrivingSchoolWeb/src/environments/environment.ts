@@ -1,10 +1,13 @@
 // This file can be replaced during build by using the `fileReplacements` array.
 // `ng build` replaces `environment.ts` with `environment.prod.ts`.
 // The list of file replacements can be found in `angular.json`.
-
 export const environment = {
   production: false,
-  gatewayUrl:"https://localhost:7213/gateway/"
+  gatewayUrl:"https://localhost:7213/gateway/",
+  identityServerUrls: {
+    authorityIISUrl:"https://localhost:44326",
+    authorityProfileUrl:"https://localhost:7166"
+  }
 };
 
 /*

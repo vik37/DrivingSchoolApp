@@ -2,11 +2,12 @@ import { NgModule } from '@angular/core';
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
 import { AuthModule } from 'angular-auth-oidc-client';
 import { AuthInterceptor } from 'angular-auth-oidc-client';
+import { environment } from 'src/environments/environment';
 
 @NgModule({
     imports: [AuthModule.forRoot({
         config: {
-            authority: 'https://localhost:44326',
+            authority: environment.identityServerUrls.authorityIISUrl,
             redirectUrl: window.location.origin,
             postLogoutRedirectUri: window.location.origin,
             clientId: 'angular',

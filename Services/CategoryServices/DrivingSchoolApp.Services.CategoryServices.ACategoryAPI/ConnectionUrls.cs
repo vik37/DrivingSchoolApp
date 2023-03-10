@@ -7,7 +7,10 @@
             {"http", conf["ClientUrl:AngularHTTP"] },
             {"https", conf["ClientUrl:AngularHTTPS"] }
         };
-
-        public static string IdentityServer(IConfiguration conf) => conf["IdentityServer:Authority"];
+        public static Dictionary<string, string> IdentityServer(IConfiguration conf) => new Dictionary<string, string>
+        {
+            {"iisUrl", conf["IdentityServer:AuthorityIIS"]},
+            {"kestrelUrl", conf["IdentityServer:AuthorityProfile"] }
+        };
     }
 }
