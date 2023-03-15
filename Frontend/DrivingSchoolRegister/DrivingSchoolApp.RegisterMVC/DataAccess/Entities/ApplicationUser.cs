@@ -12,6 +12,6 @@ namespace DrivingSchoolApp.RegisterMVC.DataAccess.Entities
 		public string Address { get; set; }
 		public string RegistrationDate { get; set; } = DateTime.Now.ToString("dd/mm/yyyy");
 		public string QAId { get; set; }
-		public virtual QuestionAnswareUserProtection QuestionAnswareUserProtection { get; set; }
+		public virtual QuestionAnswerUserProtection QuestionAnswerUserProtection { get; set; }
 	}
 }

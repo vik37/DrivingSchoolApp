@@ -136,7 +136,7 @@ namespace DrivingSchoolApp.RegisterMVC.Migrations
                     b.ToTable("AspNetUsers", (string)null);
                 });
 
-            modelBuilder.Entity("DrivingSchoolApp.RegisterMVC.DataAccess.Entities.QuestionAnswareUserProtection", b =>
+            modelBuilder.Entity("DrivingSchoolApp.RegisterMVC.DataAccess.Entities.QuestionAnswerUserProtection", b =>
                 {
                     b.Property<string>("Id")
                         .HasMaxLength(550)
@@ -155,7 +155,7 @@ namespace DrivingSchoolApp.RegisterMVC.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("QuestionAnswareUserProtections");
+                    b.ToTable("QuestionAnswerUserProtections");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRole", b =>
@@ -293,13 +293,13 @@ namespace DrivingSchoolApp.RegisterMVC.Migrations
 
             modelBuilder.Entity("DrivingSchoolApp.RegisterMVC.DataAccess.Entities.ApplicationUser", b =>
                 {
-                    b.HasOne("DrivingSchoolApp.RegisterMVC.DataAccess.Entities.QuestionAnswareUserProtection", "QuestionAnswareUserProtection")
+                    b.HasOne("DrivingSchoolApp.RegisterMVC.DataAccess.Entities.QuestionAnswerUserProtection", "QuestionAnswerUserProtection")
                         .WithOne("ApplicationUser")
                         .HasForeignKey("DrivingSchoolApp.RegisterMVC.DataAccess.Entities.ApplicationUser", "QAId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.Navigation("QuestionAnswareUserProtection");
+                    b.Navigation("QuestionAnswerUserProtection");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>

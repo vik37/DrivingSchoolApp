@@ -2,12 +2,12 @@
 
 namespace DrivingSchoolApp.RegisterMVC.Main_Module.Account
 {
-    public class QuestionAnswareViewModel
+    public class QuestionAnswerViewModel
     {
         [Required]
         public Question? Question { get; set; }
         [Required]
         [MaxLength(499, ErrorMessage = "{0} Maximum length is {1}")]
-        public string Answare { get; set; } 
+        public string Answer { get; set; } 
     }
 }

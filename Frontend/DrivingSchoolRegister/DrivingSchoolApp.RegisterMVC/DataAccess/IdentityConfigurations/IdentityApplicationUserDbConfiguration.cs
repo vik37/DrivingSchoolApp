@@ -9,7 +9,7 @@ namespace DrivingSchoolApp.RegisterMVC.DataAccess.IdentityConfigurations
 	{
 		public void Configure(EntityTypeBuilder<ApplicationUser> builder)
 		{
-			builder.HasOne(au => au.QuestionAnswareUserProtection)
+			builder.HasOne(au => au.QuestionAnswerUserProtection)
 				.WithOne(qa => qa.ApplicationUser)
 				.HasForeignKey<ApplicationUser>(au => au.QAId);
 

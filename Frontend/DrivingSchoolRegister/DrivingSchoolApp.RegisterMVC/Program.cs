@@ -44,7 +44,7 @@ var identityBuilder = services.AddIdentityServer(opt =>
 			.AddInMemoryClients(IdentityServerConfig.Clients)
 			.AddAspNetIdentity<ApplicationUser>();
 
-services.AddTransient<IQuestionAndAnswareUserProtectionRepository, QuestionAndAnswareUserProtectionRepository>();
+services.AddTransient<IQuestionAndAnswerUserProtectionRepository, QuestionAndAnswareUserProtectionRepository>();
 services.AddScoped<IUserSeedInitializer, UserSeedInitializer>();
 services.AddScoped<IProfileService, ProfileServices>();
 identityBuilder.AddDeveloperSigningCredential();

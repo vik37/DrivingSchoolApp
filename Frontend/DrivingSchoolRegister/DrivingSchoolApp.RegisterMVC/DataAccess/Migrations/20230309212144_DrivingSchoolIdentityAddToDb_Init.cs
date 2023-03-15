@@ -24,7 +24,7 @@ namespace DrivingSchoolApp.RegisterMVC.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "QuestionAnswareUserProtections",
+                name: "QuestionAnswerUserProtections",
                 columns: table => new
                 {
                     Id = table.Column<string>(type: "nvarchar(550)", maxLength: 550, nullable: false),
@@ -33,7 +33,7 @@ namespace DrivingSchoolApp.RegisterMVC.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_QuestionAnswareUserProtections", x => x.Id);
+                    table.PrimaryKey("PK_QuestionAnswerUserProtections", x => x.Id);
                 });
 
             migrationBuilder.CreateTable(
@@ -89,9 +89,9 @@ namespace DrivingSchoolApp.RegisterMVC.Migrations
                 {
                     table.PrimaryKey("PK_AspNetUsers", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_AspNetUsers_QuestionAnswareUserProtections_QAId",
+                        name: "FK_AspNetUsers_QuestionAnswerUserProtections_QAId",
                         column: x => x.QAId,
-                        principalTable: "QuestionAnswareUserProtections",
+                        principalTable: "QuestionAnswerUserProtections",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                 });
@@ -251,7 +251,7 @@ namespace DrivingSchoolApp.RegisterMVC.Migrations
                 name: "AspNetUsers");
 
             migrationBuilder.DropTable(
-                name: "QuestionAnswareUserProtections");
+                name: "QuestionAnswerUserProtections");
         }
     }
 }
