@@ -77,6 +77,6 @@ namespace DrivingSchoolApp.RegisterMVC.Main_Module.Account
         public bool IsExternalLoginOnly => EnableLocalLogin == false && ExternalProviders?.Count() == 1;
         public string ExternalLoginScheme => IsExternalLoginOnly ? ExternalProviders?.SingleOrDefault()?.AuthenticationScheme : null;
 
-        public QuestionAnswareViewModel QAUserProtection { get; set; }
+        public QuestionAnswerViewModel QAUserProtection { get; set; }
     }
 }

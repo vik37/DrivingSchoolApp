@@ -21,7 +21,7 @@ namespace DrivingSchoolApp.RegisterMVC.DataAccess.RegisterInitializer
 
 		public void InitializeUser()
 		{
-			Dictionary<string, string> questionAnswareUserProtectionIds = new Dictionary<string, string>
+			Dictionary<string, string> questionAnswerUserProtectionIds = new Dictionary<string, string>
 			{
 				{"adminQAId",Guid.NewGuid().ToString()},{"instructorQAId",Guid.NewGuid().ToString()},{"strudentQAId",Guid.NewGuid().ToString()}
 			};
@@ -33,11 +33,11 @@ namespace DrivingSchoolApp.RegisterMVC.DataAccess.RegisterInitializer
 				_roleManager.CreateAsync(new IdentityRole(Role.Student)).GetAwaiter().GetResult();
 			}
 			else { return; };
-            _db.Add(new QuestionAnswareUserProtection
+            _db.Add(new QuestionAnswerUserProtection
             {
-                Id = questionAnswareUserProtectionIds["adminQAId"],
+                Id = questionAnswerUserProtectionIds["adminQAId"],
                 Question = Question.WhatIsYourMostFavoriteMovie,
-                Answare = "Omen"
+                Answer = "Omen"
             });
 			_db.SaveChanges();
             ApplicationUser adminUser = new ApplicationUser
@@ -54,7 +54,7 @@ namespace DrivingSchoolApp.RegisterMVC.DataAccess.RegisterInitializer
 				PostCode = 1000,
 				PhoneNumber = "+389/65-122-221",
 				SecurityStamp = string.Empty,
-				QAId = questionAnswareUserProtectionIds["adminQAId"]
+				QAId = questionAnswerUserProtectionIds["adminQAId"]
 			};
 			_userManager.CreateAsync(adminUser, "Admin123#").GetAwaiter().GetResult();
 			_userManager.AddToRoleAsync(adminUser, Role.Admin).GetAwaiter().GetResult();
@@ -69,11 +69,11 @@ namespace DrivingSchoolApp.RegisterMVC.DataAccess.RegisterInitializer
 				new Claim(type: JwtClaimTypes.Role, value: Role.Admin)
 			}).Result;
 
-            _db.QuestionAnswareUserProtections.Add(new QuestionAnswareUserProtection
+            _db.QuestionAnswerUserProtections.Add(new QuestionAnswerUserProtection
             {
-                Id = questionAnswareUserProtectionIds["instructorQAId"],
+                Id = questionAnswerUserProtectionIds["instructorQAId"],
                 Question = Question.WhatIsYourFavoriteSong,
-                Answare = "SMF - I saw your mommy"
+                Answer = "SMF - I saw your mommy"
             });
 			_db.SaveChanges();
             ApplicationUser instructorUser = new ApplicationUser
@@ -90,7 +90,7 @@ namespace DrivingSchoolApp.RegisterMVC.DataAccess.RegisterInitializer
 				PostCode = 1000,
 				PhoneNumber = "+389/034-222-332",
 				SecurityStamp = string.Empty,
-				QAId = questionAnswareUserProtectionIds["instructorQAId"]
+				QAId = questionAnswerUserProtectionIds["instructorQAId"]
 			};
 			_userManager.CreateAsync(instructorUser, "Daci229&A").GetAwaiter().GetResult();
 			_userManager.AddToRoleAsync(instructorUser, Role.Instructor).GetAwaiter().GetResult();
@@ -105,11 +105,11 @@ namespace DrivingSchoolApp.RegisterMVC.DataAccess.RegisterInitializer
 				new Claim(type: JwtClaimTypes.Role, value: Role.Instructor)
 			}).Result;
 
-            _db.QuestionAnswareUserProtections.Add(new QuestionAnswareUserProtection
+            _db.QuestionAnswerUserProtections.Add(new QuestionAnswerUserProtection
             {
-                Id = questionAnswareUserProtectionIds["strudentQAId"],
+                Id = questionAnswerUserProtectionIds["strudentQAId"],
                 Question = Question.WhatDidYouEatToday,
-                Answare = "chocolate with caramel"
+                Answer = "chocolate with caramel"
             });
 			_db.SaveChanges();
             ApplicationUser studentUser = new ApplicationUser
@@ -126,7 +126,7 @@ namespace DrivingSchoolApp.RegisterMVC.DataAccess.RegisterInitializer
 				PostCode = 1440,
 				PhoneNumber = "+389/23-445-887",
 				SecurityStamp = string.Empty,
-				QAId = questionAnswareUserProtectionIds["strudentQAId"]
+				QAId = questionAnswerUserProtectionIds["strudentQAId"]
 			};
 			_userManager.CreateAsync(studentUser, "Kata1#PrviDan2020").GetAwaiter().GetResult();
 			_userManager.AddToRoleAsync(studentUser, Role.Student).GetAwaiter().GetResult();

@@ -14,7 +14,7 @@ namespace DrivingSchoolApp.RegisterMVC.Main_Module.Account
         [RegularExpression("^[a-zA-Z0-9_\\.-]+@([a-zA-Z0-9-]+\\.)+[a-zA-Z]{2,6}$", ErrorMessage = "Invalid {0}")]
         public string Email { get; set; }
 
-        public QuestionAnswareViewModel QAUserProtection { get; set; }
+        public QuestionAnswerViewModel QAUserProtection { get; set; }
 
         public string ReturnUrl { get; set; }
     }

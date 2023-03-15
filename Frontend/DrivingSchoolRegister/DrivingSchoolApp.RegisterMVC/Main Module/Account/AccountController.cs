@@ -39,7 +39,7 @@ namespace IdentityServerHost.Quickstart.UI
         private readonly UserManager<ApplicationUser> _userManager;
         private readonly SignInManager<ApplicationUser> _signInManager;
         private readonly RoleManager<IdentityRole> _roleManager;
-        private readonly IQuestionAndAnswareUserProtectionRepository _questionAndAnswareUserProtectionRepository;
+        private readonly IQuestionAndAnswerUserProtectionRepository _questionAndAnswareUserProtectionRepository;
 
         private readonly IIdentityServerInteractionService _interaction;
         private readonly IClientStore _clientStore;
@@ -50,7 +50,7 @@ namespace IdentityServerHost.Quickstart.UI
             UserManager<ApplicationUser> userManager,
             SignInManager<ApplicationUser> signInManager,
             RoleManager<IdentityRole> roleManager,
-            IQuestionAndAnswareUserProtectionRepository questionAndAnswareUserProtectionRepository,
+            IQuestionAndAnswerUserProtectionRepository questionAndAnswareUserProtectionRepository,
 
             IIdentityServerInteractionService interaction,
             IClientStore clientStore,
@@ -251,11 +251,11 @@ namespace IdentityServerHost.Quickstart.UI
                     PhoneNumber = model.PhoneNumber,
                     QAId = qaId
                 };
-                var qaUserProtection = new QuestionAnswareUserProtection
+                var qaUserProtection = new QuestionAnswerUserProtection
                 {
                     Id = qaId,
                     Question = (DrivingSchoolApp.RegisterMVC.DataAccess.Entities.Enums.Question)((int)model.QAUserProtection.Question),
-                    Answare = model.QAUserProtection.Answare
+                    Answer = model.QAUserProtection.Answer
                 };
                 await _questionAndAnswareUserProtectionRepository.Add(qaUserProtection);
                 var result = await _userManager.CreateAsync(newUser, model.Password);
@@ -398,7 +398,7 @@ namespace IdentityServerHost.Quickstart.UI
             if (ModelState.IsValid)
             {
                 var question = (DrivingSchoolApp.RegisterMVC.DataAccess.Entities.Enums.Question)model.QAUserProtection.Question;
-                var qa = await _questionAndAnswareUserProtectionRepository.FindQuestionAndAnsware(question, model.QAUserProtection.Answare);
+                var qa = await _questionAndAnswareUserProtectionRepository.FindQuestionAndAnswer(question, model.QAUserProtection.Answer);
                 if (qa == null)
                 {
                     ModelState.AddModelError(nameof(model.QAUserProtection), "Invalid Question or Answare");
@@ -412,7 +412,7 @@ namespace IdentityServerHost.Quickstart.UI
                 }
                 if (user.QAId != qa.Id)
                 {
-                    var checkQa = await _questionAndAnswareUserProtectionRepository.GetQuestionAndAnswareById(user.QAId);
+                    var checkQa = await _questionAndAnswareUserProtectionRepository.GetQuestionAndAnswerById(user.QAId);
                     if(checkQa == null)
                     {
                         ModelState.AddModelError(nameof(model.QAUserProtection), "Invalid Question or Answare");

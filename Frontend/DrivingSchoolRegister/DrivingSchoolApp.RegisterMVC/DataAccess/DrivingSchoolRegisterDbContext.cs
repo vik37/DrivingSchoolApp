@@ -10,7 +10,7 @@ namespace DrivingSchoolApp.RegisterMVC.DataAccess
 		public DrivingSchoolRegisterDbContext(DbContextOptions<DrivingSchoolRegisterDbContext> option): base(option)
 		{ }
 
-		public DbSet<QuestionAnswareUserProtection> QuestionAnswareUserProtections { get; set; }
+		public DbSet<QuestionAnswerUserProtection> QuestionAnswerUserProtections { get; set; }
 
 		protected override void OnModelCreating(ModelBuilder builder)
 		{
